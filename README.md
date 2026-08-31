@@ -3,7 +3,7 @@
 I build AI-powered tools for the **built world** — construction sites, shipyards, manufacturing plants, and the people who work in them.
 
 Most safety and quality software is designed for the office, not the field. A worker standing in front of a hazard shouldn't need ten minutes and a laptop to report it. I'm working on closing that gap.
-Perpetual goal is to to connect the Built World space with AI space.
+My Longer-term goal is to connect the Built World with the AI World.
 
 📍 Cambridge, MA · 🏗️ [BuiltNOVA](https://www.linkedin.com/in/jeylee)
 
