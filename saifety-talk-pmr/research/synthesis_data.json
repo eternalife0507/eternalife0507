@@ -1,0 +1,1631 @@
+{
+  "n": 10,
+  "respondents": [
+    {
+      "id": 1,
+      "name": "Elena Rodriguez",
+      "short": "Elena",
+      "role": "Electrical foreperson (IBEW Local 640), $12B semiconductor fab, AZ",
+      "dmu": "End user (Step 5 persona)",
+      "group": "frontline",
+      "market": "NA",
+      "anchor": "A",
+      "union": true
+    },
+    {
+      "id": 2,
+      "name": "Carlos Mendes",
+      "short": "Carlos",
+      "role": "Site Safety Manager (CHST/ASP), GC, $3.1B EV battery cell plant, GA",
+      "dmu": "Champion",
+      "group": "site_mgmt",
+      "market": "NA",
+      "anchor": "A",
+      "union": false
+    },
+    {
+      "id": 3,
+      "name": "Marcus Lee",
+      "short": "Marcus",
+      "role": "Regional EHS Director, global EPC, 4 hyperscale data center campuses + 1 fab package",
+      "dmu": "Economic buyer / influencer",
+      "group": "buyer",
+      "market": "NA",
+      "anchor": "B",
+      "union": false
+    },
+    {
+      "id": 4,
+      "name": "Dale Kowalski",
+      "short": "Dale",
+      "role": "General Superintendent, GC, $1.8B hyperscale data center, VA",
+      "dmu": "End user (supervisor) / veto",
+      "group": "site_mgmt",
+      "market": "NA",
+      "anchor": "A",
+      "union": false
+    },
+    {
+      "id": 5,
+      "name": "Priya Natarajan",
+      "short": "Priya",
+      "role": "SIMOPS & Interface Planning Lead, Owner's CM, $6.5B LNG terminal, LA",
+      "dmu": "Influencer / power user",
+      "group": "site_mgmt",
+      "market": "NA",
+      "anchor": "B",
+      "union": false
+    },
+    {
+      "id": 6,
+      "name": "Tommy Briggs",
+      "short": "Tommy",
+      "role": "Ironworker general foreman & union steward (Local 172), $20B semiconductor campus, OH",
+      "dmu": "Veto (labor)",
+      "group": "frontline",
+      "market": "NA",
+      "anchor": "B",
+      "union": true
+    },
+    {
+      "id": 7,
+      "name": "Jamal Carter",
+      "short": "Jamal",
+      "role": "Journeyman pipefitter (UA Local 350, traveler), $2.4B battery materials plant, NV",
+      "dmu": "End user (crew)",
+      "group": "frontline",
+      "market": "NA",
+      "anchor": "A",
+      "union": true
+    },
+    {
+      "id": 8,
+      "name": "Park Ji-hoon",
+      "short": "Park",
+      "role": "HSE Team Lead (안전보건팀장), Korean prime shipbuilder, hull block & outfitting division",
+      "dmu": "Pilot champion + gatekeeper (SAPA, purchasing, IT security)",
+      "group": "buyer",
+      "market": "KR",
+      "anchor": "A",
+      "union": false
+    },
+    {
+      "id": 9,
+      "name": "Nguyen Van Minh",
+      "short": "Nguyen",
+      "role": "FCAW welder, tier-2 in-house subcontractor (E-9 visa), Korean shipyard",
+      "dmu": "End user (pilot market)",
+      "group": "frontline",
+      "market": "KR",
+      "anchor": "B",
+      "union": false
+    },
+    {
+      "id": 10,
+      "name": "Robert \"Bob\" Hayes",
+      "short": "Bob",
+      "role": "Project Director, owner-developer, $4.5B hyperscale campus, TX",
+      "dmu": "Economic buyer",
+      "group": "buyer",
+      "market": "NA",
+      "anchor": "B",
+      "union": false
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "KA1",
+      "label": "Blame/retaliation fear blocks reporting",
+      "full": "Fear of blame/retaliation is a major reason hazards go unreported. Workers will report if the channel feels safe (anonymity options, no discipline).",
+      "V": 6,
+      "P": 4,
+      "I": 0,
+      "NA": 0,
+      "n": 10,
+      "pctV": 60.0,
+      "pctVP": 100.0,
+      "pctI": 0.0,
+      "verdict": "Validated",
+      "scores": {
+        "Elena": "V",
+        "Carlos": "V",
+        "Marcus": "P",
+        "Dale": "P",
+        "Priya": "P",
+        "Tommy": "V",
+        "Jamal": "V",
+        "Park": "V",
+        "Nguyen": "V",
+        "Bob": "P"
+      }
+    },
+    {
+      "id": "KA2",
+      "label": "Visible closure sustains participation",
+      "full": "Visible closure sustains participation. Workers keep reporting when they see action, not because of points or gamification (W12 retention >= 40%).",
+      "V": 2,
+      "P": 8,
+      "I": 0,
+      "NA": 0,
+      "n": 10,
+      "pctV": 20.0,
+      "pctVP": 100.0,
+      "pctI": 0.0,
+      "verdict": "Partially Validated",
+      "scores": {
+        "Elena": "V",
+        "Carlos": "P",
+        "Marcus": "P",
+        "Dale": "P",
+        "Priya": "P",
+        "Tommy": "P",
+        "Jamal": "V",
+        "Park": "P",
+        "Nguyen": "P",
+        "Bob": "P"
+      }
+    },
+    {
+      "id": "KA3",
+      "label": "Hazard signals stay verbal",
+      "full": "Workers spot hazards first, but signals stay verbal. Radio, hallway talk, chat and paper never reach an accountable owner in usable form.",
+      "V": 10,
+      "P": 0,
+      "I": 0,
+      "NA": 0,
+      "n": 10,
+      "pctV": 100.0,
+      "pctVP": 100.0,
+      "pctI": 0.0,
+      "verdict": "Validated",
+      "scores": {
+        "Elena": "V",
+        "Carlos": "V",
+        "Marcus": "V",
+        "Dale": "V",
+        "Priya": "V",
+        "Tommy": "V",
+        "Jamal": "V",
+        "Park": "V",
+        "Nguyen": "V",
+        "Bob": "V"
+      }
+    },
+    {
+      "id": "KA4",
+      "label": "30-second friction threshold",
+      "full": "Crews will report if voice/photo/text in their own language takes <= 30 s. Beyond that, reporting collapses.",
+      "V": 4,
+      "P": 4,
+      "I": 1,
+      "NA": 1,
+      "n": 9,
+      "pctV": 44.4,
+      "pctVP": 88.9,
+      "pctI": 11.1,
+      "verdict": "Partially Validated",
+      "scores": {
+        "Elena": "V",
+        "Carlos": "V",
+        "Marcus": "P",
+        "Dale": "P",
+        "Priya": "V",
+        "Tommy": "I",
+        "Jamal": "V",
+        "Park": "P",
+        "Nguyen": "P",
+        "Bob": "NA"
+      }
+    },
+    {
+      "id": "KA5",
+      "label": "Lag & mis-routing is the main break",
+      "full": "Manager response lag and mis-routing (late, incomplete, duplicated, wrong team) is the main break in today's loop, more than detection.",
+      "V": 7,
+      "P": 3,
+      "I": 0,
+      "NA": 0,
+      "n": 10,
+      "pctV": 70.0,
+      "pctVP": 100.0,
+      "pctI": 0.0,
+      "verdict": "Validated",
+      "scores": {
+        "Elena": "V",
+        "Carlos": "V",
+        "Marcus": "V",
+        "Dale": "P",
+        "Priya": "V",
+        "Tommy": "V",
+        "Jamal": "P",
+        "Park": "V",
+        "Nguyen": "P",
+        "Bob": "V"
+      }
+    },
+    {
+      "id": "KA6",
+      "label": "Reviewer can triage in ~1 click",
+      "full": "Site HSE reviewer can triage in ~1 click. Confirming an AI-suggested category, owner and severity is fast and accurate enough (>= 95% acceptance).",
+      "V": 0,
+      "P": 4,
+      "I": 0,
+      "NA": 6,
+      "n": 4,
+      "pctV": 0.0,
+      "pctVP": 100.0,
+      "pctI": 0.0,
+      "verdict": "Partially Validated",
+      "scores": {
+        "Elena": "NA",
+        "Carlos": "P",
+        "Marcus": "P",
+        "Dale": "NA",
+        "Priya": "P",
+        "Tommy": "NA",
+        "Jamal": "NA",
+        "Park": "P",
+        "Nguyen": "NA",
+        "Bob": "NA"
+      }
+    },
+    {
+      "id": "KA7",
+      "label": "Trust in labeled, human-reviewed routing",
+      "full": "Supervisors, stewards and owners will accept AI-suggested routing if it is labeled and a human always reviews.",
+      "V": 0,
+      "P": 8,
+      "I": 2,
+      "NA": 0,
+      "n": 10,
+      "pctV": 0.0,
+      "pctVP": 80.0,
+      "pctI": 20.0,
+      "verdict": "Partially Validated",
+      "scores": {
+        "Elena": "P",
+        "Carlos": "P",
+        "Marcus": "P",
+        "Dale": "I",
+        "Priya": "P",
+        "Tommy": "I",
+        "Jamal": "P",
+        "Park": "P",
+        "Nguyen": "P",
+        "Bob": "P"
+      }
+    },
+    {
+      "id": "KA8",
+      "label": "SIMOPS conflicts drive stoppages",
+      "full": "SIMOPS / cross-trade interface conflicts are a frequent driver of stoppages and critical-path delay.",
+      "V": 8,
+      "P": 2,
+      "I": 0,
+      "NA": 0,
+      "n": 10,
+      "pctV": 80.0,
+      "pctVP": 100.0,
+      "pctI": 0.0,
+      "verdict": "Validated",
+      "scores": {
+        "Elena": "V",
+        "Carlos": "V",
+        "Marcus": "P",
+        "Dale": "P",
+        "Priya": "V",
+        "Tommy": "V",
+        "Jamal": "V",
+        "Park": "V",
+        "Nguyen": "V",
+        "Bob": "V"
+      }
+    },
+    {
+      "id": "KA9",
+      "label": "Safety delays are schedule delays",
+      "full": "Safety delays are schedule delays. Economic buyers value hazard closure in terms of float, stoppage hours and LD exposure.",
+      "V": 5,
+      "P": 5,
+      "I": 0,
+      "NA": 0,
+      "n": 10,
+      "pctV": 50.0,
+      "pctVP": 100.0,
+      "pctI": 0.0,
+      "verdict": "Partially Validated",
+      "scores": {
+        "Elena": "V",
+        "Carlos": "P",
+        "Marcus": "P",
+        "Dale": "V",
+        "Priya": "P",
+        "Tommy": "V",
+        "Jamal": "V",
+        "Park": "P",
+        "Nguyen": "P",
+        "Bob": "V"
+      }
+    },
+    {
+      "id": "KA10",
+      "label": "Nobody owns cross-contract closure",
+      "full": "Nobody owns cross-contract closure. Existing tools (Procore, SafetyCulture, CV cameras, Avetta/ISN) don't close hazards across employer lines.",
+      "V": 9,
+      "P": 1,
+      "I": 0,
+      "NA": 0,
+      "n": 10,
+      "pctV": 90.0,
+      "pctVP": 100.0,
+      "pctI": 0.0,
+      "verdict": "Validated",
+      "scores": {
+        "Elena": "V",
+        "Carlos": "V",
+        "Marcus": "V",
+        "Dale": "P",
+        "Priya": "V",
+        "Tommy": "V",
+        "Jamal": "V",
+        "Park": "V",
+        "Nguyen": "V",
+        "Bob": "V"
+      }
+    },
+    {
+      "id": "KA11",
+      "label": "Project pricing beats per-seat",
+      "full": "Project-level pricing beats per-seat on multi-employer sites where crews change weekly.",
+      "V": 6,
+      "P": 0,
+      "I": 0,
+      "NA": 4,
+      "n": 6,
+      "pctV": 100.0,
+      "pctVP": 100.0,
+      "pctI": 0.0,
+      "verdict": "Validated",
+      "scores": {
+        "Elena": "NA",
+        "Carlos": "V",
+        "Marcus": "V",
+        "Dale": "V",
+        "Priya": "V",
+        "Tommy": "NA",
+        "Jamal": "NA",
+        "Park": "V",
+        "Nguyen": "NA",
+        "Bob": "V"
+      }
+    },
+    {
+      "id": "KA12",
+      "label": "WTP $75k-$225k/project-yr ($150k base)",
+      "full": "WTP of $75k-$225k per project-year (test anchor: $150,000/yr base) from the project director / EHS director budget.",
+      "V": 0,
+      "P": 4,
+      "I": 2,
+      "NA": 4,
+      "n": 6,
+      "pctV": 0.0,
+      "pctVP": 66.7,
+      "pctI": 33.3,
+      "verdict": "Partially Validated",
+      "scores": {
+        "Elena": "NA",
+        "Carlos": "P",
+        "Marcus": "P",
+        "Dale": "I",
+        "Priya": "P",
+        "Tommy": "NA",
+        "Jamal": "NA",
+        "Park": "I",
+        "Nguyen": "NA",
+        "Bob": "P"
+      }
+    }
+  ],
+  "korea_subassumptions": [
+    {
+      "sub": "Native-language voice is necessary for migrant subcontracted crews",
+      "Park": "V",
+      "Nguyen": "V",
+      "note": "Both volunteered it before the concept. Park: 'the problem is language'. Translation devices failed on yard slang."
+    },
+    {
+      "sub": "SAPA creates buyer urgency rather than fear of creating records",
+      "Park": "P",
+      "Nguyen": "NA",
+      "note": "Urgency is real (HQ audit finding on worker voice), but so is fear: open items are 'exhibit A' unless interim measures are recorded."
+    }
+  ],
+  "wtp": {
+    "buyers": [
+      {
+        "short": "Carlos",
+        "holds_budget": false,
+        "too_cheap": 8000,
+        "bargain": 35000,
+        "getting_expensive": 100000,
+        "too_expensive": 160000,
+        "reaction_150k": "conditional",
+        "reaction_24k": "accept",
+        "prefers": "project",
+        "anchor": "A",
+        "note": "Influencer; $15k/qtr discretionary, PD signs. Would pilot $24k now; $150k only with own-site pilot data.",
+        "wtp_point": 100000
+      },
+      {
+        "short": "Marcus",
+        "holds_budget": true,
+        "too_cheap": 15000,
+        "bargain": 40000,
+        "getting_expensive": 90000,
+        "too_expensive": 175000,
+        "reaction_150k": "conditional",
+        "reaction_24k": "accept",
+        "prefers": "project",
+        "anchor": "B",
+        "note": "Self-signs up to $100k/project; $90k set just under authority; assumes enterprise EHS integration included.",
+        "wtp_point": 90000
+      },
+      {
+        "short": "Dale",
+        "holds_budget": true,
+        "too_cheap": 5000,
+        "bargain": 10000,
+        "getting_expensive": 25000,
+        "too_expensive": 50000,
+        "reaction_150k": "reject",
+        "reaction_24k": "conditional",
+        "prefers": "project",
+        "anchor": "A",
+        "note": "Self-signs up to $25k; bargain 'ten, maybe twelve'; pays more only if owner mandates and funds it.",
+        "wtp_point": 25000
+      },
+      {
+        "short": "Priya",
+        "holds_budget": false,
+        "too_cheap": 20000,
+        "bargain": 60000,
+        "getting_expensive": 120000,
+        "too_expensive": 175000,
+        "reaction_150k": "conditional",
+        "reaction_24k": "conditional",
+        "prefers": "project",
+        "anchor": "B",
+        "note": "No budget; recommends into CM's ~$250k tools line. Figures assume e-permit/P6 integration; without it $30k/$80k.",
+        "wtp_point": 120000
+      },
+      {
+        "short": "Park",
+        "holds_budget": true,
+        "too_cheap": 7000,
+        "bargain": 22000,
+        "getting_expensive": 58000,
+        "too_expensive": 110000,
+        "reaction_150k": "reject",
+        "reaction_24k": "conditional",
+        "prefers": "project",
+        "anchor": "A",
+        "note": "Self-signs up to KRW 50M (~$36k). Unit is division-year, not project. KRW 10M/30M/80M/150M, his USD conversions.",
+        "wtp_point": 58000
+      },
+      {
+        "short": "Bob",
+        "holds_budget": true,
+        "too_cheap": 25000,
+        "bargain": 75000,
+        "getting_expensive": 200000,
+        "too_expensive": 350000,
+        "reaction_150k": "conditional",
+        "reaction_24k": "reject",
+        "prefers": "project",
+        "anchor": "B",
+        "note": "Self-signs up to $500k; prefers $150k over $24k; says right price is zero if it proves nothing.",
+        "wtp_point": 200000
+      }
+    ],
+    "tiers": [
+      {
+        "tier": "$0 / won't buy",
+        "count": 0,
+        "who": []
+      },
+      {
+        "tier": "<$25k",
+        "count": 0,
+        "who": []
+      },
+      {
+        "tier": "$25k–$75k",
+        "count": 2,
+        "who": [
+          "Dale",
+          "Park"
+        ]
+      },
+      {
+        "tier": "$75k–$150k",
+        "count": 3,
+        "who": [
+          "Carlos",
+          "Marcus",
+          "Priya"
+        ]
+      },
+      {
+        "tier": "$150k–$225k",
+        "count": 1,
+        "who": [
+          "Bob"
+        ]
+      },
+      {
+        "tier": ">$225k",
+        "count": 0,
+        "who": []
+      }
+    ],
+    "anchorA_median": 58000,
+    "anchorB_median": 120000,
+    "anchorA_mean": 61000,
+    "anchorB_mean": 136667,
+    "all_median": 95000.0,
+    "all_mean": 98833,
+    "accept150": {
+      "accept": 0,
+      "conditional": 4,
+      "reject": 2
+    },
+    "accept24": {
+      "accept": 2,
+      "conditional": 3,
+      "reject": 1
+    },
+    "per_seat": {
+      "prefer_project": 6,
+      "prefer_per_seat": 0,
+      "either": 0
+    },
+    "van_westendorp_medians": {
+      "too_cheap": 11500.0,
+      "bargain": 37500.0,
+      "getting_expensive": 95000.0,
+      "too_expensive": 167500.0
+    },
+    "frontline": [
+      {
+        "short": "Elena",
+        "perceived_value": "Worth it only if she hears back same shift and her name never reaches other trades; would rather fund two more walking safety staff."
+      },
+      {
+        "short": "Jamal",
+        "perceived_value": "Worth something only if things get fixed and nobody gets burned; $150k 'a lot for an app'; ranks below overtime and job security."
+      },
+      {
+        "short": "Tommy",
+        "perceived_value": "Worth nothing, even negative, without a signed labor-management agreement; with it plus real closure, worth it and he'd say so in the hall."
+      },
+      {
+        "short": "Nguyen",
+        "perceived_value": "Worth it only if reporting is safe and fixes are real; $24k is his yearly pay; prefers fans and a Vietnamese safety person."
+      }
+    ]
+  },
+  "objections": [
+    {
+      "rank": 1,
+      "theme": "Visibility politics: open items used to grade crews/subs",
+      "count": 9,
+      "pct": 90,
+      "who": [
+        "Elena",
+        "Carlos",
+        "Marcus",
+        "Dale",
+        "Priya",
+        "Tommy",
+        "Park",
+        "Nguyen",
+        "Bob"
+      ]
+    },
+    {
+      "rank": 1,
+      "theme": "Human-review bottleneck (who, nights) and volume overload",
+      "count": 9,
+      "pct": 90,
+      "who": [
+        "Elena",
+        "Carlos",
+        "Marcus",
+        "Dale",
+        "Priya",
+        "Tommy",
+        "Jamal",
+        "Park",
+        "Bob"
+      ]
+    },
+    {
+      "rank": 1,
+      "theme": "Work-face device access: phone bans, login, tracking",
+      "count": 9,
+      "pct": 90,
+      "who": [
+        "Elena",
+        "Carlos",
+        "Marcus",
+        "Priya",
+        "Tommy",
+        "Jamal",
+        "Park",
+        "Nguyen",
+        "Bob"
+      ]
+    },
+    {
+      "rank": 4,
+      "theme": "Reporter identity exposure and retaliation risk",
+      "count": 8,
+      "pct": 80,
+      "who": [
+        "Elena",
+        "Carlos",
+        "Marcus",
+        "Dale",
+        "Tommy",
+        "Jamal",
+        "Park",
+        "Nguyen"
+      ]
+    },
+    {
+      "rank": 4,
+      "theme": "AI owner/severity and translation errors",
+      "count": 8,
+      "pct": 80,
+      "who": [
+        "Elena",
+        "Carlos",
+        "Marcus",
+        "Priya",
+        "Tommy",
+        "Park",
+        "Nguyen",
+        "Bob"
+      ]
+    },
+    {
+      "rank": 4,
+      "theme": "Sustained-use doubt: week-12 decay, 'seen it die'",
+      "count": 8,
+      "pct": 80,
+      "who": [
+        "Elena",
+        "Carlos",
+        "Marcus",
+        "Dale",
+        "Priya",
+        "Jamal",
+        "Park",
+        "Bob"
+      ]
+    },
+    {
+      "rank": 4,
+      "theme": "$24k '200 residents' tier: excludes craft, weak vendor",
+      "count": 8,
+      "pct": 80,
+      "who": [
+        "Elena",
+        "Carlos",
+        "Marcus",
+        "Dale",
+        "Priya",
+        "Tommy",
+        "Park",
+        "Bob"
+      ]
+    },
+    {
+      "rank": 8,
+      "theme": "Legal discoverability: timestamped record 'we knew'",
+      "count": 7,
+      "pct": 70,
+      "who": [
+        "Elena",
+        "Carlos",
+        "Marcus",
+        "Dale",
+        "Tommy",
+        "Park",
+        "Bob"
+      ]
+    },
+    {
+      "rank": 8,
+      "theme": "Another inbox: must integrate or replace, not stack",
+      "count": 7,
+      "pct": 70,
+      "who": [
+        "Carlos",
+        "Marcus",
+        "Dale",
+        "Priya",
+        "Tommy",
+        "Park",
+        "Bob"
+      ]
+    },
+    {
+      "rank": 8,
+      "theme": "Money better spent on people or physical controls",
+      "count": 7,
+      "pct": 70,
+      "who": [
+        "Elena",
+        "Carlos",
+        "Marcus",
+        "Tommy",
+        "Jamal",
+        "Nguyen",
+        "Bob"
+      ]
+    },
+    {
+      "rank": 8,
+      "theme": "Doesn't fix root cause: production pressure, inaction",
+      "count": 7,
+      "pct": 70,
+      "who": [
+        "Elena",
+        "Carlos",
+        "Marcus",
+        "Tommy",
+        "Park",
+        "Nguyen",
+        "Bob"
+      ]
+    },
+    {
+      "rank": 12,
+      "theme": "'What's the rule here' cites wrong rule or hallucinates",
+      "count": 6,
+      "pct": 60,
+      "who": [
+        "Elena",
+        "Carlos",
+        "Marcus",
+        "Priya",
+        "Tommy",
+        "Park"
+      ]
+    },
+    {
+      "rank": 12,
+      "theme": "Data security, residency, retention, IT/procurement",
+      "count": 6,
+      "pct": 60,
+      "who": [
+        "Carlos",
+        "Marcus",
+        "Priya",
+        "Tommy",
+        "Park",
+        "Bob"
+      ]
+    },
+    {
+      "rank": 14,
+      "theme": "Bypasses chain of command: needs foreman/반장 buy-in",
+      "count": 5,
+      "pct": 50,
+      "who": [
+        "Elena",
+        "Dale",
+        "Jamal",
+        "Nguyen",
+        "Park"
+      ]
+    }
+  ],
+  "quotes": {
+    "KA1": [
+      {
+        "text": "If he writes it up, it goes to the GC, the GC goes to mechanical's safety guy, mechanical's safety guy goes to their foreman, and their foreman comes to find out who wrote it.",
+        "who": "Elena Rodriguez, Electrical foreperson",
+        "q": "C1"
+      },
+      {
+        "text": "My contract is renewed every year by the company. For E-9, if the company doesn't want you, it's very hard to change companies. So I don't want to be the one who makes trouble.",
+        "who": "Nguyen Van Minh, Subcontracted welder, Korean shipyard",
+        "q": "C1"
+      },
+      {
+        "text": "Social cost. It's real, I won't pretend it isn't, but I'd rank it behind \"it wasn't my hazard\" and \"I told somebody, so I'm done.\"",
+        "who": "Marcus Lee, Regional EHS Director",
+        "q": "C1"
+      }
+    ],
+    "KA2": [
+      {
+        "text": "Like you tell him, he tells somebody, and then it's a black hole. So on stuff that's not, like, a big deal, I probably just let it go now.",
+        "who": "Jamal Carter, Journeyman pipefitter",
+        "q": "C3"
+      },
+      {
+        "text": "What never fades is when a GF or a safety manager actually does something with it.",
+        "who": "Elena Rodriguez, Electrical foreperson",
+        "q": "C4"
+      },
+      {
+        "text": "It was okay. It got fixed. I don't need them to tell me.",
+        "who": "Nguyen Van Minh, Subcontracted welder, Korean shipyard",
+        "q": "C3"
+      }
+    ],
+    "KA3": [
+      {
+        "text": "The electrician told his boss. The boss told the other boss. That is how a construction site works. It just doesn't create a record or an owner.",
+        "who": "Marcus Lee, Regional EHS Director",
+        "q": "C1"
+      },
+      {
+        "text": "So again: known, spoken, not captured.",
+        "who": "Priya Natarajan, SIMOPS & Interface Planning Lead",
+        "q": "C10"
+      },
+      {
+        "text": "Before that day, some guys had said the air smelled \"strange\" there. But only to each other.",
+        "who": "Nguyen Van Minh, Subcontracted welder, Korean shipyard",
+        "q": "C5"
+      }
+    ],
+    "KA4": [
+      {
+        "text": "So, realistically, if I can't do it in the time it takes to send a text, it's not happening.",
+        "who": "Elena Rodriguez, Electrical foreperson",
+        "q": "C5"
+      },
+      {
+        "text": "The time isn't the problem. The consequence is the problem.",
+        "who": "Tommy Briggs, Ironworker GF & union steward",
+        "q": "C5"
+      },
+      {
+        "text": "For a migrant worker, the problem is not seconds. The problem is language.",
+        "who": "Park Ji-hoon, HSE Team Lead, Korean shipbuilder",
+        "q": "C5"
+      }
+    ],
+    "KA5": [
+      {
+        "text": "My coordinator has to figure that out, and gets it wrong maybe one in five times, and then it bounces for two days while two subs argue about whose hole it is.",
+        "who": "Carlos Mendes, Site Safety Manager",
+        "q": "C6"
+      },
+      {
+        "text": "So I'm the routing system, and that doesn't scale.",
+        "who": "Robert \"Bob\" Hayes, Project Director, owner-developer",
+        "q": "C3"
+      },
+      {
+        "text": "Really it's the supers who decide. The system's just the record.",
+        "who": "Dale Kowalski, General Superintendent",
+        "q": "C6"
+      }
+    ],
+    "KA6": [
+      {
+        "text": "Add it up, my team probably spends five or six person-hours a day just sorting and routing, before anybody fixes anything.",
+        "who": "Carlos Mendes, Site Safety Manager",
+        "q": "C7"
+      },
+      {
+        "text": "And if you're going to tell me the reviewer confirms in one click, I'd want to see how often they click \"confirm\" without reading.",
+        "who": "Marcus Lee, Regional EHS Director",
+        "q": "P2"
+      },
+      {
+        "text": "Weekends at peak, reports would come at 2:00 in the morning in Uzbek. If nobody reviews until 8:00, then the record shows a six-hour gap.",
+        "who": "Park Ji-hoon, HSE Team Lead, Korean shipbuilder",
+        "q": "P2"
+      }
+    ],
+    "KA7": [
+      {
+        "text": "Ignore: if it's wrong twice in a week. That's about the tolerance. And if it's noisy. Volume kills trust faster than errors do.",
+        "who": "Carlos Mendes, Site Safety Manager",
+        "q": "C8"
+      },
+      {
+        "text": "On this kind of site, trust is lost on the one bad item, not the average.",
+        "who": "Priya Natarajan, SIMOPS & Interface Planning Lead",
+        "q": "C8"
+      },
+      {
+        "text": "I'd ignore anything automatic by default.",
+        "who": "Tommy Briggs, Ironworker GF & union steward",
+        "q": "C8"
+      }
+    ],
+    "KA8": [
+      {
+        "text": "The matrix flags maybe fifteen to twenty-five overlaps a week.",
+        "who": "Priya Natarajan, SIMOPS & Interface Planning Lead",
+        "q": "C9"
+      },
+      {
+        "text": "Something that I'd call serious, where somebody could get killed, maybe once every two weeks on this job.",
+        "who": "Tommy Briggs, Ironworker GF & union steward",
+        "q": "C9"
+      },
+      {
+        "text": "Most of them, an hour here, a half-day there. Doesn't hit the critical path usually. Usually.",
+        "who": "Dale Kowalski, General Superintendent",
+        "q": "C9"
+      }
+    ],
+    "KA9": [
+      {
+        "text": "Four days. Four days of float, gone, on the critical path to energization.",
+        "who": "Dale Kowalski, General Superintendent",
+        "q": "C10"
+      },
+      {
+        "text": "But I will be honest: nobody approves budget by comparing with an accident that has not happened. Budget is compared with last year's budget.",
+        "who": "Park Ji-hoon, HSE Team Lead, Korean shipbuilder",
+        "q": "P5"
+      },
+      {
+        "text": "If a vendor tells me they can show that in twelve weeks, I'd take that as a sign they don't understand construction.",
+        "who": "Marcus Lee, Regional EHS Director",
+        "q": "P7"
+      }
+    ],
+    "KA10": [
+      {
+        "text": "The mezzanine is the perfect example. It was closed, and it wasn't fixed.",
+        "who": "Robert \"Bob\" Hayes, Project Director, owner-developer",
+        "q": "C11"
+      },
+      {
+        "text": "None of them is built around \"this was found by company A, created by company B, and verified closed by company C.\"",
+        "who": "Marcus Lee, Regional EHS Director",
+        "q": "C11"
+      },
+      {
+        "text": "Super walks it. Sees it's fixed. It's closed. Proof? The super's word. My word.",
+        "who": "Dale Kowalski, General Superintendent",
+        "q": "C11"
+      }
+    ],
+    "KA11": [
+      {
+        "text": "So realistically, per-seat means I license my team and a handful of people, maybe 30 seats, which is cheap, about $3,600 a year, and useless, because the whole point is the crews.",
+        "who": "Carlos Mendes, Site Safety Manager",
+        "q": "P5"
+      },
+      {
+        "text": "Per seat just doesn't fit a site where two or three hundred people badge in every week.",
+        "who": "Priya Natarajan, SIMOPS & Interface Planning Lead",
+        "q": "P5"
+      },
+      {
+        "text": "First, \"project\" is not how we think. We have hulls, and we have divisions.",
+        "who": "Park Ji-hoon, HSE Team Lead, Korean shipbuilder",
+        "q": "P5"
+      }
+    ],
+    "KA12": [
+      {
+        "text": "I would not sign up for $150,000 on day one for something I haven't seen on my site. Nobody I know in my position would.",
+        "who": "Carlos Mendes, Site Safety Manager",
+        "q": "P5b"
+      },
+      {
+        "text": "Twenty-four, I'd at least listen. A hundred fifty, the meeting's over.",
+        "who": "Dale Kowalski, General Superintendent",
+        "q": "P5b"
+      },
+      {
+        "text": "So the price doesn't scare me. What I'd need is an answer to my question: which line does it come out of, and what does it replace?",
+        "who": "Robert \"Bob\" Hayes, Project Director, owner-developer",
+        "q": "P5b"
+      }
+    ]
+  },
+  "korea_quotes": [
+    {
+      "text": "If it's really in Vietnamese, and I can speak, not write Korean, then maybe I could tell without waiting for Tuan. That's different.",
+      "who": "Nguyen Van Minh, Subcontracted welder, Korean shipyard",
+      "q": "P1"
+    },
+    {
+      "text": "A finding without an action is the worst kind of record.",
+      "who": "Park Ji-hoon, HSE Team Lead, Korean shipbuilder",
+      "q": "K2"
+    }
+  ],
+  "jargon": [
+    {
+      "term": "GF (general foreman)",
+      "meaning": "Foreperson's boss; receives crew photo-texts and attends the GC coordination meeting",
+      "who": "Elena, Carlos, Tommy, Jamal",
+      "implication": "The GF is the de facto router today. Let a foreperson 'send to my GF' and win GF endorsement first."
+    },
+    {
+      "term": "Walk-over vs write-up",
+      "meaning": "Elena's triage: fix by face-to-face conversation, or file a formal report",
+      "who": "Elena",
+      "implication": "The tool must beat the walk-over on speed or log walk-over fixes as closed-on-spot items in one tap."
+    },
+    {
+      "term": "JHA / pre-task plan",
+      "meaning": "Daily paper job hazard analysis signed by the crew; often copy-paste",
+      "who": "Elena, Jamal, Tommy",
+      "implication": "Push yesterday's open items in the work area onto the morning pre-task. Elena asked for this unprompted."
+    },
+    {
+      "term": "TBM (tool box meeting)",
+      "meaning": "Morning safety briefing per bay in Korean yards; migrant crews understand about half",
+      "who": "Park, Nguyen",
+      "implication": "The TBM is where risk is communicated. Translated TBM summaries are a possible wedge."
+    },
+    {
+      "term": "Observation cards / card quota",
+      "meaning": "Mandated weekly or monthly observation counts per foreman or subcontractor",
+      "who": "All 10",
+      "implication": "Never pitch 'more reports'. Reports have to count toward the quota or replace it, or it's stacking."
+    },
+    {
+      "term": "Pencil-whipped",
+      "meaning": "Filled out fake, usually in the truck on Friday afternoon",
+      "who": "Marcus (variants: Elena, Carlos, Dale, Tommy)",
+      "implication": "Marketing should promise quality and closure, not volume."
+    },
+    {
+      "term": "Feeding the beast / homework (숙제)",
+      "meaning": "Quota paperwork done for the number, not for safety",
+      "who": "Priya, Park (\"Did you do your cards?\" Priya)",
+      "implication": "Don't use volume as the KPI. It reads as the same chore."
+    },
+    {
+      "term": "Snitch cam / snitch sticker / rat app / rat of the week",
+      "meaning": "Nicknames crews gave past CV cameras, QR stickers, apps and leaderboards",
+      "who": "Carlos, Marcus, Tommy, Dale, Jamal",
+      "implication": "A nickname kills a tool. No leaderboards. Frame it as 'conditions, not people'."
+    },
+    {
+      "term": "That guy",
+      "meaning": "Label for the worker or foreman who keeps calling safety",
+      "who": "Carlos, Priya",
+      "implication": "Protecting the reporter's identity is the product, not a feature."
+    },
+    {
+      "term": "Moved to the parking structure / shakeout yard / lack of work / end of assignment",
+      "meaning": "Euphemisms for quiet retaliation by reassignment, layoff or non-renewal",
+      "who": "Elena, Tommy, Jamal, Carlos",
+      "implication": "Retaliation is deniable, so a no-retaliation policy won't persuade anyone. Protection has to be technical."
+    },
+    {
+      "term": "Travelers / on the book",
+      "meaning": "Union members working away from their home local. First to be laid off.",
+      "who": "Tommy, Jamal, Elena",
+      "implication": "The most vulnerable and most silent reporters. Name them in the end-user profile."
+    },
+    {
+      "term": "Old heads",
+      "meaning": "Veteran journeymen who won't put a phone in front of their face",
+      "who": "Elena, Jamal, Tommy",
+      "implication": "Support proxy reporting through the foreperson. Don't count on universal self-service."
+    },
+    {
+      "term": "The book",
+      "meaning": "Tommy's waterproof notebook: date, time, what, who he told",
+      "who": "Tommy",
+      "implication": "Reporters want their own timestamped proof. Give them a receipt they control."
+    },
+    {
+      "term": "Spider box",
+      "meaning": "Temporary power distribution box",
+      "who": "Carlos, Priya",
+      "implication": "Build the hazard taxonomy from trade terms, not OSHA categories."
+    },
+    {
+      "term": "LOTO",
+      "meaning": "Lockout/tagout of energy sources",
+      "who": "Elena, Carlos, Dale, Marcus",
+      "implication": "Energized-work interfaces were behind the costliest stoppages. Link to LOTO logs."
+    },
+    {
+      "term": "SIMOPS",
+      "meaning": "Simultaneous operations or interface conflicts",
+      "who": "Priya only (the deck uses it too)",
+      "implication": "Crews say 'stacked', 'same corridor', 'swinging over my guys'. Use plain words in crew-facing copy."
+    },
+    {
+      "term": "Exclusion zone / swing radius / lift plan",
+      "meaning": "Crane load path and the area kept clear under it",
+      "who": "Tommy, Priya, Bob, Marcus",
+      "implication": "Crane conflicts led to stop-work. Routing has to know about lift plans."
+    },
+    {
+      "term": "SIF / SIF precursor",
+      "meaning": "Serious-injury-and-fatality potential: high energy with no direct control",
+      "who": "Marcus, Bob",
+      "implication": "Severity suggestions should use the SIF lens, not generic high/medium/low."
+    },
+    {
+      "term": "Float / critical path / energization date / MW online",
+      "meaning": "Schedule slack, the controlling sequence, and the owner's revenue milestone",
+      "who": "Dale, Elena, Bob, Priya",
+      "implication": "This is how buyers talk about value, but nobody measures it. Use it for context, not proof."
+    },
+    {
+      "term": "LDs (liquidated damages)",
+      "meaning": "Contract delay penalties",
+      "who": "Dale, Carlos, Priya, Bob",
+      "implication": "Rarely assessed and never tied to a hazard. Don't lead with LD exposure."
+    },
+    {
+      "term": "General conditions / GMP / reimbursable",
+      "meaning": "Where project tool costs sit. Under a GMP the owner effectively pays.",
+      "who": "Marcus, Bob, Carlos, Dale",
+      "implication": "The budget line decides the buyer. The owner's rep gets a vote."
+    },
+    {
+      "term": "IST / Level 4-5 commissioning / CxA",
+      "meaning": "Integrated systems testing and the commissioning agent",
+      "who": "Marcus, Bob, Priya",
+      "implication": "Construction-to-commissioning turnover is where ownership changes and hazards get lost."
+    },
+    {
+      "term": "IS phone / classified area",
+      "meaning": "Intrinsically safe device, the only phone allowed where gas may be present",
+      "who": "Priya",
+      "implication": "An LNG or refinery beachhead needs IS-device support or 'doesn't exist in the areas that matter'."
+    },
+    {
+      "term": "White space / controlled space",
+      "meaning": "Data-hall space near live load where cameras and photos are restricted",
+      "who": "Bob, Marcus",
+      "implication": "A photo-first design fails in the most dangerous rooms. Voice or text has to work without images."
+    },
+    {
+      "term": "Controlling employer",
+      "meaning": "OSHA multi-employer doctrine. The more an owner directs, the more it is liable.",
+      "who": "Bob",
+      "implication": "An owner-held 'one queue' carries legal risk. Get counsel involved early."
+    },
+    {
+      "term": "Closed on paper / somebody clicked a button",
+      "meaning": "Status flipped to closed without a verified field fix",
+      "who": "Carlos, Tommy, Priya, Bob",
+      "implication": "Define 'verified closed' as an independent check in the field, with a time- and location-bound photo."
+    },
+    {
+      "term": "Procore spam / the folder",
+      "meaning": "Auto-notifications filtered into an unread email folder",
+      "who": "Elena, Carlos, Dale, Marcus, Bob",
+      "implication": "Keep notifications low-volume, targeted and signed by a person."
+    },
+    {
+      "term": "반장 (banjang)",
+      "meaning": "Korean team leader of a subcontractor crew, and the worker's gatekeeper",
+      "who": "Park, Nguyen",
+      "implication": "Must endorse the tool at TBM. Reports can't look like they go around him."
+    },
+    {
+      "term": "조장 (jojang)",
+      "meaning": "Informal small-group leader, for example the bilingual Vietnamese 'Tuan'",
+      "who": "Nguyen",
+      "implication": "Bilingual bridges carry the translation load today and would adopt first."
+    },
+    {
+      "term": "사내협력사 / 사내하청",
+      "meaning": "In-house subcontractor (tier-1) and tier-2 subcontractor inside the prime's yard",
+      "who": "Park, Nguyen",
+      "implication": "The 'responsible owner' has to be the subcontractor company, not an individual worker."
+    },
+    {
+      "term": "아차사고 (near-miss) quota",
+      "meaning": "Monthly near-miss report quota per subcontractor, tied to its evaluation score",
+      "who": "Park, Nguyen",
+      "implication": "The quota is a headquarters KPI that won't go away. Feed it, or the tool is stacking."
+    },
+    {
+      "term": "족장 / 곤도라",
+      "meaning": "Shipyard slang for scaffolding / gondola",
+      "who": "Park",
+      "implication": "Past translation devices failed on yard slang. A domain glossary is mandatory."
+    },
+    {
+      "term": "작업중지권",
+      "meaning": "Worker's legal right to stop work",
+      "who": "Park",
+      "implication": "Frame reporting as supporting an existing legal right, not a new obligation."
+    },
+    {
+      "term": "부분 작업중지명령",
+      "meaning": "Partial work-stop order from MoEL after a serious accident",
+      "who": "Park",
+      "implication": "The Korean stoppage cost driver. Lasted 'a little over a week' in Park's case."
+    },
+    {
+      "term": "안전보건관리체계",
+      "meaning": "Safety & health management system required under SAPA",
+      "who": "Park",
+      "implication": "Position the product as evidence of this system: every finding paired with an action."
+    },
+    {
+      "term": "SAPA (중대재해처벌법)",
+      "meaning": "Serious Accidents Punishment Act, which puts criminal liability on executives",
+      "who": "Park (term in deck)",
+      "implication": "Creates urgency and fear at once. Needs interim-measure records."
+    },
+    {
+      "term": "결재 (e-approval)",
+      "meaning": "Groupware approval chain up to the CSO",
+      "who": "Park",
+      "implication": "Serious-item escalation has to fit e-approval, not replace it."
+    },
+    {
+      "term": "불법파견 (illegal dispatch)",
+      "meaning": "Legal risk if a prime directs subcontractor workers directly",
+      "who": "Park",
+      "implication": "The tool can't send tasks from the prime to individual subcontracted workers."
+    },
+    {
+      "term": "산업안전보건위원회",
+      "meaning": "Joint OSH committee with the union",
+      "who": "Park",
+      "implication": "Present there before any pilot, or the union may attack it as monitoring."
+    },
+    {
+      "term": "안전신문고",
+      "meaning": "Headquarters QR 'safety reporting box'. Korean only, 2-3 reports a month.",
+      "who": "Park",
+      "implication": "The failed incumbent channel. Proof that a Korean-only QR form doesn't reach migrant workers."
+    },
+    {
+      "term": "상품권",
+      "meaning": "Gift vouchers used as rewards",
+      "who": "Park, Nguyen",
+      "implication": "Nguyen: Korean workers always win them. Rewards don't reach migrant crews."
+    },
+    {
+      "term": "알았어, 알았어",
+      "meaning": "\"Okay, okay\": a busy 반장 brushing off broken-Korean reports",
+      "who": "Nguyen",
+      "implication": "Language failure looks like acknowledgement. Log receipt explicitly."
+    },
+    {
+      "term": "KakaoTalk / Zalo",
+      "meaning": "Korean messaging app (managers) / Vietnamese messaging app (workers)",
+      "who": "Park, Nguyen",
+      "implication": "The real channels today. Zalo is also how retaliation stories spread 'in one day'."
+    }
+  ],
+  "unmet_need": {
+    "statement": "Independently verified, cross-employer closure that gets back to the finder. When one company's crew spots a hazard another company created, nobody today assigns a named owner fast, verifies the fix in the field (instead of accepting a status click or a recycled photo), and tells the person who saw it.",
+    "evidence_count": 10,
+    "evidence_detail": [
+      "Elena: temp-power labeling fix learned by seeing 'a guy with a label maker'; GF says 'I think they closed it'.",
+      "Carlos: GFCI 'closed' with a photo of a different panel; mezzanine toe-board item 'in progress' 9 days before a dropped object.",
+      "Marcus: cross-contractor median 11 days to close; about 1 in 5 closed with no photo; 41-day item 'closed' when the generator demobilized.",
+      "Dale: 'Proof? The super's word'; a fixed cord item sat open 3 weeks because nobody clicked the button (the reverse failure).",
+      "Priya: 'Closure in the office is not closure at the work face'; EPC and owner records disagreed for a week.",
+      "Tommy: 'closed' on the safety rep's iPad while the hazard was still there; union has no access to the record.",
+      "Jamal: 'Who proves it? Nobody.' Has never been told a report was closed.",
+      "Park: recycled 'after' photos in KakaoTalk; facilities items open 3-4 weeks; closure entered late.",
+      "Nguyen: loose ladder 'fixed' because the block moved out; 'Mostly nobody closes it.'",
+      "Bob: mezzanine item marked closed but toe boards only partly installed, then a 35 ft dropped wrench."
+    ],
+    "quotes": [
+      {
+        "text": "Closure in the office is not closure at the work face.",
+        "who": "Priya Natarajan, SIMOPS & Interface Planning Lead",
+        "q": "C3"
+      },
+      {
+        "text": "So somebody clicked a button.",
+        "who": "Tommy Briggs, Ironworker GF & union steward",
+        "q": "C3"
+      },
+      {
+        "text": "I've never gotten, like, \"hey, the thing you told us, it's done.\" Never.",
+        "who": "Jamal Carter, Journeyman pipefitter",
+        "q": "C11"
+      },
+      {
+        "text": "What the lawyer wanted to know was simple: when did we know, who did we tell, what did they do, when did we verify it was fixed.",
+        "who": "Carlos Mendes, Site Safety Manager",
+        "q": "C11"
+      },
+      {
+        "text": "Some subcontractors send the same \"after\" photo more than once.",
+        "who": "Park Ji-hoon, HSE Team Lead, Korean shipbuilder",
+        "q": "C11"
+      },
+      {
+        "text": "So it was \"fixed\" because the block left.",
+        "who": "Nguyen Van Minh, Subcontracted welder, Korean shipyard",
+        "q": "C3"
+      }
+    ]
+  },
+  "headline_findings": [
+    "The problem is real and specific. The price is not. Hazard signals staying verbal (KA3) was validated 10/10, unowned cross-employer closure (KA10) 9/10 and mis-routing/lag (KA5) 7/10. But 0 of 6 buyer-grade respondents accept $150,000 per project-year as-is (4 conditional, 2 reject). The median 'getting expensive' point is $95,000, and only Bob's WTP point is at or above $150k.",
+    "The deck's $24,000 price does not rescue it. Only 2 of 6 buyers would accept it. 8 of 10 respondents read '~200 residents' as leaving out the craft who actually see hazards, and 3 buyers (Marcus, Priya, Bob) said the low price made them doubt the vendor would survive.",
+    "Consequences matter more than seconds. KA4 (the 30-second threshold) is only 44% validated, and the union steward rejected it outright. For Korean migrant crews the barrier is language plus phone bans inside blocks. Identity exposure was raised by 8 of 10. Speed is necessary but not sufficient.",
+    "The AI-triage core is the least-validated claim. KA6 (1-click review) scored 0 of 4 Validated and KA7 (trust in labeled, human-reviewed routing) 0 of 10 (8 conditional, 2 reject). 9 of 10 raised the human-review bottleneck (who reviews, at night, without rubber-stamping) or volume overload. 'A person always reviews' is table stakes, not a differentiator.",
+    "Records cut both ways. 7 of 10 raised discoverability: Carlos's deposition fear, Park's SAPA 'exhibit A', Bob's controlling-employer exposure. A tool that records hazards faster than they are closed creates evidence against the buyer. Actions and interim measures have to sit next to every finding.",
+    "Buyers think in stoppages but won't pay on them. KA9 is only 50% validated. None of the respondents' organizations track stoppage hours or tie LDs to hazards, and Marcus and Bob said 12 weeks can't show it. Measurable value today is triage and reconciliation hours plus time to verified close.",
+    "The real competitor is a person. WTP ceilings cluster at the loaded cost of a safety coordinator or field rep ($160k-$200k), and 7 of 10 said the money would be better spent on people or physical controls."
+  ],
+  "script_annotations": [
+    {
+      "q": "C1",
+      "synthetic_signal": "All 10 gave a concrete unreported hazard. Main drivers: 'not our hazard', 'told somebody so I'm done', and social or commercial cost between companies. Fear is only part of it.",
+      "needs_real_validation": "Frequency and base rate of unreported hazards; site managers and buyers answered secondhand (Carlos, Marcus, Bob said so).",
+      "suggested_rewrite": "Tell me about the last time you saw something unsafe that another company created. What did you do, and why that instead of writing it up?"
+    },
+    {
+      "q": "C2",
+      "synthetic_signal": "Every retaliation example was quiet and unprovable: reassignment, 'lack of work', non-renewal. Travelers and E-9 workers are most exposed.",
+      "needs_real_validation": "Real prevalence by segment; whether reporters would believe a technical anonymity guarantee.",
+      "suggested_rewrite": "Add a probe: 'What did the rest of the crew conclude afterward? What did you do differently after that?'"
+    },
+    {
+      "q": "C3",
+      "synthetic_signal": "Reporters almost never hear back and learn about fixes by walking past. Nguyen doesn't want to be told, only for it to be fixed.",
+      "needs_real_validation": "Whether feedback actually raises repeat reporting. Carlos and Marcus called it an untested belief.",
+      "suggested_rewrite": "Ask about the report after that one too: 'Did the way the first one went change whether you reported the next thing?'"
+    },
+    {
+      "q": "C4",
+      "synthetic_signal": "Every card, raffle and app program decayed within 1-3 months; quotas persist only as KPIs. Nicknames ('snitch cam') predicted death.",
+      "needs_real_validation": "Real decay curves (Marcus cited 15% of launch week by week 10); which program elements, if any, held.",
+      "suggested_rewrite": "Ask for numbers: 'Roughly how many reports in week 1, week 4, week 12? Who stopped first?'"
+    },
+    {
+      "q": "C5",
+      "synthetic_signal": "NA crews: 10-30 s. Phones banned at many work faces (process areas, blocks, IS zones, white space). Tommy and the Korea respondents: consequence or language, not seconds.",
+      "needs_real_validation": "Observed time-and-motion at the work face; whether reports get made at break with accurate location recall.",
+      "suggested_rewrite": "Add: 'If you reported from exactly where you stood, what would stop you first: phone rules, gloves, noise, language, or who might find out?'"
+    },
+    {
+      "q": "C6",
+      "synthetic_signal": "Location vagueness, ownership guessing (about 1 in 5 wrong, per Carlos), duplicates and night handover are consistent break points.",
+      "needs_real_validation": "A quantified mis-route and duplicate rate from real Procore or portal exports.",
+      "suggested_rewrite": ""
+    },
+    {
+      "q": "C7",
+      "synthetic_signal": "Triage load is real: Carlos 5-6 person-hours/day plus 3-4 h Monday; Park 4-5 person-hours/day; Marcus 1-2 h/day per site. Only 4 respondents actually triage.",
+      "needs_real_validation": "Timed baseline logs; the edit rate reviewers would apply to AI suggestions; night coverage.",
+      "suggested_rewrite": "Ask them to log triage time for one week before the interview, then walk through the log."
+    },
+    {
+      "q": "C8",
+      "synthetic_signal": "Trust is lost after 1-3 errors; a named human and a visible reason matter; volume kills trust faster than errors.",
+      "needs_real_validation": "Reaction to an actual AI-labeled item. Stated tolerance ('19 of 20') is not observed behavior.",
+      "suggested_rewrite": "Show a mock routed item (category, owner, severity, 'confirmed by: J. Smith') and ask 'What do you do with this?'"
+    },
+    {
+      "q": "C9",
+      "synthetic_signal": "SIMOPS conflicts are frequent (daily to several a week) and cost hours to a day, but respondents rarely said they hit the critical path. The word 'SIMOPS' is Priya's alone.",
+      "needs_real_validation": "Frequency and cost from permit and lift logs; share that reaches critical path.",
+      "suggested_rewrite": "Drop the implied jargon; ask 'How many times last week did another crew's work stop yours?'"
+    },
+    {
+      "q": "C10",
+      "synthetic_signal": "Every stoppage cited had prior verbal knowledge. Costs are big but untracked: no stoppage-hour line, and LDs never attributed.",
+      "needs_real_validation": "Whether any organization can produce a stoppage-hour baseline; whether buyers would fund measuring it.",
+      "suggested_rewrite": "Add: 'Who could put a dollar figure on that, and where would they look it up?'"
+    },
+    {
+      "q": "C11",
+      "synthetic_signal": "'Closed' does not mean fixed: recycled photos, status clicks, block moved. Lawyers ask the same four questions everywhere.",
+      "needs_real_validation": "A records audit: sample 20 closed cross-employer items and verify in the field.",
+      "suggested_rewrite": ""
+    },
+    {
+      "q": "C12",
+      "synthetic_signal": "Authority limits range from $15k/quarter to $500k. IT and security review takes 7 weeks to 5 months. Per-seat is rejected everywhere. Budget cycles close in November.",
+      "needs_real_validation": "Actual procurement documents, security questionnaires and contract language (owner-specified tools).",
+      "suggested_rewrite": "Add: 'Is any safety tool written into your subcontract or GC contract requirements? Who writes those?'"
+    },
+    {
+      "q": "K1",
+      "synthetic_signal": "Chain: worker, bilingual coworker, 반장, subcontractor safety manager, KakaoTalk, officer, Excel, portal. Lug-crack case arrived 2 days late with no location.",
+      "needs_real_validation": "Migrant workers across nationalities, recruited independently of the prime and subcontractor (Park asked for this explicitly).",
+      "suggested_rewrite": "Also ask Nguyen-type workers: 'Who do you tell when Tuan is not there?'"
+    },
+    {
+      "q": "K2",
+      "synthetic_signal": "SAPA increases documentation and urgency, but a timestamped open item without an interim measure is 'exhibit A'.",
+      "needs_real_validation": "Korean legal counsel view; whether other yards share Park's stance; the illegal-dispatch constraint.",
+      "suggested_rewrite": "Add: 'What would a record need to show so it protects rather than exposes the CEO?'"
+    },
+    {
+      "q": "P1",
+      "synthetic_signal": "Most valued: one queue (site management), reporter notified on verified close (Carlos, Tommy, Jamal, Elena), native-language voice (Park, Nguyen). Frontline won't replace walk-overs.",
+      "needs_real_validation": "Reactions to a working prototype on a real phone, with gloves on, at the work face.",
+      "suggested_rewrite": ""
+    },
+    {
+      "q": "P2",
+      "synthetic_signal": "Top fears: identity exposure, reviewer capacity, AI and translation errors, discoverability, device access. They are consistent across roles.",
+      "needs_real_validation": "Rank-ordering with real users; which fears are deal-breakers versus noise.",
+      "suggested_rewrite": "Ask 'Which one of those, on its own, would make you stop?' of every respondent (only some were probed)."
+    },
+    {
+      "q": "P3",
+      "synthetic_signal": "Likely resisters: area supers, sub owners and presidents, stewards (until bargained), corporate IT, large GCs with enterprise platforms.",
+      "needs_real_validation": "Talk to the resisters directly (Dale, Tommy, Bob and Priya each named them).",
+      "suggested_rewrite": ""
+    },
+    {
+      "q": "P4",
+      "synthetic_signal": "Month-3 use depends on: it gets fixed, nobody gets burned, and it stays as fast as a text. The 'nobody burned' condition dominates.",
+      "needs_real_validation": "Only a longitudinal pilot can test this.",
+      "suggested_rewrite": ""
+    },
+    {
+      "q": "P5",
+      "synthetic_signal": "Per-seat rejected 6/6. The '$24k ~200 residents, all employers included' wording confused every buyer: who are the 200?",
+      "needs_real_validation": "Pricing reaction with an unambiguous scope definition.",
+      "suggested_rewrite": "Define scope: 'Unlimited reporting by every worker on site; licensed users are the ~200 reviewers and owners.' Test that separately from full-site pricing."
+    },
+    {
+      "q": "P6",
+      "synthetic_signal": "WTP points range $25k-$200k (median $95k); ceilings are anchored to headcount cost; answers hinge on whether integration is included.",
+      "needs_real_validation": "Van Westendorp with n>=30 real buyers per segment, plus Gabor-Granger on a defined package.",
+      "suggested_rewrite": "State the package (full site, integration included or not, reviewer staffing) before asking the ladder."
+    },
+    {
+      "q": "P7",
+      "synthetic_signal": "Evidence lists converge: week 9-12 retention, time to verified close, reviewer edit rate, live integration, security passed, one real 'would-have-been' catch.",
+      "needs_real_validation": "Whether real buyers sign on those metrics; who writes the contract clause.",
+      "suggested_rewrite": ""
+    },
+    {
+      "q": "P8",
+      "synthetic_signal": "Frontline would rather have people or physical fixes. Value is conditional on safety and closure. Dollar figures confuse frontline (Nguyen: '$24k is my yearly pay').",
+      "needs_real_validation": "Frontline trade-off preferences in real interviews.",
+      "suggested_rewrite": "Drop the dollar figures for frontline: 'If the company could buy this or hire one more safety person for your area, which would help you more, and why?'"
+    },
+    {
+      "q": "P9",
+      "synthetic_signal": "Unprompted gaps: data at demob or end of pilot, night shift, construction-to-operations turnover, 'who reviews the reviewer', contract as the real gate.",
+      "needs_real_validation": "Promote these to core questions in the real-human guide.",
+      "suggested_rewrite": "Add core Qs on night shift, turnover to commissioning or operations, and data retention at demob."
+    }
+  ],
+  "recommendations": [
+    {
+      "step": "Step 2 — Beachhead",
+      "area": "Beachhead TAM",
+      "recommendation": "Narrow the NA beachhead to owner-led hyperscale and fab programs where the owner can write the tool into GC and subcontract requirements at bid. Treat mid-job sales as pilots.",
+      "evidence": "Bob, Marcus and Carlos each said contract or owner mandates are how tools get adopted (3/6 buyers). Dale complies only with owner mandates.",
+      "confidence": "Medium"
+    },
+    {
+      "step": "Step 2 — Beachhead (Korea pilot)",
+      "area": "Beachhead TAM",
+      "recommendation": "Keep the Korea pilot but plan on a division-year unit, $22k-$58k first-year pricing (under the team lead's ~KRW 50M authority), in-country data and ISMS-P readiness, and a joint OSH committee briefing before launch.",
+      "evidence": "Park only (n=1 buyer). Nguyen confirms native-language voice is necessary.",
+      "confidence": "Low"
+    },
+    {
+      "step": "Step 3 — End User Profile",
+      "area": "End User Profile",
+      "recommendation": "Redefine the end user around the most vulnerable reporter (apprentice, traveler, subcontracted migrant worker) and the foreperson or 반장 as a gatekeeper. Elena is representative of the dynamics but is not the silent reporter.",
+      "evidence": "Identity fear 8/10; chain-of-command objection 5/10; Tommy, Jamal, Nguyen and Park all named apprentices, travelers or migrants as the silent group.",
+      "confidence": "High"
+    },
+    {
+      "step": "Step 4 — TAM",
+      "area": "Beachhead TAM",
+      "recommendation": "Recompute TAM at a realistic $60k-$100k per project-year (median WTP point $95k), not $150k, and confirm the '300-800 serviceable orgs' count against owner-led programs.",
+      "evidence": "6 buyer WTP points: $25k, $58k, $90k, $100k, $120k, $200k.",
+      "confidence": "Medium"
+    },
+    {
+      "step": "Step 5 — Persona",
+      "area": "End User Profile",
+      "recommendation": "Add a second operational persona: the GC or HSE safety coordinator who reviews. The product's labor lands on them, and their adoption decides week 12.",
+      "evidence": "KA6 0/4 Validated; reviewer-bottleneck objection 9/10; Carlos: 'If after three or four weeks my coordinators are working around it, I kill it.'",
+      "confidence": "High"
+    },
+    {
+      "step": "Step 6 — Full Life Cycle Use Case",
+      "area": "Value Proposition",
+      "recommendation": "Design for reporting at break with accurate location recall (phones banned at many work faces), a morning pre-task or TBM open-items feed, and night-shift and turnover handoff.",
+      "evidence": "Phone or photo restrictions raised by 9/10; Elena and Nguyen asked for pre-task/TBM integration; night or handover gaps raised by Elena, Carlos, Marcus, Priya, Park.",
+      "confidence": "High"
+    },
+    {
+      "step": "Step 7 — High-Level Product Spec",
+      "area": "Value Proposition",
+      "recommendation": "Make four things spec-level: (1) independently verified closure with time- and location-bound evidence plus interim-measure status; (2) a reporter-identity model hidden from employers by default, visible only to the reviewer, with a follow-up channel; (3) no install and no login (QR, SMS or kiosk); (4) push to Procore, enterprise EHS, e-permit or HQ portal. Ship 'what's the rule here' disabled or restricted to controlled documents, and have it refuse permit questions.",
+      "evidence": "Unmet need 10/10; identity 8/10; device access 9/10; another-inbox 7/10; rule-citation risk 6/10.",
+      "confidence": "High"
+    },
+    {
+      "step": "Step 8 — Quantified Value Proposition",
+      "area": "Value Proposition",
+      "recommendation": "Lead with measurable hours and days: triage and reconciliation hours saved, and cross-employer time to verified close (e.g., Marcus: 11 days to under 3). Treat stoppage and LD avoidance as a year-long, jointly built baseline, not a 12-week claim.",
+      "evidence": "Triage figures from Carlos, Park, Marcus, Bob (4/6); KA9 50% V; Marcus and Bob said 12 weeks can't show stoppage reduction.",
+      "confidence": "High"
+    },
+    {
+      "step": "Step 9 — Next 10 Customers",
+      "area": "Other",
+      "recommendation": "Target champions who can sign a pilot at or under their own limit (Carlos-type with a quick PD signature, Marcus-type ≤$100k, Park-type ≤KRW 50M) and owner PDs for the next campus contract. Don't forecast any $150k signatures from the current pipeline.",
+      "evidence": "0/6 accept $150k as-is; 2/6 accept $24k; authority limits range $15k/qtr to $500k.",
+      "confidence": "Medium"
+    },
+    {
+      "step": "Step 12 — Decision-Making Unit",
+      "area": "Other",
+      "recommendation": "Expand the DMU map: labor (steward, business agent, joint OSH committee), legal (discoverability, controlling employer, illegal dispatch), IT/OT security, procurement (구매팀), GC safety directors ('your hardest no'), and owner contracts. Sequence union and legal first.",
+      "evidence": "10/10 named at least one non-buyer veto; Tommy: 'come to the union first, not the GC'.",
+      "confidence": "High"
+    },
+    {
+      "step": "Step 13 — Customer Acquisition Process",
+      "area": "Business Model",
+      "recommendation": "Plan for a 3-6 month security and procurement cycle and November budget deadlines. Put SOC 2/ISMS-P, SSO, data residency and demob-retention answers in the sales kit.",
+      "evidence": "Approval timelines: Carlos 3 mo, Marcus 7 wk-5 mo, Priya 4.5 mo, Park 5 mo, Bob 3-6 mo, Dale 4 mo (6/6).",
+      "confidence": "High"
+    },
+    {
+      "step": "Step 15 — Business Model",
+      "area": "Business Model",
+      "recommendation": "Keep a flat, all-employer fee with unlimited reporters. If there's a 'resident' tier, license reviewers and owners only, and say so explicitly.",
+      "evidence": "Per-seat rejected 6/6; '200 residents' scope confusion 8/10; Carlos and Park proposed exactly this.",
+      "confidence": "High"
+    },
+    {
+      "step": "Step 16 — Pricing Framework",
+      "area": "Business Model",
+      "recommendation": "Drop the $150k base. Test a ~$35k-$60k single-project or division pilot, expanding to ~$90k-$120k full site with integration included, and a portfolio rate. Retire the $24k price: it's below Bob's too-cheap line and just above Priya's. Reconcile the deck ($24k) with the brief ($150k).",
+      "evidence": "WTP points median $95k; bargain median $37.5k; 3/6 buyers doubted vendor viability at $24k.",
+      "confidence": "Medium"
+    },
+    {
+      "step": "Step 17 — Lifetime Value",
+      "area": "Business Model",
+      "recommendation": "Model LTV on project duration (about 20 months to 4 years), renewal risk (Bob won't renew his cameras) and portfolio discounts. Price in data export and retention at demob as a paid obligation.",
+      "evidence": "Carlos, Marcus, Park and Tommy raised data at demob; Marcus expects a portfolio rate; Bob's camera renewal is at risk.",
+      "confidence": "Low"
+    },
+    {
+      "step": "Step 19/20 — Key Assumptions (identify)",
+      "area": "Other",
+      "recommendation": "Add new KAs: technical anonymity is achievable in small crews (voice, photo and location identify people); reviewers have night and weekend capacity; an owner-held queue is legally acceptable; 'project' is the purchasing unit (fails in Korea). Restate KA4 as consequence first, seconds second.",
+      "evidence": "Nguyen, Jamal and Elena on identifiability; reviewer 9/10; Bob and Park on legal; Park on the unit; Tommy and KA4 at 44% V.",
+      "confidence": "High"
+    },
+    {
+      "step": "Step 21 — Test Key Assumptions",
+      "area": "Other",
+      "recommendation": "Run real-human interviews with forepersons, GC safety coordinators (reviewers), stewards and BAs, night-shift foremen, travelers, and migrant workers recruited independently. Collect a 2-week baseline of triage time and cross-employer time to close before any pilot.",
+      "evidence": "Every site-management and buyer respondent flagged their crew-level answers as secondhand; the P9 referrals converge on these roles.",
+      "confidence": "High"
+    },
+    {
+      "step": "Step 22 — MVBP",
+      "area": "Value Proposition",
+      "recommendation": "Define the MVBP as the cross-employer closure loop for one bounded area: no-login reporting, reviewer queue, verified close, reporter receipt, plus one live integration. Leave out rule Q&A and gamification.",
+      "evidence": "Unmet need 10/10; recognition and leaderboards were ridiculed (Jamal, Tommy); rule Q&A is the top fear for Priya.",
+      "confidence": "Medium"
+    }
+  ]
+}

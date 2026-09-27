@@ -1,0 +1,1847 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SAiFETY Talk PMR Dashboard</title>
+<meta name="description" content="Synthetic primary market research dashboard: 10 persona interviews scored against 12 Step 20 key assumptions, WTP and objections.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#f3f4f7; --surface:#ffffff; --surface-2:#eceef3; --ink:#131a2b; --ink-2:#48526a; --muted:#737c90;
+  --line:#dde1e9; --line-2:#c7ccd8; --band:#131a2b; --band-ink:#ffffff; --band-ink-2:#aab3c5;
+  --accent:#e4531b; --accent-ink:#b5400e; --amber:#f2a100; --amber-ink:#8a5a00;
+  --good:#0ca30c; --good-ink:#006300; --warn:#fab219; --warn-ink:#7a5200; --crit:#d03b3b; --crit-ink:#a82424;
+  --s1:#2a78d6; --s2:#eb6834; --wash:rgba(42,120,214,.10);
+  --shadow:0 1px 2px rgba(19,26,43,.06),0 4px 16px rgba(19,26,43,.05);
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#0d1220; --surface:#151c2d; --surface-2:#1c2437; --ink:#eef1f7; --ink-2:#b4bdcd; --muted:#8a93a7;
+    --line:#28324a; --line-2:#36415c; --band:#0a0f1b; --band-ink:#ffffff; --band-ink-2:#9aa4b8;
+    --accent:#ff6a2b; --accent-ink:#ff8b57; --amber:#f5a300; --amber-ink:#f5b53d;
+    --good-ink:#2fc22f; --warn-ink:#f5c04a; --crit-ink:#f07a7a;
+    --s1:#3987e5; --s2:#d95926; --wash:rgba(57,135,229,.14);
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#0d1220; --surface:#151c2d; --surface-2:#1c2437; --ink:#eef1f7; --ink-2:#b4bdcd; --muted:#8a93a7;
+  --line:#28324a; --line-2:#36415c; --band:#0a0f1b; --band-ink:#ffffff; --band-ink-2:#9aa4b8;
+  --accent:#ff6a2b; --accent-ink:#ff8b57; --amber:#f5a300; --amber-ink:#f5b53d;
+  --good-ink:#2fc22f; --warn-ink:#f5c04a; --crit-ink:#f07a7a;
+  --s1:#3987e5; --s2:#d95926; --wash:rgba(57,135,229,.14);
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--body)}
+a{color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+header.band{background:var(--band);color:var(--band-ink);padding-block:36px 30px}
+header.band .eyebrow{font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--band-ink-2);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+header.band .eyebrow .mark{display:inline-block;width:14px;height:14px;border-radius:3px 3px 3px 0;background:var(--accent)}
+header.band h1{font:800 clamp(30px,5vw,48px)/1.05 var(--display);letter-spacing:-.01em;margin:14px 0 10px;text-wrap:balance}
+header.band h1 em{font-style:normal;color:var(--accent)}
+header.band p.lede{max-width:70ch;color:var(--band-ink-2);margin:0;font-size:15.5px}
+header.band .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+header.band .meta span{font:500 12px/1 var(--mono);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 11px;color:var(--band-ink)}
+.caveat{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:8px;padding:14px 16px;margin-block:22px 8px;color:var(--ink-2);font-size:14px}
+.caveat b{color:var(--ink)}
+.caveat svg{flex:none;margin-top:2px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:8px;scrollbar-width:thin}
+nav.toc a{flex:none;font:500 12.5px/1 var(--body);color:var(--ink-2);text-decoration:none;padding:8px 10px;border-radius:6px;white-space:nowrap}
+nav.toc a:hover{background:var(--surface-2);color:var(--ink)}
+main{padding-block:10px 60px}
+h2{font:800 26px/1.15 var(--display);margin:48px 0 14px;letter-spacing:-.005em;text-wrap:balance;scroll-margin-top:64px}
+h2 .kicker{display:block;font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:10px}
+h3{font:700 19px/1.25 var(--display);margin:34px 0 10px;text-wrap:balance;scroll-margin-top:64px}
+h4{font:600 13px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:26px 0 10px}
+p,li{max-width:78ch}
+ul{padding-left:20px}
+li{margin-block:4px}
+hr{border:0;border-top:1px solid var(--line);margin-block:36px}
+strong{font-weight:600}
+code{font:13px var(--mono);background:var(--surface-2);padding:1px 5px;border-radius:4px}
+.tbl{overflow-x:auto;margin-block:12px 18px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font:600 11.5px/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);background:var(--surface-2)}
+table.wide{min-width:1080px}
+table.wide td:last-child{min-width:240px}
+tr:last-child td{border-bottom:0}
+td{font-variant-numeric:tabular-nums}
+blockquote{margin:12px 0;padding:14px 18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;position:relative}
+blockquote p{margin:0}
+blockquote p:first-child{font-size:15.5px;color:var(--ink)}
+blockquote p + p{margin-top:6px;color:var(--muted);font-size:12.5px;font-family:var(--mono)}
+.badge{display:inline-flex;align-items:center;gap:6px;font:600 11.5px/1 var(--mono);letter-spacing:.02em;padding:5px 9px 5px 7px;border-radius:999px;white-space:nowrap;border:1px solid}
+.badge::before{content:"";width:8px;height:8px;border-radius:50%}
+.badge.good{color:var(--good-ink);border-color:color-mix(in srgb,var(--good) 45%,transparent);background:color-mix(in srgb,var(--good) 10%,transparent)}
+.badge.good::before{background:var(--good)}
+.badge.warn{color:var(--warn-ink);border-color:color-mix(in srgb,var(--warn) 60%,transparent);background:color-mix(in srgb,var(--warn) 14%,transparent)}
+.badge.warn::before{background:var(--warn);border-radius:1px;transform:rotate(45deg);width:7px;height:7px}
+.badge.crit{color:var(--crit-ink);border-color:color-mix(in srgb,var(--crit) 45%,transparent);background:color-mix(in srgb,var(--crit) 10%,transparent)}
+.badge.crit::before{background:var(--crit);border-radius:1px}
+.badge.neutral{color:var(--ink-2);border-color:var(--line-2);background:var(--surface-2)}
+.badge.neutral::before{background:var(--muted)}
+.chip{display:inline-grid;place-items:center;min-width:26px;height:22px;border-radius:5px;font:600 12px/1 var(--mono)}
+.chip.V{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good-ink)}
+.chip.P{background:color-mix(in srgb,var(--warn) 24%,transparent);color:var(--warn-ink)}
+.chip.I{background:color-mix(in srgb,var(--crit) 18%,transparent);color:var(--crit-ink)}
+.chip.NA{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:14px}
+.kpis{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin-block:18px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.kpi .label{font:500 12px/1.3 var(--body);color:var(--ink-2)}
+.kpi .value{font:700 30px/1.05 var(--display);color:var(--ink)}
+.kpi .sub{font-size:12.5px;color:var(--muted);line-height:1.4}
+.kpi .value small{font-size:15px;color:var(--muted);font-weight:600}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:14px;margin-block:18px;align-items:start}
+@media (max-width:760px){.hero{grid-template-columns:1fr}}
+.hero .card h3{margin-top:0}
+.need{background:var(--band);color:var(--band-ink);border-color:transparent}
+.need .eyebrow{font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.need p{color:var(--band-ink);font-size:17px;line-height:1.5;margin:10px 0 0;font-family:var(--display);font-weight:600}
+.need .n{font:800 44px/1 var(--display);color:var(--amber);margin-top:14px}
+.need .n span{font:500 13px var(--body);color:var(--band-ink-2);margin-left:8px}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-block:12px 18px}
+.chart .ctitle{font:600 14px/1.3 var(--body);margin:0 0 2px}
+.chart .csub{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--ink-2);margin:0 0 10px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+.legend i.line{height:2px;border-radius:1px;vertical-align:3px;width:16px}
+.legend i.dot{border-radius:50%}
+.bars{display:grid;gap:10px}
+.brow{display:grid;grid-template-columns:minmax(120px,260px) minmax(0,1fr) auto;gap:12px;align-items:center}
+@media (max-width:620px){.brow{grid-template-columns:1fr auto}.brow .blabel{grid-column:1 / -1}}
+.blabel{font-size:13px;color:var(--ink);line-height:1.3}
+.blabel b{font-family:var(--mono);font-weight:600;color:var(--ink-2);margin-right:6px}
+.track{display:flex;gap:2px;height:14px;border-radius:4px;overflow:hidden;background:var(--surface-2)}
+.seg{height:100%;min-width:0;cursor:default}
+.seg:hover,.seg:focus{filter:brightness(1.12)}
+.seg.V{background:var(--good)} .seg.P{background:var(--warn)} .seg.I{background:var(--crit)} .seg.NA{background:transparent}
+.bval{font:500 12.5px/1 var(--mono);color:var(--ink-2);white-space:nowrap;text-align:right}
+.hbar{height:12px;border-radius:0 4px 4px 0;background:var(--s1)}
+.hbar:hover,.hbar:focus{filter:brightness(1.12)}
+svg text{font-family:var(--mono);font-size:11px;fill:var(--muted)}
+svg .lbl{fill:var(--ink-2);font-family:var(--body);font-size:12px}
+svg .lbl-strong{fill:var(--ink);font-family:var(--body);font-size:12.5px;font-weight:600}
+svg .grid{stroke:var(--line);stroke-width:1}
+svg .axis{stroke:var(--line-2);stroke-width:1}
+svg .ref{stroke:var(--accent);stroke-width:1.5}
+svg .reftext{fill:var(--accent-ink);font-weight:500}
+svg .range{stroke:var(--line-2);stroke-width:2;stroke-linecap:round}
+svg .band{fill:var(--wash)}
+svg .m1{fill:var(--s1);stroke:var(--surface);stroke-width:2}
+svg .m2{fill:var(--s2);stroke:var(--surface);stroke-width:2}
+svg .hollow{fill:var(--surface);stroke:var(--s1);stroke-width:2}
+svg .hollow2{fill:var(--surface);stroke:var(--s2);stroke-width:2}
+svg .hollow0{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+svg .medtick{stroke:var(--ink);stroke-width:2;stroke-linecap:round}
+svg .tick{stroke:var(--ink-2);stroke-width:2;stroke-linecap:round}
+svg .col{fill:var(--s1)}
+svg .hit{fill:transparent;cursor:default}
+svg .hit:hover + .col, svg .col:hover{filter:brightness(1.12)}
+#tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--surface);padding:8px 10px;border-radius:6px;font:12.5px/1.35 var(--body);max-width:280px;box-shadow:0 4px 18px rgba(0,0,0,.2);opacity:0;transition:opacity .08s}
+#tip b{display:block;font:600 14px/1.2 var(--display);margin-bottom:2px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:14px}
+.muted{color:var(--muted)}
+.small{font-size:12.5px}
+.foot{border-top:1px solid var(--line);margin-top:40px;padding-block:22px;color:var(--muted);font-size:12.5px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{nav.toc{display:none}header.band{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header class="band"><div class="wrap">
+<div class="eyebrow"><span class="mark" aria-hidden="true"></span>A BuiltNOVA platform · Synthetic PMR · Step 20 test</div>
+<h1>Crew speaks up. <em>Does the buyer pay?</em></h1>
+<p class="lede">Synthesis of 10 synthetic stakeholder interviews for SAiFETY Talk (a BuiltNOVA platform), an AI-triage frontline safety reporting and closure platform for mega industrial construction and shipbuilding. Prepared under the Disciplined Entrepreneurship framework. The analysis is deliberately skeptical: conditional support is scored as partial, and weak evidence is labeled as weak.</p>
+<div class="meta"><span>N = 10 synthetic interviews</span><span>12 key assumptions</span><span>6 buyer-grade WTP ladders</span><span>Split-anchor pricing</span><span>27 Sept 2026</span></div>
+</div></header>
+<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#at-a-glance">At a glance</a><a href="#executive-summary">Executive Summary</a><a href="#study-design-summary">Study design</a><a href="#a-quantitative-synthesis">Quantitative</a><a href="#b-qualitative-synthesis">Qualitative</a><a href="#implications">Implications</a><a href="#a1-key-assumption-scorecard">A1 Scorecard</a><a href="#a3-willingness-to-pay-buyer-grade-respondents-only">A3 WTP</a><a href="#a4-objections-ranked">A4 Objections</a><a href="#b2-recurring-field-language-and-trade-jargon">B2 Jargon</a></div></nav>
+<main><div class="wrap">
+<div class="caveat" role="note"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 21h20L12 3z" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v5M12 18h.01" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"/></svg><div><b>Synthetic research caveat.</b> Synthetic primary market research is a rapid simulation tool for stress-testing business assumptions and refining interview instruments. Because synthetic agents cannot reliably predict real-world human behavior or purchasing decisions, all findings must be validated through direct interviews with real human stakeholders.</div></div>
+<h2 id="at-a-glance"><span class="kicker">Summary</span>At a glance</h2><div class="grid kpis"><div class="kpi"><div class="label">Assumptions validated</div><div class="value">6<small> / 12</small></div><div class="sub">Problem side: KA1, KA3, KA5, KA8, KA10, KA11</div></div><div class="kpi"><div class="label">Partially validated</div><div class="value">6<small> / 12</small></div><div class="sub">KA6, KA7 and KA12 have zero full validations</div></div><div class="kpi"><div class="label">Invalidated</div><div class="value">0<small> / 12</small></div><div class="sub">No assumption failed outright</div></div><div class="kpi"><div class="label">Median WTP point</div><div class="value">$95k</div><div class="sub">“Getting expensive” figure, 6 buyers · mean $98.8k</div></div><div class="kpi"><div class="label">Accept $150k as-is</div><div class="value">0<small> / 6</small></div><div class="sub">4 conditional · 2 reject</div></div><div class="kpi"><div class="label">Prefer project pricing</div><div class="value">6<small> / 6</small></div><div class="sub">Per-seat rejected by every buyer</div></div></div><div class="hero"><div class="card"><h3>Share fully validated, by assumption</h3><p class="small muted">Validated respondents ÷ applicable n. Verdict line is 60%.</p><div class="bars"><div class="brow"><div class="blabel"><b>KA3</b>Hazard signals stay verbal</div><div class="track" aria-hidden="true"><div class="seg V" style="width:100.0%"></div></div><div class="bval">100% V</div></div><div class="brow"><div class="blabel"><b>KA11</b>Project pricing beats per-seat</div><div class="track" aria-hidden="true"><div class="seg V" style="width:100.0%"></div></div><div class="bval">100% V</div></div><div class="brow"><div class="blabel"><b>KA10</b>Nobody owns cross-contract closure</div><div class="track" aria-hidden="true"><div class="seg V" style="width:90.0%"></div></div><div class="bval">90% V</div></div><div class="brow"><div class="blabel"><b>KA8</b>SIMOPS conflicts drive stoppages</div><div class="track" aria-hidden="true"><div class="seg V" style="width:80.0%"></div></div><div class="bval">80% V</div></div><div class="brow"><div class="blabel"><b>KA5</b>Lag &amp; mis-routing is the main break</div><div class="track" aria-hidden="true"><div class="seg V" style="width:70.0%"></div></div><div class="bval">70% V</div></div><div class="brow"><div class="blabel"><b>KA1</b>Blame/retaliation fear blocks reporting</div><div class="track" aria-hidden="true"><div class="seg V" style="width:60.0%"></div></div><div class="bval">60% V</div></div><div class="brow"><div class="blabel"><b>KA9</b>Safety delays are schedule delays</div><div class="track" aria-hidden="true"><div class="seg V" style="width:50.0%"></div></div><div class="bval">50% V</div></div><div class="brow"><div class="blabel"><b>KA4</b>30-second friction threshold</div><div class="track" aria-hidden="true"><div class="seg V" style="width:44.4%"></div></div><div class="bval">44% V</div></div><div class="brow"><div class="blabel"><b>KA2</b>Visible closure sustains participation</div><div class="track" aria-hidden="true"><div class="seg V" style="width:20.0%"></div></div><div class="bval">20% V</div></div><div class="brow"><div class="blabel"><b>KA6</b>Reviewer can triage in ~1 click</div><div class="track" aria-hidden="true"><div class="seg V" style="width:0.0%"></div></div><div class="bval">0% V</div></div><div class="brow"><div class="blabel"><b>KA7</b>Trust in labeled, human-reviewed routing</div><div class="track" aria-hidden="true"><div class="seg V" style="width:0.0%"></div></div><div class="bval">0% V</div></div><div class="brow"><div class="blabel"><b>KA12</b>WTP $75k-$225k/project-yr ($150k base)</div><div class="track" aria-hidden="true"><div class="seg V" style="width:0.0%"></div></div><div class="bval">0% V</div></div></div></div><div class="card need"><div class="eyebrow">Single biggest unmet operational need</div><p>Independently verified, cross-employer closure that gets back to the finder. When one company&#x27;s crew spots a hazard another company created, nobody today assigns a named owner fast, verifies the fix in the field (instead of accepting a status click or a recycled photo), and tells the person who saw it.</p><div class="n">10/10<span>respondents described it, across every role and both markets</span></div></div></div><h2 id="executive-summary"><span class="kicker">Headlines</span>Executive Summary</h2>
+<ul>
+<li>The problem is real and specific. The price is not. Hazard signals staying verbal (KA3) was validated 10/10, unowned cross-employer closure (KA10) 9/10 and mis-routing/lag (KA5) 7/10. But 0 of 6 buyer-grade respondents accept $150,000 per project-year as-is (4 conditional, 2 reject). The median 'getting expensive' point is $95,000, and only Bob's WTP point is at or above $150k.</li>
+<li>The deck's $24,000 price does not rescue it. Only 2 of 6 buyers would accept it. 8 of 10 respondents read '~200 residents' as leaving out the craft who actually see hazards, and 3 buyers (Marcus, Priya, Bob) said the low price made them doubt the vendor would survive.</li>
+<li>Consequences matter more than seconds. KA4 (the 30-second threshold) is only 44% validated, and the union steward rejected it outright. For Korean migrant crews the barrier is language plus phone bans inside blocks. Identity exposure was raised by 8 of 10. Speed is necessary but not sufficient.</li>
+<li>The AI-triage core is the least-validated claim. KA6 (1-click review) scored 0 of 4 Validated and KA7 (trust in labeled, human-reviewed routing) 0 of 10 (8 conditional, 2 reject). 9 of 10 raised the human-review bottleneck (who reviews, at night, without rubber-stamping) or volume overload. 'A person always reviews' is table stakes, not a differentiator.</li>
+<li>Records cut both ways. 7 of 10 raised discoverability: Carlos's deposition fear, Park's SAPA 'exhibit A', Bob's controlling-employer exposure. A tool that records hazards faster than they are closed creates evidence against the buyer. Actions and interim measures have to sit next to every finding.</li>
+<li>Buyers think in stoppages but won't pay on them. KA9 is only 50% validated. None of the respondents' organizations track stoppage hours or tie LDs to hazards, and Marcus and Bob said 12 weeks can't show it. Measurable value today is triage and reconciliation hours plus time to verified close.</li>
+<li>The real competitor is a person. WTP ceilings cluster at the loaded cost of a safety coordinator or field rep ($160k-$200k), and 7 of 10 said the money would be better spent on people or physical controls.</li>
+<li>Split-anchor result (directional only, n=3 per arm): the <strong>low-first</strong> arm reported <em>higher</em> WTP points (median $120k vs $58k), the opposite of a classic anchoring effect. This is confounded by budget authority (Bob and Priya's owner-side budgets are in arm B; Dale, the schedule-first skeptic, and the Korean division lead are in arm A).</li>
+</ul>
+<hr /><h2 id="study-design-summary"><span class="kicker">Method</span>Study Design Summary</h2>
+<ul>
+<li><strong>Sample:</strong> N = 10 synthetic respondents: 4 frontline, 3 site management, 3 buyers. 8 North America, 2 Korea (pilot market). 3 union members.</li>
+<li><strong>Simulated interview date:</strong> 2026-09-27 for all ten. Durations 44-55 minutes. Park and Nguyen were interviewed through interpreters (Korean and Vietnamese).</li>
+<li><strong>Instrument:</strong> Step 20 Key Assumptions and unbiased interview script: warm-up W1-W5, core assessment C1-C12 (ranked riskiest first), Korea module K1-K2 (Park, Nguyen), then the concept and willingness-to-pay section P1-P9. The concept was not mentioned until Section 3. A neutral concept statement was read verbatim. P6 is a Van Westendorp price ladder.</li>
+<li><strong>Split-anchor design (P5/P5b):</strong> Group A (high-first: $150,000 then $24,000) = Carlos, Dale, Park, plus frontline Elena and Jamal. Group B (low-first: $24,000 then $150,000) = Priya, Marcus, Bob, plus frontline Tommy and Nguyen. Frontline heard both figures inside a single P8 question, so the anchor split effectively does not apply to them.</li>
+<li><strong>Pricing discrepancy to resolve:</strong> Deck slide 9 prices at <strong>$24,000 per project-year</strong> (200 residents x $10/user/month) and describes $150,000 as a <em>two-year discretionary HSE budget</em> on a $500M EPC project. The founder brief tests a <strong>$150,000/year base</strong> (range $75k-$225k). Both anchors were tested. The deck also says 'per project, not per seat' while deriving its price from a per-seat formula, and respondents noticed (see Surprises).</li>
+</ul>
+<h3 id="respondent-roster">Respondent roster</h3>
+<div class="tbl"><table class="wide">
+<thead>
+<tr>
+<th>#</th>
+<th>Name</th>
+<th>Role</th>
+<th>DMU role</th>
+<th>Segment</th>
+<th>Anchor</th>
+<th>Market</th>
+<th>Union</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Elena Rodriguez</td>
+<td>Electrical foreperson (IBEW Local 640), $12B semiconductor fab, AZ</td>
+<td>End user (Step 5 persona)</td>
+<td>Frontline</td>
+<td>A</td>
+<td>NA</td>
+<td>Yes</td>
+<td>~50 min</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Carlos Mendes</td>
+<td>Site Safety Manager (CHST/ASP), GC, $3.1B EV battery cell plant, GA</td>
+<td>Champion</td>
+<td>Site management</td>
+<td>A</td>
+<td>NA</td>
+<td>No</td>
+<td>~50 min</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Marcus Lee</td>
+<td>Regional EHS Director, global EPC, 4 hyperscale data center campuses + 1 fab package</td>
+<td>Economic buyer / influencer</td>
+<td>Buyer</td>
+<td>B</td>
+<td>NA</td>
+<td>No</td>
+<td>~50 min</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dale Kowalski</td>
+<td>General Superintendent, GC, $1.8B hyperscale data center, VA</td>
+<td>End user (supervisor) / veto</td>
+<td>Site management</td>
+<td>A</td>
+<td>NA</td>
+<td>No</td>
+<td>~44 min (ended P9 early)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Priya Natarajan</td>
+<td>SIMOPS &amp; Interface Planning Lead, Owner's CM, $6.5B LNG terminal, LA</td>
+<td>Influencer / power user</td>
+<td>Site management</td>
+<td>B</td>
+<td>NA</td>
+<td>No</td>
+<td>~50 min</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Tommy Briggs</td>
+<td>Ironworker general foreman &amp; union steward (Local 172), $20B semiconductor campus, OH</td>
+<td>Veto (labor)</td>
+<td>Frontline</td>
+<td>B</td>
+<td>NA</td>
+<td>Yes</td>
+<td>~50 min (notes only)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Jamal Carter</td>
+<td>Journeyman pipefitter (UA Local 350, traveler), $2.4B battery materials plant, NV</td>
+<td>End user (crew)</td>
+<td>Frontline</td>
+<td>A</td>
+<td>NA</td>
+<td>Yes</td>
+<td>~45 min</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Park Ji-hoon</td>
+<td>HSE Team Lead (안전보건팀장), Korean prime shipbuilder, hull block &amp; outfitting division</td>
+<td>Pilot champion + gatekeeper (SAPA, purchasing, IT security)</td>
+<td>Buyer</td>
+<td>A</td>
+<td>KR</td>
+<td>No</td>
+<td>~55 min (via Korean interpreter)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Nguyen Van Minh</td>
+<td>FCAW welder, tier-2 in-house subcontractor (E-9 visa), Korean shipyard</td>
+<td>End user (pilot market)</td>
+<td>Frontline</td>
+<td>B</td>
+<td>KR</td>
+<td>No</td>
+<td>~45 min (via Vietnamese interpreter)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Robert "Bob" Hayes</td>
+<td>Project Director, owner-developer, $4.5B hyperscale campus, TX</td>
+<td>Economic buyer</td>
+<td>Buyer</td>
+<td>B</td>
+<td>NA</td>
+<td>No</td>
+<td>~45 min</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="scoring-rubric">Scoring rubric</h3>
+<ul>
+<li><strong>V (Validated):</strong> the respondent volunteered the behavior or pain <em>before</em> the concept, with a specific recent example. For concept-stage assumptions (KA7, KA11, KA12), V means clear, unconditional support.</li>
+<li><strong>P (Partially validated):</strong> the pain exists but is weaker, conditional, secondhand without a specific example, or only confirmed after probing.</li>
+<li><strong>I (Invalidated):</strong> the respondent contradicts the assumption, or it doesn't apply to their reality.</li>
+<li><strong>N/A (shown as – in the matrix):</strong> not asked, or not applicable to the role. KA6 applies only to people who actually triage observations. KA11 and KA12 apply only to buyer-grade respondents. Bob declined to estimate crew reporting time (KA4). N/A is excluded from the denominator.</li>
+<li><strong>Verdict rule (applied mechanically):</strong> Validated if V ≥ 60% of applicable n. Invalidated if I ≥ 50%, or if V+P &lt; 40%. Otherwise Partially Validated.</li>
+<li><strong>Judgment calls, stated openly:</strong> KA9 is scored on the whole claim. Frontline respondents get V if they gave a known hazard → stoppage → schedule example. Buyers get V only if they also frame value in stoppage or float terms. KA8 gets V for frequent SIMOPS stoppages with a time cost; Dale gets P because he explicitly said they usually don't hit the critical path. KA2 gets V only where there is positive evidence that visible closure sustains reporting, not just that gamification fails.</li>
+<li><strong>WTP:</strong> scored only for the six buyer-grade respondents. Frontline answers are recorded as perceived value.</li>
+</ul><h2 id="a-quantitative-synthesis"><span class="kicker">Scores</span>(a) Quantitative Synthesis</h2>
+<h3 id="a1-key-assumption-scorecard">A1. Key Assumption Scorecard</h3><div class="chart"><p class="ctitle">Scoring mix per key assumption</p><p class="csub">Each bar is 100% of applicable respondents (N/A excluded). Hover or focus a segment for counts.</p><div class="legend"><span><i style="background:var(--good)"></i>Validated</span><span><i style="background:var(--warn)"></i>Partially validated</span><span><i style="background:var(--crit)"></i>Invalidated</span></div><div class="bars"><div class="brow"><div class="blabel"><b>KA1</b>Blame/retaliation fear blocks reporting</div><div class="track"><div class="seg V" tabindex="0" style="width:60.00%" data-tip="6 of 10|KA1 · Validated · 60%"></div><div class="seg P" tabindex="0" style="width:40.00%" data-tip="4 of 10|KA1 · Partially validated · 40%"></div></div><div class="bval">n=10 &nbsp;<span class="badge good">Validated</span></div></div><div class="brow"><div class="blabel"><b>KA2</b>Visible closure sustains participation</div><div class="track"><div class="seg V" tabindex="0" style="width:20.00%" data-tip="2 of 10|KA2 · Validated · 20%"></div><div class="seg P" tabindex="0" style="width:80.00%" data-tip="8 of 10|KA2 · Partially validated · 80%"></div></div><div class="bval">n=10 &nbsp;<span class="badge warn">Partially Validated</span></div></div><div class="brow"><div class="blabel"><b>KA3</b>Hazard signals stay verbal</div><div class="track"><div class="seg V" tabindex="0" style="width:100.00%" data-tip="10 of 10|KA3 · Validated · 100%"></div></div><div class="bval">n=10 &nbsp;<span class="badge good">Validated</span></div></div><div class="brow"><div class="blabel"><b>KA4</b>30-second friction threshold</div><div class="track"><div class="seg V" tabindex="0" style="width:44.44%" data-tip="4 of 9|KA4 · Validated · 44%"></div><div class="seg P" tabindex="0" style="width:44.44%" data-tip="4 of 9|KA4 · Partially validated · 44%"></div><div class="seg I" tabindex="0" style="width:11.11%" data-tip="1 of 9|KA4 · Invalidated · 11%"></div></div><div class="bval">n=9 · N/A 1 &nbsp;<span class="badge warn">Partially Validated</span></div></div><div class="brow"><div class="blabel"><b>KA5</b>Lag &amp; mis-routing is the main break</div><div class="track"><div class="seg V" tabindex="0" style="width:70.00%" data-tip="7 of 10|KA5 · Validated · 70%"></div><div class="seg P" tabindex="0" style="width:30.00%" data-tip="3 of 10|KA5 · Partially validated · 30%"></div></div><div class="bval">n=10 &nbsp;<span class="badge good">Validated</span></div></div><div class="brow"><div class="blabel"><b>KA6</b>Reviewer can triage in ~1 click</div><div class="track"><div class="seg P" tabindex="0" style="width:100.00%" data-tip="4 of 4|KA6 · Partially validated · 100%"></div></div><div class="bval">n=4 · N/A 6 &nbsp;<span class="badge warn">Partially Validated</span></div></div><div class="brow"><div class="blabel"><b>KA7</b>Trust in labeled, human-reviewed routing</div><div class="track"><div class="seg P" tabindex="0" style="width:80.00%" data-tip="8 of 10|KA7 · Partially validated · 80%"></div><div class="seg I" tabindex="0" style="width:20.00%" data-tip="2 of 10|KA7 · Invalidated · 20%"></div></div><div class="bval">n=10 &nbsp;<span class="badge warn">Partially Validated</span></div></div><div class="brow"><div class="blabel"><b>KA8</b>SIMOPS conflicts drive stoppages</div><div class="track"><div class="seg V" tabindex="0" style="width:80.00%" data-tip="8 of 10|KA8 · Validated · 80%"></div><div class="seg P" tabindex="0" style="width:20.00%" data-tip="2 of 10|KA8 · Partially validated · 20%"></div></div><div class="bval">n=10 &nbsp;<span class="badge good">Validated</span></div></div><div class="brow"><div class="blabel"><b>KA9</b>Safety delays are schedule delays</div><div class="track"><div class="seg V" tabindex="0" style="width:50.00%" data-tip="5 of 10|KA9 · Validated · 50%"></div><div class="seg P" tabindex="0" style="width:50.00%" data-tip="5 of 10|KA9 · Partially validated · 50%"></div></div><div class="bval">n=10 &nbsp;<span class="badge warn">Partially Validated</span></div></div><div class="brow"><div class="blabel"><b>KA10</b>Nobody owns cross-contract closure</div><div class="track"><div class="seg V" tabindex="0" style="width:90.00%" data-tip="9 of 10|KA10 · Validated · 90%"></div><div class="seg P" tabindex="0" style="width:10.00%" data-tip="1 of 10|KA10 · Partially validated · 10%"></div></div><div class="bval">n=10 &nbsp;<span class="badge good">Validated</span></div></div><div class="brow"><div class="blabel"><b>KA11</b>Project pricing beats per-seat</div><div class="track"><div class="seg V" tabindex="0" style="width:100.00%" data-tip="6 of 6|KA11 · Validated · 100%"></div></div><div class="bval">n=6 · N/A 4 &nbsp;<span class="badge good">Validated</span></div></div><div class="brow"><div class="blabel"><b>KA12</b>WTP $75k-$225k/project-yr ($150k base)</div><div class="track"><div class="seg P" tabindex="0" style="width:66.67%" data-tip="4 of 6|KA12 · Partially validated · 67%"></div><div class="seg I" tabindex="0" style="width:33.33%" data-tip="2 of 6|KA12 · Invalidated · 33%"></div></div><div class="bval">n=6 · N/A 4 &nbsp;<span class="badge warn">Partially Validated</span></div></div></div></div>
+<div class="tbl"><table class="wide">
+<thead>
+<tr>
+<th>KA</th>
+<th>Assumption</th>
+<th>V</th>
+<th>P</th>
+<th>I</th>
+<th>N/A</th>
+<th>Applicable n</th>
+<th>%V</th>
+<th>%V+P</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KA1</td>
+<td>Fear of blame/retaliation is a major reason hazards go unreported. Workers will report if the channel feels safe (anonymity options, no discipline).</td>
+<td>6</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>60.0%</td>
+<td>100.0%</td>
+<td><span class="badge good">Validated</span></td>
+</tr>
+<tr>
+<td>KA2</td>
+<td>Visible closure sustains participation. Workers keep reporting when they see action, not because of points or gamification (W12 retention &gt;= 40%).</td>
+<td>2</td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>20.0%</td>
+<td>100.0%</td>
+<td><span class="badge warn">Partially Validated</span></td>
+</tr>
+<tr>
+<td>KA3</td>
+<td>Workers spot hazards first, but signals stay verbal. Radio, hallway talk, chat and paper never reach an accountable owner in usable form.</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td><span class="badge good">Validated</span></td>
+</tr>
+<tr>
+<td>KA4</td>
+<td>Crews will report if voice/photo/text in their own language takes &lt;= 30 s. Beyond that, reporting collapses.</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>9</td>
+<td>44.4%</td>
+<td>88.9%</td>
+<td><span class="badge warn">Partially Validated</span></td>
+</tr>
+<tr>
+<td>KA5</td>
+<td>Manager response lag and mis-routing (late, incomplete, duplicated, wrong team) is the main break in today's loop, more than detection.</td>
+<td>7</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>70.0%</td>
+<td>100.0%</td>
+<td><span class="badge good">Validated</span></td>
+</tr>
+<tr>
+<td>KA6</td>
+<td>Site HSE reviewer can triage in ~1 click. Confirming an AI-suggested category, owner and severity is fast and accurate enough (&gt;= 95% acceptance).</td>
+<td>0</td>
+<td>4</td>
+<td>0</td>
+<td>6</td>
+<td>4</td>
+<td>0.0%</td>
+<td>100.0%</td>
+<td><span class="badge warn">Partially Validated</span></td>
+</tr>
+<tr>
+<td>KA7</td>
+<td>Supervisors, stewards and owners will accept AI-suggested routing if it is labeled and a human always reviews.</td>
+<td>0</td>
+<td>8</td>
+<td>2</td>
+<td>0</td>
+<td>10</td>
+<td>0.0%</td>
+<td>80.0%</td>
+<td><span class="badge warn">Partially Validated</span></td>
+</tr>
+<tr>
+<td>KA8</td>
+<td>SIMOPS / cross-trade interface conflicts are a frequent driver of stoppages and critical-path delay.</td>
+<td>8</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>80.0%</td>
+<td>100.0%</td>
+<td><span class="badge good">Validated</span></td>
+</tr>
+<tr>
+<td>KA9</td>
+<td>Safety delays are schedule delays. Economic buyers value hazard closure in terms of float, stoppage hours and LD exposure.</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td><span class="badge warn">Partially Validated</span></td>
+</tr>
+<tr>
+<td>KA10</td>
+<td>Nobody owns cross-contract closure. Existing tools (Procore, SafetyCulture, CV cameras, Avetta/ISN) don't close hazards across employer lines.</td>
+<td>9</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>90.0%</td>
+<td>100.0%</td>
+<td><span class="badge good">Validated</span></td>
+</tr>
+<tr>
+<td>KA11</td>
+<td>Project-level pricing beats per-seat on multi-employer sites where crews change weekly.</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+<td>6</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td><span class="badge good">Validated</span></td>
+</tr>
+<tr>
+<td>KA12</td>
+<td>WTP of $75k-$225k per project-year (test anchor: $150,000/yr base) from the project director / EHS director budget.</td>
+<td>0</td>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+<td>6</td>
+<td>0.0%</td>
+<td>66.7%</td>
+<td><span class="badge warn">Partially Validated</span></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Verdict arithmetic (V/n; I/n; (V+P)/n):</strong></p>
+<ul>
+<li><strong>KA1:</strong> 6/10 = 60.0% V; I = 0/10 = 0.0%; V+P = 10/10 = 100.0% → Validated.</li>
+<li><strong>KA2:</strong> 2/10 = 20.0% V; I = 0/10 = 0.0%; V+P = 10/10 = 100.0% → Partially Validated.</li>
+<li><strong>KA3:</strong> 10/10 = 100.0% V; I = 0/10 = 0.0%; V+P = 10/10 = 100.0% → Validated.</li>
+<li><strong>KA4:</strong> 4/9 = 44.4% V; I = 1/9 = 11.1%; V+P = 8/9 = 88.9% → Partially Validated.</li>
+<li><strong>KA5:</strong> 7/10 = 70.0% V; I = 0/10 = 0.0%; V+P = 10/10 = 100.0% → Validated.</li>
+<li><strong>KA6:</strong> 0/4 = 0.0% V; I = 0/4 = 0.0%; V+P = 4/4 = 100.0% → Partially Validated.</li>
+<li><strong>KA7:</strong> 0/10 = 0.0% V; I = 2/10 = 20.0%; V+P = 8/10 = 80.0% → Partially Validated.</li>
+<li><strong>KA8:</strong> 8/10 = 80.0% V; I = 0/10 = 0.0%; V+P = 10/10 = 100.0% → Validated.</li>
+<li><strong>KA9:</strong> 5/10 = 50.0% V; I = 0/10 = 0.0%; V+P = 10/10 = 100.0% → Partially Validated.</li>
+<li><strong>KA10:</strong> 9/10 = 90.0% V; I = 0/10 = 0.0%; V+P = 10/10 = 100.0% → Validated.</li>
+<li><strong>KA11:</strong> 6/6 = 100.0% V; I = 0/6 = 0.0%; V+P = 6/6 = 100.0% → Validated.</li>
+<li><strong>KA12:</strong> 0/6 = 0.0% V; I = 2/6 = 33.3%; V+P = 4/6 = 66.7% → Partially Validated.</li>
+</ul>
+<p><strong>Totals:</strong> 6 Validated, 6 Partially Validated, 0 Invalidated. The pattern is lopsided. The problem-side assumptions (KA3, KA5, KA8, KA10) pass. The solution-side assumptions (KA4, KA6, KA7) and the money-side assumptions (KA9, KA12) do not. KA11 passes only as a statement of pricing <em>structure</em>. KA1 passes at exactly the 60% threshold, and every buyer scored it only P. No assumption was formally invalidated, but KA6, KA7 and KA12 have <strong>zero</strong> V scores.</p>
+<p><strong>Korea pilot sub-assumptions (Park, Nguyen):</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Sub-assumption</th>
+<th>Park</th>
+<th>Nguyen</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Native-language voice is necessary for migrant subcontracted crews</td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td>Both volunteered it before the concept. Park: 'the problem is language'. Translation devices failed on yard slang.</td>
+</tr>
+<tr>
+<td>SAPA creates buyer urgency rather than fear of creating records</td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip NA">–</span></td>
+<td>Urgency is real (HQ audit finding on worker voice), but so is fear: open items are 'exhibit A' unless interim measures are recorded.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="a2-respondent-key-assumption-matrix">A2. Respondent × Key Assumption Matrix</h3>
+<div class="tbl"><table class="wide">
+<thead>
+<tr>
+<th>Respondent</th>
+<th>KA1</th>
+<th>KA2</th>
+<th>KA3</th>
+<th>KA4</th>
+<th>KA5</th>
+<th>KA6</th>
+<th>KA7</th>
+<th>KA8</th>
+<th>KA9</th>
+<th>KA10</th>
+<th>KA11</th>
+<th>KA12</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Elena</td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip NA">–</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip NA">–</span></td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>Carlos</td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+</tr>
+<tr>
+<td>Marcus</td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+</tr>
+<tr>
+<td>Dale</td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip NA">–</span></td>
+<td><span class="chip I">I</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip I">I</span></td>
+</tr>
+<tr>
+<td>Priya</td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+</tr>
+<tr>
+<td>Tommy</td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip I">I</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip NA">–</span></td>
+<td><span class="chip I">I</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip NA">–</span></td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>Jamal</td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip NA">–</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip NA">–</span></td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>Park</td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip I">I</span></td>
+</tr>
+<tr>
+<td>Nguyen</td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip NA">–</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip NA">–</span></td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>Bob</td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip NA">–</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip NA">–</span></td>
+<td><span class="chip P">P</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip V">V</span></td>
+<td><span class="chip P">P</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>Legend: V = Validated, P = Partially validated, I = Invalidated, – = not applicable or not asked.</p>
+<h3 id="a3-willingness-to-pay-buyer-grade-respondents-only">A3. Willingness to Pay (buyer-grade respondents only)</h3>
+<p>WTP point = each buyer's 'getting expensive but still worth considering' figure (annual, per project or equivalent unit).</p>
+<h4 id="van-westendorp-ladder-by-buyer">Van Westendorp ladder by buyer</h4><div class="chart"><p class="ctitle">Price ladder per buyer, annual (USD)</p><p class="csub">Line runs from “too cheap” to “too expensive”; shaded band is bargain → getting expensive. The filled dot is each buyer’s WTP point. Park’s figures are per division-year, converted from KRW.</p><div class="legend"><span><i class="dot" style="background:var(--s1)"></i>Anchor A (heard $150k first)</span><span><i class="dot" style="background:var(--s2)"></i>Anchor B (heard $24k first)</span><span><i class="dot" style="background:var(--surface);border:2px solid var(--ink-2)"></i>Bargain (hollow, arm color)</span><span><i class="line" style="background:var(--accent)"></i>Tested price points</span></div><div style="overflow-x:auto"><svg viewBox="0 0 920 378" width="100%" style="max-width:920px" role="img" aria-label="Van Westendorp price ladder per buyer"><line class="grid" x1="118.0" x2="118.0" y1="32" y2="352"/><text x="118.0" y="368" text-anchor="middle">$0</text><line class="grid" x1="229.1" x2="229.1" y1="32" y2="352"/><text x="229.1" y="368" text-anchor="middle">$50k</text><line class="grid" x1="340.3" x2="340.3" y1="32" y2="352"/><text x="340.3" y="368" text-anchor="middle">$100k</text><line class="grid" x1="451.4" x2="451.4" y1="32" y2="352"/><text x="451.4" y="368" text-anchor="middle">$150k</text><line class="grid" x1="562.6" x2="562.6" y1="32" y2="352"/><text x="562.6" y="368" text-anchor="middle">$200k</text><line class="grid" x1="673.7" x2="673.7" y1="32" y2="352"/><text x="673.7" y="368" text-anchor="middle">$250k</text><line class="grid" x1="784.9" x2="784.9" y1="32" y2="352"/><text x="784.9" y="368" text-anchor="middle">$300k</text><line class="grid" x1="896.0" x2="896.0" y1="32" y2="352"/><text x="896.0" y="368" text-anchor="middle">$350k</text><line class="ref" x1="171.3" x2="171.3" y1="26" y2="352"/><text class="reftext" x="175.3" y="22">$24k deck</text><line class="ref" x1="451.4" x2="451.4" y1="26" y2="352"/><text class="reftext" x="455.4" y="22">$150k brief</text><text class="lbl" x="106" y="66.0" text-anchor="end">Carlos  ·  A</text><rect class="band" x="195.8" y="55.0" width="144.5" height="14" rx="3"/><line class="range" x1="135.8" x2="473.7" y1="62.0" y2="62.0"/><line class="tick" x1="135.8" x2="135.8" y1="56.0" y2="68.0"/><line class="tick" x1="473.7" x2="473.7" y1="56.0" y2="68.0"/><circle class="hollow" cx="195.8" cy="62.0" r="5"/><circle class="m1" cx="340.3" cy="62.0" r="6"/><rect class="hit" tabindex="0" x="8" y="40.0" width="888" height="44" data-tip="Carlos: WTP $100k|too cheap $8k|bargain $35k|getting expensive $100k|too expensive $160k"/><text class="lbl" x="106" y="110.0" text-anchor="end">Marcus  ·  B</text><rect class="band" x="206.9" y="99.0" width="111.1" height="14" rx="3"/><line class="range" x1="151.3" x2="507.0" y1="106.0" y2="106.0"/><line class="tick" x1="151.3" x2="151.3" y1="100.0" y2="112.0"/><line class="tick" x1="507.0" x2="507.0" y1="100.0" y2="112.0"/><circle class="hollow2" cx="206.9" cy="106.0" r="5"/><circle class="m2" cx="318.1" cy="106.0" r="6"/><rect class="hit" tabindex="0" x="8" y="84.0" width="888" height="44" data-tip="Marcus: WTP $90k|too cheap $15k|bargain $40k|getting expensive $90k|too expensive $175k"/><text class="lbl" x="106" y="154.0" text-anchor="end">Dale  ·  A</text><rect class="band" x="140.2" y="143.0" width="33.3" height="14" rx="3"/><line class="range" x1="129.1" x2="229.1" y1="150.0" y2="150.0"/><line class="tick" x1="129.1" x2="129.1" y1="144.0" y2="156.0"/><line class="tick" x1="229.1" x2="229.1" y1="144.0" y2="156.0"/><circle class="hollow" cx="140.2" cy="150.0" r="5"/><circle class="m1" cx="173.6" cy="150.0" r="6"/><rect class="hit" tabindex="0" x="8" y="128.0" width="888" height="44" data-tip="Dale: WTP $25k|too cheap $5k|bargain $10k|getting expensive $25k|too expensive $50k"/><text class="lbl" x="106" y="198.0" text-anchor="end">Priya  ·  B</text><rect class="band" x="251.4" y="187.0" width="133.4" height="14" rx="3"/><line class="range" x1="162.5" x2="507.0" y1="194.0" y2="194.0"/><line class="tick" x1="162.5" x2="162.5" y1="188.0" y2="200.0"/><line class="tick" x1="507.0" x2="507.0" y1="188.0" y2="200.0"/><circle class="hollow2" cx="251.4" cy="194.0" r="5"/><circle class="m2" cx="384.7" cy="194.0" r="6"/><rect class="hit" tabindex="0" x="8" y="172.0" width="888" height="44" data-tip="Priya: WTP $120k|too cheap $20k|bargain $60k|getting expensive $120k|too expensive $175k"/><text class="lbl" x="106" y="242.0" text-anchor="end">Park  ·  A</text><rect class="band" x="166.9" y="231.0" width="80.0" height="14" rx="3"/><line class="range" x1="133.6" x2="362.5" y1="238.0" y2="238.0"/><line class="tick" x1="133.6" x2="133.6" y1="232.0" y2="244.0"/><line class="tick" x1="362.5" x2="362.5" y1="232.0" y2="244.0"/><circle class="hollow" cx="166.9" cy="238.0" r="5"/><circle class="m1" cx="246.9" cy="238.0" r="6"/><rect class="hit" tabindex="0" x="8" y="216.0" width="888" height="44" data-tip="Park: WTP $58k|too cheap $7k|bargain $22k|getting expensive $58k|too expensive $110k"/><text class="lbl" x="106" y="286.0" text-anchor="end">Bob  ·  B</text><rect class="band" x="284.7" y="275.0" width="277.9" height="14" rx="3"/><line class="range" x1="173.6" x2="896.0" y1="282.0" y2="282.0"/><line class="tick" x1="173.6" x2="173.6" y1="276.0" y2="288.0"/><line class="tick" x1="896.0" x2="896.0" y1="276.0" y2="288.0"/><circle class="hollow2" cx="284.7" cy="282.0" r="5"/><circle class="m2" cx="562.6" cy="282.0" r="6"/><rect class="hit" tabindex="0" x="8" y="260.0" width="888" height="44" data-tip="Bob: WTP $200k|too cheap $25k|bargain $75k|getting expensive $200k|too expensive $350k"/><line class="axis" x1="8" x2="896" y1="304.0" y2="304.0"/><text class="lbl-strong" x="106" y="330.0" text-anchor="end">Median</text><rect class="band" x="201.4" y="319.0" width="127.8" height="14" rx="3"/><line class="range" x1="143.6" x2="490.3" y1="326.0" y2="326.0"/><line class="tick" x1="143.6" x2="143.6" y1="320.0" y2="332.0"/><line class="tick" x1="490.3" x2="490.3" y1="320.0" y2="332.0"/><circle class="hollow0" cx="201.4" cy="326.0" r="5"/><circle cx="329.2" cy="326.0" r="6" style="fill:var(--ink);stroke:var(--surface);stroke-width:2"/><rect class="hit" tabindex="0" x="8" y="304.0" width="888" height="44" data-tip="Median: WTP $95k|too cheap $11.5k|bargain $37.5k|getting expensive $95k|too expensive $167.5k"/></svg></div></div>
+<div class="tbl"><table class="wide">
+<thead>
+<tr>
+<th>Buyer</th>
+<th>Anchor</th>
+<th>Holds budget?</th>
+<th>Too cheap</th>
+<th>Bargain</th>
+<th>Getting expensive (WTP point)</th>
+<th>Too expensive</th>
+<th>Reaction to $150k</th>
+<th>Reaction to $24k</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carlos</td>
+<td>A</td>
+<td>No (influencer)</td>
+<td>$8,000</td>
+<td>$35,000</td>
+<td><strong>$100,000</strong></td>
+<td>$160,000</td>
+<td>conditional</td>
+<td>accept</td>
+<td>Influencer; $15k/qtr discretionary, PD signs. Would pilot $24k now; $150k only with own-site pilot data.</td>
+</tr>
+<tr>
+<td>Marcus</td>
+<td>B</td>
+<td>Yes</td>
+<td>$15,000</td>
+<td>$40,000</td>
+<td><strong>$90,000</strong></td>
+<td>$175,000</td>
+<td>conditional</td>
+<td>accept</td>
+<td>Self-signs up to $100k/project; $90k set just under authority; assumes enterprise EHS integration included.</td>
+</tr>
+<tr>
+<td>Dale</td>
+<td>A</td>
+<td>Yes</td>
+<td>$5,000</td>
+<td>$10,000 ("maybe twelve")</td>
+<td><strong>$25,000</strong></td>
+<td>$50,000</td>
+<td>reject</td>
+<td>conditional</td>
+<td>Self-signs up to $25k; bargain 'ten, maybe twelve'; pays more only if owner mandates and funds it.</td>
+</tr>
+<tr>
+<td>Priya</td>
+<td>B</td>
+<td>No (influencer)</td>
+<td>$20,000</td>
+<td>$60,000</td>
+<td><strong>$120,000</strong></td>
+<td>$175,000</td>
+<td>conditional</td>
+<td>conditional</td>
+<td>No budget; recommends into CM's ~$250k tools line. Figures assume e-permit/P6 integration; without it $30k/$80k.</td>
+</tr>
+<tr>
+<td>Park</td>
+<td>A</td>
+<td>Yes</td>
+<td>$7,000</td>
+<td>$22,000</td>
+<td><strong>$58,000</strong></td>
+<td>$110,000</td>
+<td>reject</td>
+<td>conditional</td>
+<td>Self-signs up to KRW 50M (~$36k). Unit is division-year, not project. KRW 10M/30M/80M/150M, his USD conversions.</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>B</td>
+<td>Yes</td>
+<td>$25,000</td>
+<td>$75,000</td>
+<td><strong>$200,000</strong></td>
+<td>$350,000</td>
+<td>conditional</td>
+<td>reject</td>
+<td>Self-signs up to $500k; prefers $150k over $24k; says right price is zero if it proves nothing.</td>
+</tr>
+<tr>
+<td><strong>Median (n=6)</strong></td>
+<td></td>
+<td></td>
+<td>$11,500</td>
+<td>$37,500</td>
+<td><strong>$95,000</strong></td>
+<td>$167,500</td>
+<td></td>
+<td></td>
+<td>Mean WTP point $98,833</td>
+</tr>
+</tbody>
+</table></div>
+<p>Budget reality: only <strong>Bob</strong> can personally sign $150k. Marcus self-signs up to $100k per project, Park up to about $36k, Dale up to $25k. Carlos ($15k/quarter) and Priya (none) are influencers. $150k is <em>above</em> the 'too expensive' line for 2 of 6 (Dale $50k, Park $110k). It falls in the 'getting expensive to too expensive' band for 3 of 6 (Carlos, Marcus, Priya), and sits below the WTP point only for Bob. $24k is below Bob's 'too cheap' line ($25k) and only just above Priya's ($20k).</p>
+<h4 id="wtp-tier-distribution">WTP tier distribution</h4><div class="chart"><p class="ctitle">Buyers by WTP tier (count of 6)</p><p class="csub">WTP point = “getting expensive but still worth considering.” Only Bob reaches the $150k–$225k band.</p><div style="overflow-x:auto"><svg viewBox="0 0 820 230" width="100%" style="max-width:820px" role="img" aria-label="WTP tier distribution"><line class="axis" x1="34" x2="810" y1="186.0" y2="186.0"/><text x="26" y="190.0" text-anchor="end">0</text><line class="grid" x1="34" x2="810" y1="144.5" y2="144.5"/><text x="26" y="148.5" text-anchor="end">1</text><line class="grid" x1="34" x2="810" y1="103.0" y2="103.0"/><text x="26" y="107.0" text-anchor="end">2</text><line class="grid" x1="34" x2="810" y1="61.5" y2="61.5"/><text x="26" y="65.5" text-anchor="end">3</text><line class="grid" x1="34" x2="810" y1="20.0" y2="20.0"/><text x="26" y="24.0" text-anchor="end">4</text><text x="98.7" y="178.0" text-anchor="middle">0</text><rect class="hit" tabindex="0" x="36.0" y="20" width="125.3" height="166.0" data-tip="$0 / won&#x27;t buy: 0 of 6|nobody"/><text class="lbl" x="98.7" y="210" text-anchor="middle">$0</text><text x="228.0" y="178.0" text-anchor="middle">0</text><rect class="hit" tabindex="0" x="165.3" y="20" width="125.3" height="166.0" data-tip="&lt;$25k: 0 of 6|nobody"/><text class="lbl" x="228.0" y="210" text-anchor="middle">&lt;$25k</text><path class="col" d="M345.3,186.0 V107.0 Q345.3,103.0 349.3,103.0 H365.3 Q369.3,103.0 369.3,107.0 V186.0 Z"/><text class="lbl-strong" x="357.3" y="95.0" text-anchor="middle">2</text><rect class="hit" tabindex="0" x="294.7" y="20" width="125.3" height="166.0" data-tip="$25k–$75k: 2 of 6|Dale, Park"/><text class="lbl" x="357.3" y="210" text-anchor="middle">$25k–$75k</text><path class="col" d="M474.7,186.0 V65.5 Q474.7,61.5 478.7,61.5 H494.7 Q498.7,61.5 498.7,65.5 V186.0 Z"/><text class="lbl-strong" x="486.7" y="53.5" text-anchor="middle">3</text><rect class="hit" tabindex="0" x="424.0" y="20" width="125.3" height="166.0" data-tip="$75k–$150k: 3 of 6|Carlos, Marcus, Priya"/><text class="lbl" x="486.7" y="210" text-anchor="middle">$75k–$150k</text><path class="col" d="M604.0,186.0 V148.5 Q604.0,144.5 608.0,144.5 H624.0 Q628.0,144.5 628.0,148.5 V186.0 Z"/><text class="lbl-strong" x="616.0" y="136.5" text-anchor="middle">1</text><rect class="hit" tabindex="0" x="553.3" y="20" width="125.3" height="166.0" data-tip="$150k–$225k: 1 of 6|Bob"/><text class="lbl" x="616.0" y="210" text-anchor="middle">$150k–$225k</text><text x="745.3" y="178.0" text-anchor="middle">0</text><rect class="hit" tabindex="0" x="682.7" y="20" width="125.3" height="166.0" data-tip="&gt;$225k: 0 of 6|nobody"/><text class="lbl" x="745.3" y="210" text-anchor="middle">&gt;$225k</text><text x="98.7" y="225" text-anchor="middle">won’t buy</text></svg></div></div>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>WTP tier</th>
+<th>Count</th>
+<th>% of 6 buyers</th>
+<th>Who</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0 / won't buy</td>
+<td>0</td>
+<td>0.0%</td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>&lt;$25k</td>
+<td>0</td>
+<td>0.0%</td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>$25k–$75k</td>
+<td>2</td>
+<td>33.3%</td>
+<td>Dale, Park</td>
+</tr>
+<tr>
+<td>$75k–$150k</td>
+<td>3</td>
+<td>50.0%</td>
+<td>Carlos, Marcus, Priya</td>
+</tr>
+<tr>
+<td>$150k–$225k</td>
+<td>1</td>
+<td>16.7%</td>
+<td>Bob</td>
+</tr>
+<tr>
+<td>&gt;$225k</td>
+<td>0</td>
+<td>0.0%</td>
+<td><span class="chip NA">–</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>Tier boundaries are lower-inclusive: Dale's $25,000 falls in $25k-$75k. Only 1 of 6 (Bob) has a WTP point in the founder's $150k-$225k band. 4 of 6 fall inside the founder's broader $75k-$225k range (Carlos, Marcus, Priya, Bob), but 3 of those 4 are below the $150k base.</p>
+<h4 id="price-point-acceptance">Price-point acceptance</h4><div class="chart"><p class="ctitle">Reaction to each price point (6 buyers)</p><p class="csub">Numbers at right: accept · conditional · reject.</p><div class="legend"><span><i style="background:var(--good)"></i>Accept as-is</span><span><i style="background:var(--warn)"></i>Conditional</span><span><i style="background:var(--crit)"></i>Reject</span></div><div class="bars"><div class="brow"><div class="blabel">$150,000 / project-year (full site)</div><div class="track"><div class="seg P" tabindex="0" style="width:66.67%" data-tip="4 of 6|$150,000 / project-year (full site) · Conditional"></div><div class="seg I" tabindex="0" style="width:33.33%" data-tip="2 of 6|$150,000 / project-year (full site) · Reject"></div></div><div class="bval">0 · 4 · 2</div></div><div class="brow"><div class="blabel">$24,000 / project-year (~200 residents)</div><div class="track"><div class="seg V" tabindex="0" style="width:33.33%" data-tip="2 of 6|$24,000 / project-year (~200 residents) · Accept as-is"></div><div class="seg P" tabindex="0" style="width:50.00%" data-tip="3 of 6|$24,000 / project-year (~200 residents) · Conditional"></div><div class="seg I" tabindex="0" style="width:16.67%" data-tip="1 of 6|$24,000 / project-year (~200 residents) · Reject"></div></div><div class="bval">2 · 3 · 1</div></div><div class="brow"><div class="blabel">$10 / user / month (per seat)</div><div class="track"><div class="seg I" tabindex="0" style="width:100.00%" data-tip="6 of 6|$10 / user / month (per seat) · Reject"></div></div><div class="bval">0 · 0 · 6</div></div></div></div>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Price point</th>
+<th>Accept as-is</th>
+<th>Conditional (post-pilot, integration, mandate, scope)</th>
+<th>Reject</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$150,000 / project-year (full site)</td>
+<td>0 (0.0%)</td>
+<td>4 (66.7%)</td>
+<td>2 (33.3%)</td>
+</tr>
+<tr>
+<td>$24,000 / project-year (~200 residents)</td>
+<td>2 (33.3%)</td>
+<td>3 (50.0%)</td>
+<td>1 (16.7%)</td>
+</tr>
+<tr>
+<td>$10 / user / month (per seat)</td>
+<td>0 (0%)</td>
+<td>0 (0%)</td>
+<td>6 (100%)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>$150k:</strong> accept = none. Conditional = Carlos (own-site pilot data, must replace cards and the Monday spreadsheet), Marcus (12-week data or an owner contract requirement, plus VP signature), Priya (PD sign-off, pilot data, integrations included), Bob (must say what it replaces and prove it). Reject = Dale ('the meeting's over'), Park (4x his authority; possible only as an HQ group-wide purchase, which isn't his decision).</li>
+<li><strong>$24k:</strong> accept = Carlos (as a pilot he can get approved), Marcus (inside his authority, for a pilot). Conditional = Dale ('I'd at least listen'), Priya (only if the scope covers craft and integrations), Park (only if all workers can report without a license). Reject = Bob ('sign and forget'; below his too-cheap threshold; prefers $150k).</li>
+<li><strong>Per-seat preference:</strong> prefer project or flat all-employer pricing = 6/6; prefer per-seat = 0/6; either = 0/6. Every buyer worked out that per-seat for all craft would cost more than the project price and be impossible to administer under weekly turnover (Dale about $130k/yr, Carlos about $168k, Marcus about $336k, Priya about $480k, Bob over $500k, Park over KRW 600M). The alternative, licensing only staff, is useless because 'the whole point is the crews' (Carlos).</li>
+</ul>
+<h4 id="anchor-a-vs-anchor-b">Anchor A vs Anchor B</h4><div class="chart"><p class="ctitle">WTP points by anchor arm</p><p class="csub">n = 3 per arm, so this is directional only. The gap runs opposite to a classic anchoring lift and tracks budget authority instead.</p><div class="legend"><span><i class="dot" style="background:var(--s1)"></i>Anchor A</span><span><i class="dot" style="background:var(--s2)"></i>Anchor B</span><span><i class="line" style="background:var(--ink-2)"></i>Arm median</span></div><div style="overflow-x:auto"><svg viewBox="0 0 900 152" width="100%" style="max-width:900px" role="img" aria-label="WTP points by anchor arm"><line class="grid" x1="150.0" x2="150.0" y1="22" y2="126"/><text x="150.0" y="142" text-anchor="middle">$0</text><line class="grid" x1="230.7" x2="230.7" y1="22" y2="126"/><line class="grid" x1="311.3" x2="311.3" y1="22" y2="126"/><text x="311.3" y="142" text-anchor="middle">$50k</text><line class="grid" x1="392.0" x2="392.0" y1="22" y2="126"/><line class="grid" x1="472.7" x2="472.7" y1="22" y2="126"/><text x="472.7" y="142" text-anchor="middle">$100k</text><line class="grid" x1="553.3" x2="553.3" y1="22" y2="126"/><line class="grid" x1="634.0" x2="634.0" y1="22" y2="126"/><text x="634.0" y="142" text-anchor="middle">$150k</text><line class="grid" x1="714.7" x2="714.7" y1="22" y2="126"/><line class="grid" x1="795.3" x2="795.3" y1="22" y2="126"/><text x="795.3" y="142" text-anchor="middle">$200k</text><line class="grid" x1="876.0" x2="876.0" y1="22" y2="126"/><text class="lbl" x="138" y="51.0" text-anchor="end">A · $150k first</text><circle class="m1" cx="472.7" cy="47.0" r="6"/><circle class="hit" tabindex="0" cx="472.7" cy="47.0" r="13" data-tip="Carlos: $100k|anchor A"/><circle class="m1" cx="230.7" cy="47.0" r="6"/><circle class="hit" tabindex="0" cx="230.7" cy="47.0" r="13" data-tip="Dale: $25k|anchor A"/><circle class="m1" cx="337.1" cy="47.0" r="6"/><circle class="hit" tabindex="0" cx="337.1" cy="47.0" r="13" data-tip="Park: $58k|anchor A"/><line class="medtick" x1="337.1" x2="337.1" y1="32.0" y2="62.0"/><text x="343.1" y="37.0">median $58k</text><text class="lbl" x="138" y="101.0" text-anchor="end">B · $24k first</text><circle class="m2" cx="440.4" cy="97.0" r="6"/><circle class="hit" tabindex="0" cx="440.4" cy="97.0" r="13" data-tip="Marcus: $90k|anchor B"/><circle class="m2" cx="537.2" cy="97.0" r="6"/><circle class="hit" tabindex="0" cx="537.2" cy="97.0" r="13" data-tip="Priya: $120k|anchor B"/><circle class="m2" cx="795.3" cy="97.0" r="6"/><circle class="hit" tabindex="0" cx="795.3" cy="97.0" r="13" data-tip="Bob: $200k|anchor B"/><line class="medtick" x1="537.2" x2="537.2" y1="82.0" y2="112.0"/><text x="543.2" y="87.0">median $120k</text></svg></div></div>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Arm</th>
+<th>Respondents</th>
+<th>WTP points</th>
+<th>Mean</th>
+<th>Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A: high-first ($150k → $24k)</td>
+<td>Carlos, Dale, Park</td>
+<td>$100,000, $25,000, $58,000</td>
+<td>$61,000</td>
+<td>$58,000</td>
+</tr>
+<tr>
+<td>B: low-first ($24k → $150k)</td>
+<td>Marcus, Priya, Bob</td>
+<td>$90,000, $120,000, $200,000</td>
+<td>$136,667</td>
+<td>$120,000</td>
+</tr>
+</tbody>
+</table></div>
+<p>With n = 3 per arm, any anchoring effect is <strong>directional only</strong>. The observed difference runs <em>opposite</em> to the expected high-anchor lift. The likelier explanation is composition: arm B holds the two owner-side budgets (Bob, up to $500k; Priya's CM, about $250k) and a data-driven EHS director, while arm A holds a schedule-first skeptic and a Korean team lead with about $36k authority. Both arms heard both anchors before P6, so the ladder answers are contaminated by the second anchor in both groups.</p>
+<h4 id="frontline-perceived-value-not-wtp">Frontline perceived value (not WTP)</h4>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Respondent</th>
+<th>Perceived value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Elena</td>
+<td>Worth it only if she hears back same shift and her name never reaches other trades; would rather fund two more walking safety staff.</td>
+</tr>
+<tr>
+<td>Jamal</td>
+<td>Worth something only if things get fixed and nobody gets burned; $150k 'a lot for an app'; ranks below overtime and job security.</td>
+</tr>
+<tr>
+<td>Tommy</td>
+<td>Worth nothing, even negative, without a signed labor-management agreement; with it plus real closure, worth it and he'd say so in the hall.</td>
+</tr>
+<tr>
+<td>Nguyen</td>
+<td>Worth it only if reporting is safe and fixes are real; $24k is his yearly pay; prefers fans and a Vietnamese safety person.</td>
+</tr>
+</tbody>
+</table></div>
+<p>All 4 frontline respondents make value conditional on (1) not getting burned for reporting and (2) things actually getting fixed. 4 of 4 said they would rather the money went to people or physical fixes (walking safety staff, a lift coordinator, more crew, fans).</p>
+<h3 id="a4-objections-ranked">A4. Objections Ranked</h3><div class="chart"><p class="ctitle">Objections by number of respondents raising them</p><p class="csub">Each respondent counted once per theme. Hover or focus a bar to see who.</p><div class="bars"><div class="brow"><div class="blabel"><b>#1</b>Visibility politics: open items used to grade crews/subs</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:90%" data-tip="9 of 10|Elena, Carlos, Marcus, Dale, Priya, Tommy, Park, Nguyen, Bob"></div></div><div class="bval">9/10</div></div><div class="brow"><div class="blabel"><b>#1</b>Human-review bottleneck (who, nights) and volume overload</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:90%" data-tip="9 of 10|Elena, Carlos, Marcus, Dale, Priya, Tommy, Jamal, Park, Bob"></div></div><div class="bval">9/10</div></div><div class="brow"><div class="blabel"><b>#1</b>Work-face device access: phone bans, login, tracking</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:90%" data-tip="9 of 10|Elena, Carlos, Marcus, Priya, Tommy, Jamal, Park, Nguyen, Bob"></div></div><div class="bval">9/10</div></div><div class="brow"><div class="blabel"><b>#4</b>Reporter identity exposure and retaliation risk</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:80%" data-tip="8 of 10|Elena, Carlos, Marcus, Dale, Tommy, Jamal, Park, Nguyen"></div></div><div class="bval">8/10</div></div><div class="brow"><div class="blabel"><b>#4</b>AI owner/severity and translation errors</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:80%" data-tip="8 of 10|Elena, Carlos, Marcus, Priya, Tommy, Park, Nguyen, Bob"></div></div><div class="bval">8/10</div></div><div class="brow"><div class="blabel"><b>#4</b>Sustained-use doubt: week-12 decay, &#x27;seen it die&#x27;</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:80%" data-tip="8 of 10|Elena, Carlos, Marcus, Dale, Priya, Jamal, Park, Bob"></div></div><div class="bval">8/10</div></div><div class="brow"><div class="blabel"><b>#4</b>$24k &#x27;200 residents&#x27; tier: excludes craft, weak vendor</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:80%" data-tip="8 of 10|Elena, Carlos, Marcus, Dale, Priya, Tommy, Park, Bob"></div></div><div class="bval">8/10</div></div><div class="brow"><div class="blabel"><b>#8</b>Legal discoverability: timestamped record &#x27;we knew&#x27;</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:70%" data-tip="7 of 10|Elena, Carlos, Marcus, Dale, Tommy, Park, Bob"></div></div><div class="bval">7/10</div></div><div class="brow"><div class="blabel"><b>#8</b>Another inbox: must integrate or replace, not stack</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:70%" data-tip="7 of 10|Carlos, Marcus, Dale, Priya, Tommy, Park, Bob"></div></div><div class="bval">7/10</div></div><div class="brow"><div class="blabel"><b>#8</b>Money better spent on people or physical controls</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:70%" data-tip="7 of 10|Elena, Carlos, Marcus, Tommy, Jamal, Nguyen, Bob"></div></div><div class="bval">7/10</div></div><div class="brow"><div class="blabel"><b>#8</b>Doesn&#x27;t fix root cause: production pressure, inaction</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:70%" data-tip="7 of 10|Elena, Carlos, Marcus, Tommy, Park, Nguyen, Bob"></div></div><div class="bval">7/10</div></div><div class="brow"><div class="blabel"><b>#12</b>&#x27;What&#x27;s the rule here&#x27; cites wrong rule or hallucinates</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:60%" data-tip="6 of 10|Elena, Carlos, Marcus, Priya, Tommy, Park"></div></div><div class="bval">6/10</div></div><div class="brow"><div class="blabel"><b>#12</b>Data security, residency, retention, IT/procurement</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:60%" data-tip="6 of 10|Carlos, Marcus, Priya, Tommy, Park, Bob"></div></div><div class="bval">6/10</div></div><div class="brow"><div class="blabel"><b>#14</b>Bypasses chain of command: needs foreman/반장 buy-in</div><div class="track" style="background:transparent"><div class="hbar" tabindex="0" style="width:50%" data-tip="5 of 10|Elena, Dale, Jamal, Nguyen, Park"></div></div><div class="bval">5/10</div></div></div></div>
+<p>Each respondent is counted once per theme. Ties share a rank.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Objection theme</th>
+<th>Count</th>
+<th>% of 10</th>
+<th>Who raised it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Visibility politics: open items used to grade crews/subs</td>
+<td>9</td>
+<td>90%</td>
+<td>Elena, Carlos, Marcus, Dale, Priya, Tommy, Park, Nguyen, Bob</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Human-review bottleneck (who, nights) and volume overload</td>
+<td>9</td>
+<td>90%</td>
+<td>Elena, Carlos, Marcus, Dale, Priya, Tommy, Jamal, Park, Bob</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Work-face device access: phone bans, login, tracking</td>
+<td>9</td>
+<td>90%</td>
+<td>Elena, Carlos, Marcus, Priya, Tommy, Jamal, Park, Nguyen, Bob</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Reporter identity exposure and retaliation risk</td>
+<td>8</td>
+<td>80%</td>
+<td>Elena, Carlos, Marcus, Dale, Tommy, Jamal, Park, Nguyen</td>
+</tr>
+<tr>
+<td>4</td>
+<td>AI owner/severity and translation errors</td>
+<td>8</td>
+<td>80%</td>
+<td>Elena, Carlos, Marcus, Priya, Tommy, Park, Nguyen, Bob</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Sustained-use doubt: week-12 decay, 'seen it die'</td>
+<td>8</td>
+<td>80%</td>
+<td>Elena, Carlos, Marcus, Dale, Priya, Jamal, Park, Bob</td>
+</tr>
+<tr>
+<td>4</td>
+<td>$24k '200 residents' tier: excludes craft, weak vendor</td>
+<td>8</td>
+<td>80%</td>
+<td>Elena, Carlos, Marcus, Dale, Priya, Tommy, Park, Bob</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Legal discoverability: timestamped record 'we knew'</td>
+<td>7</td>
+<td>70%</td>
+<td>Elena, Carlos, Marcus, Dale, Tommy, Park, Bob</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Another inbox: must integrate or replace, not stack</td>
+<td>7</td>
+<td>70%</td>
+<td>Carlos, Marcus, Dale, Priya, Tommy, Park, Bob</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Money better spent on people or physical controls</td>
+<td>7</td>
+<td>70%</td>
+<td>Elena, Carlos, Marcus, Tommy, Jamal, Nguyen, Bob</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Doesn't fix root cause: production pressure, inaction</td>
+<td>7</td>
+<td>70%</td>
+<td>Elena, Carlos, Marcus, Tommy, Park, Nguyen, Bob</td>
+</tr>
+<tr>
+<td>12</td>
+<td>'What's the rule here' cites wrong rule or hallucinates</td>
+<td>6</td>
+<td>60%</td>
+<td>Elena, Carlos, Marcus, Priya, Tommy, Park</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Data security, residency, retention, IT/procurement</td>
+<td>6</td>
+<td>60%</td>
+<td>Carlos, Marcus, Priya, Tommy, Park, Bob</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Bypasses chain of command: needs foreman/반장 buy-in</td>
+<td>5</td>
+<td>50%</td>
+<td>Elena, Dale, Jamal, Nguyen, Park</td>
+</tr>
+</tbody>
+</table></div>
+<p>Theme notes: <em>Visibility politics</em> covers Dale's 'owner sees it before I do', Marcus's subs who 'light up the dashboard', Park's subcontractor presidents protecting their evaluation score, and Bob admitting he would use it as a GC scorecard. <em>Work-face device access</em> merges physical restrictions (IS zones, no phones inside blocks, photo bans in white space) with trust barriers (company apps on personal phones, logins, location tracking). <em>Reporter identity</em> includes the union demand for written no-discipline guarantees (Elena, Carlos, Marcus, Tommy, Park).</p>
+<hr /><h2 id="b-qualitative-synthesis"><span class="kicker">Voices</span>(b) Qualitative Synthesis</h2>
+<h3 id="b1-representative-verbatim-quotes-by-key-assumption">B1. Representative Verbatim Quotes by Key Assumption</h3>
+<h4 id="ka1-blame-retaliation-fear-blocks-reporting-validated">KA1 — Blame/retaliation fear blocks reporting (Validated)</h4>
+<blockquote><p>If he writes it up, it goes to the GC, the GC goes to mechanical's safety guy, mechanical's safety guy goes to their foreman, and their foreman comes to find out who wrote it.</p><p>— Elena Rodriguez, Electrical foreperson (C1)</p>
+<p>My contract is renewed every year by the company. For E-9, if the company doesn't want you, it's very hard to change companies. So I don't want to be the one who makes trouble.
+— Nguyen Van Minh, Subcontracted welder, Korean shipyard (C1)</p>
+<p>Social cost. It's real, I won't pretend it isn't, but I'd rank it behind "it wasn't my hazard" and "I told somebody, so I'm done."
+— Marcus Lee, Regional EHS Director (C1)</p></blockquote>
+<h4 id="ka2-visible-closure-sustains-participation-partially-validated">KA2 — Visible closure sustains participation (Partially Validated)</h4>
+<blockquote><p>Like you tell him, he tells somebody, and then it's a black hole. So on stuff that's not, like, a big deal, I probably just let it go now.</p><p>— Jamal Carter, Journeyman pipefitter (C3)</p>
+<p>What never fades is when a GF or a safety manager actually does something with it.
+— Elena Rodriguez, Electrical foreperson (C4)</p>
+<p>It was okay. It got fixed. I don't need them to tell me.
+— Nguyen Van Minh, Subcontracted welder, Korean shipyard (C3)</p></blockquote>
+<h4 id="ka3-hazard-signals-stay-verbal-validated">KA3 — Hazard signals stay verbal (Validated)</h4>
+<blockquote><p>The electrician told his boss. The boss told the other boss. That is how a construction site works. It just doesn't create a record or an owner.</p><p>— Marcus Lee, Regional EHS Director (C1)</p>
+<p>So again: known, spoken, not captured.
+— Priya Natarajan, SIMOPS &amp; Interface Planning Lead (C10)</p>
+<p>Before that day, some guys had said the air smelled "strange" there. But only to each other.
+— Nguyen Van Minh, Subcontracted welder, Korean shipyard (C5)</p></blockquote>
+<h4 id="ka4-30-second-friction-threshold-partially-validated">KA4 — 30-second friction threshold (Partially Validated)</h4>
+<blockquote><p>So, realistically, if I can't do it in the time it takes to send a text, it's not happening.</p><p>— Elena Rodriguez, Electrical foreperson (C5)</p>
+<p>The time isn't the problem. The consequence is the problem.
+— Tommy Briggs, Ironworker GF &amp; union steward (C5)</p>
+<p>For a migrant worker, the problem is not seconds. The problem is language.
+— Park Ji-hoon, HSE Team Lead, Korean shipbuilder (C5)</p></blockquote>
+<h4 id="ka5-lag-amp-mis-routing-is-the-main-break-validated">KA5 — Lag &amp; mis-routing is the main break (Validated)</h4>
+<blockquote><p>My coordinator has to figure that out, and gets it wrong maybe one in five times, and then it bounces for two days while two subs argue about whose hole it is.</p><p>— Carlos Mendes, Site Safety Manager (C6)</p>
+<p>So I'm the routing system, and that doesn't scale.
+— Robert "Bob" Hayes, Project Director, owner-developer (C3)</p>
+<p>Really it's the supers who decide. The system's just the record.
+— Dale Kowalski, General Superintendent (C6)</p></blockquote>
+<h4 id="ka6-reviewer-can-triage-in-1-click-partially-validated">KA6 — Reviewer can triage in ~1 click (Partially Validated)</h4>
+<blockquote><p>Add it up, my team probably spends five or six person-hours a day just sorting and routing, before anybody fixes anything.</p><p>— Carlos Mendes, Site Safety Manager (C7)</p>
+<p>And if you're going to tell me the reviewer confirms in one click, I'd want to see how often they click "confirm" without reading.
+— Marcus Lee, Regional EHS Director (P2)</p>
+<p>Weekends at peak, reports would come at 2:00 in the morning in Uzbek. If nobody reviews until 8:00, then the record shows a six-hour gap.
+— Park Ji-hoon, HSE Team Lead, Korean shipbuilder (P2)</p></blockquote>
+<h4 id="ka7-trust-in-labeled-human-reviewed-routing-partially-validated">KA7 — Trust in labeled, human-reviewed routing (Partially Validated)</h4>
+<blockquote><p>Ignore: if it's wrong twice in a week. That's about the tolerance. And if it's noisy. Volume kills trust faster than errors do.</p><p>— Carlos Mendes, Site Safety Manager (C8)</p>
+<p>On this kind of site, trust is lost on the one bad item, not the average.
+— Priya Natarajan, SIMOPS &amp; Interface Planning Lead (C8)</p>
+<p>I'd ignore anything automatic by default.
+— Tommy Briggs, Ironworker GF &amp; union steward (C8)</p></blockquote>
+<h4 id="ka8-simops-conflicts-drive-stoppages-validated">KA8 — SIMOPS conflicts drive stoppages (Validated)</h4>
+<blockquote><p>The matrix flags maybe fifteen to twenty-five overlaps a week.</p><p>— Priya Natarajan, SIMOPS &amp; Interface Planning Lead (C9)</p>
+<p>Something that I'd call serious, where somebody could get killed, maybe once every two weeks on this job.
+— Tommy Briggs, Ironworker GF &amp; union steward (C9)</p>
+<p>Most of them, an hour here, a half-day there. Doesn't hit the critical path usually. Usually.
+— Dale Kowalski, General Superintendent (C9)</p></blockquote>
+<h4 id="ka9-safety-delays-are-schedule-delays-partially-validated">KA9 — Safety delays are schedule delays (Partially Validated)</h4>
+<blockquote><p>Four days. Four days of float, gone, on the critical path to energization.</p><p>— Dale Kowalski, General Superintendent (C10)</p>
+<p>But I will be honest: nobody approves budget by comparing with an accident that has not happened. Budget is compared with last year's budget.
+— Park Ji-hoon, HSE Team Lead, Korean shipbuilder (P5)</p>
+<p>If a vendor tells me they can show that in twelve weeks, I'd take that as a sign they don't understand construction.
+— Marcus Lee, Regional EHS Director (P7)</p></blockquote>
+<h4 id="ka10-nobody-owns-cross-contract-closure-validated">KA10 — Nobody owns cross-contract closure (Validated)</h4>
+<blockquote><p>The mezzanine is the perfect example. It was closed, and it wasn't fixed.</p><p>— Robert "Bob" Hayes, Project Director, owner-developer (C11)</p>
+<p>None of them is built around "this was found by company A, created by company B, and verified closed by company C."
+— Marcus Lee, Regional EHS Director (C11)</p>
+<p>Super walks it. Sees it's fixed. It's closed. Proof? The super's word. My word.
+— Dale Kowalski, General Superintendent (C11)</p></blockquote>
+<h4 id="ka11-project-pricing-beats-per-seat-validated">KA11 — Project pricing beats per-seat (Validated)</h4>
+<blockquote><p>So realistically, per-seat means I license my team and a handful of people, maybe 30 seats, which is cheap, about $3,600 a year, and useless, because the whole point is the crews.</p><p>— Carlos Mendes, Site Safety Manager (P5)</p>
+<p>Per seat just doesn't fit a site where two or three hundred people badge in every week.
+— Priya Natarajan, SIMOPS &amp; Interface Planning Lead (P5)</p>
+<p>First, "project" is not how we think. We have hulls, and we have divisions.
+— Park Ji-hoon, HSE Team Lead, Korean shipbuilder (P5)</p></blockquote>
+<h4 id="ka12-wtp-75k-225k-project-yr-150k-base-partially-validated">KA12 — WTP $75k-$225k/project-yr ($150k base) (Partially Validated)</h4>
+<blockquote><p>I would not sign up for $150,000 on day one for something I haven't seen on my site. Nobody I know in my position would.</p><p>— Carlos Mendes, Site Safety Manager (P5b)</p>
+<p>Twenty-four, I'd at least listen. A hundred fifty, the meeting's over.
+— Dale Kowalski, General Superintendent (P5b)</p>
+<p>So the price doesn't scare me. What I'd need is an answer to my question: which line does it come out of, and what does it replace?
+— Robert "Bob" Hayes, Project Director, owner-developer (P5b)</p></blockquote>
+<h4 id="korea-sub-assumptions">Korea sub-assumptions</h4>
+<blockquote><p>If it's really in Vietnamese, and I can speak, not write Korean, then maybe I could tell without waiting for Tuan. That's different.</p><p>— Nguyen Van Minh, Subcontracted welder, Korean shipyard (P1)</p>
+<p>A finding without an action is the worst kind of record.
+— Park Ji-hoon, HSE Team Lead, Korean shipbuilder (K2)</p></blockquote>
+<p>Dissenting or qualifying quotes are included on purpose: Marcus (KA1), Nguyen (KA2), Tommy and Park (KA4), Dale (KA5, KA8, KA10), Tommy (KA7), Park and Marcus (KA9), Park (KA11).</p>
+<h3 id="b2-recurring-field-language-and-trade-jargon">B2. Recurring Field Language and Trade Jargon</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+<th>Who uses it</th>
+<th>Implication for product and marketing copy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GF (general foreman)</td>
+<td>Foreperson's boss; receives crew photo-texts and attends the GC coordination meeting</td>
+<td>Elena, Carlos, Tommy, Jamal</td>
+<td>The GF is the de facto router today. Let a foreperson 'send to my GF' and win GF endorsement first.</td>
+</tr>
+<tr>
+<td>Walk-over vs write-up</td>
+<td>Elena's triage: fix by face-to-face conversation, or file a formal report</td>
+<td>Elena</td>
+<td>The tool must beat the walk-over on speed or log walk-over fixes as closed-on-spot items in one tap.</td>
+</tr>
+<tr>
+<td>JHA / pre-task plan</td>
+<td>Daily paper job hazard analysis signed by the crew; often copy-paste</td>
+<td>Elena, Jamal, Tommy</td>
+<td>Push yesterday's open items in the work area onto the morning pre-task. Elena asked for this unprompted.</td>
+</tr>
+<tr>
+<td>TBM (tool box meeting)</td>
+<td>Morning safety briefing per bay in Korean yards; migrant crews understand about half</td>
+<td>Park, Nguyen</td>
+<td>The TBM is where risk is communicated. Translated TBM summaries are a possible wedge.</td>
+</tr>
+<tr>
+<td>Observation cards / card quota</td>
+<td>Mandated weekly or monthly observation counts per foreman or subcontractor</td>
+<td>All 10</td>
+<td>Never pitch 'more reports'. Reports have to count toward the quota or replace it, or it's stacking.</td>
+</tr>
+<tr>
+<td>Pencil-whipped</td>
+<td>Filled out fake, usually in the truck on Friday afternoon</td>
+<td>Marcus (variants: Elena, Carlos, Dale, Tommy)</td>
+<td>Marketing should promise quality and closure, not volume.</td>
+</tr>
+<tr>
+<td>Feeding the beast / homework (숙제)</td>
+<td>Quota paperwork done for the number, not for safety</td>
+<td>Priya, Park ("Did you do your cards?" Priya)</td>
+<td>Don't use volume as the KPI. It reads as the same chore.</td>
+</tr>
+<tr>
+<td>Snitch cam / snitch sticker / rat app / rat of the week</td>
+<td>Nicknames crews gave past CV cameras, QR stickers, apps and leaderboards</td>
+<td>Carlos, Marcus, Tommy, Dale, Jamal</td>
+<td>A nickname kills a tool. No leaderboards. Frame it as 'conditions, not people'.</td>
+</tr>
+<tr>
+<td>That guy</td>
+<td>Label for the worker or foreman who keeps calling safety</td>
+<td>Carlos, Priya</td>
+<td>Protecting the reporter's identity is the product, not a feature.</td>
+</tr>
+<tr>
+<td>Moved to the parking structure / shakeout yard / lack of work / end of assignment</td>
+<td>Euphemisms for quiet retaliation by reassignment, layoff or non-renewal</td>
+<td>Elena, Tommy, Jamal, Carlos</td>
+<td>Retaliation is deniable, so a no-retaliation policy won't persuade anyone. Protection has to be technical.</td>
+</tr>
+<tr>
+<td>Travelers / on the book</td>
+<td>Union members working away from their home local. First to be laid off.</td>
+<td>Tommy, Jamal, Elena</td>
+<td>The most vulnerable and most silent reporters. Name them in the end-user profile.</td>
+</tr>
+<tr>
+<td>Old heads</td>
+<td>Veteran journeymen who won't put a phone in front of their face</td>
+<td>Elena, Jamal, Tommy</td>
+<td>Support proxy reporting through the foreperson. Don't count on universal self-service.</td>
+</tr>
+<tr>
+<td>The book</td>
+<td>Tommy's waterproof notebook: date, time, what, who he told</td>
+<td>Tommy</td>
+<td>Reporters want their own timestamped proof. Give them a receipt they control.</td>
+</tr>
+<tr>
+<td>Spider box</td>
+<td>Temporary power distribution box</td>
+<td>Carlos, Priya</td>
+<td>Build the hazard taxonomy from trade terms, not OSHA categories.</td>
+</tr>
+<tr>
+<td>LOTO</td>
+<td>Lockout/tagout of energy sources</td>
+<td>Elena, Carlos, Dale, Marcus</td>
+<td>Energized-work interfaces were behind the costliest stoppages. Link to LOTO logs.</td>
+</tr>
+<tr>
+<td>SIMOPS</td>
+<td>Simultaneous operations or interface conflicts</td>
+<td>Priya only (the deck uses it too)</td>
+<td>Crews say 'stacked', 'same corridor', 'swinging over my guys'. Use plain words in crew-facing copy.</td>
+</tr>
+<tr>
+<td>Exclusion zone / swing radius / lift plan</td>
+<td>Crane load path and the area kept clear under it</td>
+<td>Tommy, Priya, Bob, Marcus</td>
+<td>Crane conflicts led to stop-work. Routing has to know about lift plans.</td>
+</tr>
+<tr>
+<td>SIF / SIF precursor</td>
+<td>Serious-injury-and-fatality potential: high energy with no direct control</td>
+<td>Marcus, Bob</td>
+<td>Severity suggestions should use the SIF lens, not generic high/medium/low.</td>
+</tr>
+<tr>
+<td>Float / critical path / energization date / MW online</td>
+<td>Schedule slack, the controlling sequence, and the owner's revenue milestone</td>
+<td>Dale, Elena, Bob, Priya</td>
+<td>This is how buyers talk about value, but nobody measures it. Use it for context, not proof.</td>
+</tr>
+<tr>
+<td>LDs (liquidated damages)</td>
+<td>Contract delay penalties</td>
+<td>Dale, Carlos, Priya, Bob</td>
+<td>Rarely assessed and never tied to a hazard. Don't lead with LD exposure.</td>
+</tr>
+<tr>
+<td>General conditions / GMP / reimbursable</td>
+<td>Where project tool costs sit. Under a GMP the owner effectively pays.</td>
+<td>Marcus, Bob, Carlos, Dale</td>
+<td>The budget line decides the buyer. The owner's rep gets a vote.</td>
+</tr>
+<tr>
+<td>IST / Level 4-5 commissioning / CxA</td>
+<td>Integrated systems testing and the commissioning agent</td>
+<td>Marcus, Bob, Priya</td>
+<td>Construction-to-commissioning turnover is where ownership changes and hazards get lost.</td>
+</tr>
+<tr>
+<td>IS phone / classified area</td>
+<td>Intrinsically safe device, the only phone allowed where gas may be present</td>
+<td>Priya</td>
+<td>An LNG or refinery beachhead needs IS-device support or 'doesn't exist in the areas that matter'.</td>
+</tr>
+<tr>
+<td>White space / controlled space</td>
+<td>Data-hall space near live load where cameras and photos are restricted</td>
+<td>Bob, Marcus</td>
+<td>A photo-first design fails in the most dangerous rooms. Voice or text has to work without images.</td>
+</tr>
+<tr>
+<td>Controlling employer</td>
+<td>OSHA multi-employer doctrine. The more an owner directs, the more it is liable.</td>
+<td>Bob</td>
+<td>An owner-held 'one queue' carries legal risk. Get counsel involved early.</td>
+</tr>
+<tr>
+<td>Closed on paper / somebody clicked a button</td>
+<td>Status flipped to closed without a verified field fix</td>
+<td>Carlos, Tommy, Priya, Bob</td>
+<td>Define 'verified closed' as an independent check in the field, with a time- and location-bound photo.</td>
+</tr>
+<tr>
+<td>Procore spam / the folder</td>
+<td>Auto-notifications filtered into an unread email folder</td>
+<td>Elena, Carlos, Dale, Marcus, Bob</td>
+<td>Keep notifications low-volume, targeted and signed by a person.</td>
+</tr>
+<tr>
+<td>반장 (banjang)</td>
+<td>Korean team leader of a subcontractor crew, and the worker's gatekeeper</td>
+<td>Park, Nguyen</td>
+<td>Must endorse the tool at TBM. Reports can't look like they go around him.</td>
+</tr>
+<tr>
+<td>조장 (jojang)</td>
+<td>Informal small-group leader, for example the bilingual Vietnamese 'Tuan'</td>
+<td>Nguyen</td>
+<td>Bilingual bridges carry the translation load today and would adopt first.</td>
+</tr>
+<tr>
+<td>사내협력사 / 사내하청</td>
+<td>In-house subcontractor (tier-1) and tier-2 subcontractor inside the prime's yard</td>
+<td>Park, Nguyen</td>
+<td>The 'responsible owner' has to be the subcontractor company, not an individual worker.</td>
+</tr>
+<tr>
+<td>아차사고 (near-miss) quota</td>
+<td>Monthly near-miss report quota per subcontractor, tied to its evaluation score</td>
+<td>Park, Nguyen</td>
+<td>The quota is a headquarters KPI that won't go away. Feed it, or the tool is stacking.</td>
+</tr>
+<tr>
+<td>족장 / 곤도라</td>
+<td>Shipyard slang for scaffolding / gondola</td>
+<td>Park</td>
+<td>Past translation devices failed on yard slang. A domain glossary is mandatory.</td>
+</tr>
+<tr>
+<td>작업중지권</td>
+<td>Worker's legal right to stop work</td>
+<td>Park</td>
+<td>Frame reporting as supporting an existing legal right, not a new obligation.</td>
+</tr>
+<tr>
+<td>부분 작업중지명령</td>
+<td>Partial work-stop order from MoEL after a serious accident</td>
+<td>Park</td>
+<td>The Korean stoppage cost driver. Lasted 'a little over a week' in Park's case.</td>
+</tr>
+<tr>
+<td>안전보건관리체계</td>
+<td>Safety &amp; health management system required under SAPA</td>
+<td>Park</td>
+<td>Position the product as evidence of this system: every finding paired with an action.</td>
+</tr>
+<tr>
+<td>SAPA (중대재해처벌법)</td>
+<td>Serious Accidents Punishment Act, which puts criminal liability on executives</td>
+<td>Park (term in deck)</td>
+<td>Creates urgency and fear at once. Needs interim-measure records.</td>
+</tr>
+<tr>
+<td>결재 (e-approval)</td>
+<td>Groupware approval chain up to the CSO</td>
+<td>Park</td>
+<td>Serious-item escalation has to fit e-approval, not replace it.</td>
+</tr>
+<tr>
+<td>불법파견 (illegal dispatch)</td>
+<td>Legal risk if a prime directs subcontractor workers directly</td>
+<td>Park</td>
+<td>The tool can't send tasks from the prime to individual subcontracted workers.</td>
+</tr>
+<tr>
+<td>산업안전보건위원회</td>
+<td>Joint OSH committee with the union</td>
+<td>Park</td>
+<td>Present there before any pilot, or the union may attack it as monitoring.</td>
+</tr>
+<tr>
+<td>안전신문고</td>
+<td>Headquarters QR 'safety reporting box'. Korean only, 2-3 reports a month.</td>
+<td>Park</td>
+<td>The failed incumbent channel. Proof that a Korean-only QR form doesn't reach migrant workers.</td>
+</tr>
+<tr>
+<td>상품권</td>
+<td>Gift vouchers used as rewards</td>
+<td>Park, Nguyen</td>
+<td>Nguyen: Korean workers always win them. Rewards don't reach migrant crews.</td>
+</tr>
+<tr>
+<td>알았어, 알았어</td>
+<td>"Okay, okay": a busy 반장 brushing off broken-Korean reports</td>
+<td>Nguyen</td>
+<td>Language failure looks like acknowledgement. Log receipt explicitly.</td>
+</tr>
+<tr>
+<td>KakaoTalk / Zalo</td>
+<td>Korean messaging app (managers) / Vietnamese messaging app (workers)</td>
+<td>Park, Nguyen</td>
+<td>The real channels today. Zalo is also how retaliation stories spread 'in one day'.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="b3-the-single-biggest-unmet-operational-need">B3. The Single Biggest Unmet Operational Need</h3><div class="card need"><div class="eyebrow">Single biggest unmet operational need</div><p>Independently verified, cross-employer closure that gets back to the finder. When one company&#x27;s crew spots a hazard another company created, nobody today assigns a named owner fast, verifies the fix in the field (instead of accepting a status click or a recycled photo), and tells the person who saw it.</p><div class="n">10/10<span>respondents described it, across every role and both markets</span></div></div>
+<p><strong>Independently verified, cross-employer closure that gets back to the finder. When one company's crew spots a hazard another company created, nobody today assigns a named owner fast, verifies the fix in the field (instead of accepting a status click or a recycled photo), and tells the person who saw it.</strong></p>
+<p>Evidence: 10 of 10 respondents described closure that is proven only by someone happening to walk by, or 'closed' records that weren't fixed. No role or market was an exception.</p>
+<ul>
+<li>Elena: temp-power labeling fix learned by seeing 'a guy with a label maker'; GF says 'I think they closed it'.</li>
+<li>Carlos: GFCI 'closed' with a photo of a different panel; mezzanine toe-board item 'in progress' 9 days before a dropped object.</li>
+<li>Marcus: cross-contractor median 11 days to close; about 1 in 5 closed with no photo; 41-day item 'closed' when the generator demobilized.</li>
+<li>Dale: 'Proof? The super's word'; a fixed cord item sat open 3 weeks because nobody clicked the button (the reverse failure).</li>
+<li>Priya: 'Closure in the office is not closure at the work face'; EPC and owner records disagreed for a week.</li>
+<li>Tommy: 'closed' on the safety rep's iPad while the hazard was still there; union has no access to the record.</li>
+<li>Jamal: 'Who proves it? Nobody.' Has never been told a report was closed.</li>
+<li>Park: recycled 'after' photos in KakaoTalk; facilities items open 3-4 weeks; closure entered late.</li>
+<li>Nguyen: loose ladder 'fixed' because the block moved out; 'Mostly nobody closes it.'</li>
+<li>Bob: mezzanine item marked closed but toe boards only partly installed, then a 35 ft dropped wrench.</li>
+</ul>
+<blockquote><p>Closure in the office is not closure at the work face.</p><p>— Priya Natarajan, SIMOPS &amp; Interface Planning Lead (C3)</p>
+<p>So somebody clicked a button.
+— Tommy Briggs, Ironworker GF &amp; union steward (C3)</p>
+<p>I've never gotten, like, "hey, the thing you told us, it's done." Never.
+— Jamal Carter, Journeyman pipefitter (C11)</p>
+<p>What the lawyer wanted to know was simple: when did we know, who did we tell, what did they do, when did we verify it was fixed.
+— Carlos Mendes, Site Safety Manager (C11)</p>
+<p>Some subcontractors send the same "after" photo more than once.
+— Park Ji-hoon, HSE Team Lead, Korean shipbuilder (C11)</p>
+<p>So it was "fixed" because the block left.
+— Nguyen Van Minh, Subcontracted welder, Korean shipyard (C3)</p></blockquote>
+<p>Why this one and not 'capture' (KA3, also 10/10)? Capture without verified closure is exactly what respondents fear: 'a list of things he's ignoring, with timestamps' (Tommy); 'strong reporting with slow closure is the worst result' (Park). Every buyer's pilot evidence list centers on time to verified close. Capture is necessary, and closure is what they would pay for.</p>
+<h3 id="b4-surprises-things-the-founder-did-not-assume">B4. Surprises: Things the Founder Did Not Assume</h3>
+<ul>
+<li><strong>A low price reduces credibility.</strong> 3 of 6 buyers (Marcus, Priya, Bob) said $24k made them suspect the vendor won't survive, integration isn't really included, or it won't pass security. For Bob, $24k is below his 'too cheap' line.</li>
+<li><strong>'~200 residents' reads as 'the craft aren't covered'.</strong> 8 of 10 raised it without being prompted. Carlos and Park independently proposed the fix: license reviewers and owners, and let everyone report for free.</li>
+<li><strong>The deck's pricing logic contradicts its own message.</strong> Slide 9 says 'per project, not per seat', then derives $24k as 200 seats × $10. Buyers immediately asked 'who are the 200?'</li>
+<li><strong>Seconds are not the binding constraint.</strong> Tommy: 'The consequence is the problem.' Nguyen and Park: language, plus no phones inside blocks. Jamal, Priya, Marcus, Bob, Elena: phones or photos banned in process areas, IS zones and white space. Reporting will mostly happen at break, so location recall matters more than speed.</li>
+<li><strong>Notifying the reporter can be dangerous.</strong> Nguyen: a 'your report is closed' alert on his phone next to his 반장 would expose him. He also said 'I don't need them to tell me', only that it gets fixed. KA2's mechanism (notification drives retention) may not hold for the most vulnerable workers.</li>
+<li><strong>Anonymity is technically hard.</strong> In a crew of 12 with only 8 Vietnamese workers, 'it's easy to guess who' (Nguyen). A photo of a location only one crew works in identifies the reporter (Jamal). Tuan or the 반장 can recognize a voice (Nguyen). Supervisors, on the other hand, need to identify reporters to follow up (Carlos, Park).</li>
+<li><strong>Owner-side legal risk.</strong> Holding 'one queue of open items' may push an owner toward OSHA controlling-employer status (Bob). In Korea, routing tasks from the prime to subcontractor workers risks illegal dispatch (불법파견) (Park). Both constrain the core 'owner sees one queue' promise.</li>
+<li><strong>The reverse closure failure.</strong> Dale's complaint is items that were fixed but sat open in Procore for three weeks, making his supers look bad in the owner report. Stale 'open' is as politically toxic as false 'closed'.</li>
+<li><strong>The competitor is a headcount, not software.</strong> Carlos ($160k ceiling = a loaded coordinator), Marcus ($175k), Bob ($200k = a field rep), Elena (two walking safety staff), Tommy (a lift coordinator), Nguyen (fans and a Vietnamese safety person), Jamal (more crew).</li>
+<li><strong>'What's the rule here?' splits along power lines.</strong> It's the feature the most vulnerable frontline respondents would use most, because asking isn't reporting (Jamal, Nguyen). It's the feature managers fear most (Priya: a hallucinated permit; Carlos, Marcus, Park, Tommy: the wrong rule hierarchy, e.g., OSHA vs corporate vs owner vs CBA vs KOSHA).</li>
+<li><strong>The pre-task or TBM is the natural integration point.</strong> Elena and Nguyen, unprompted, said the morning briefing is where open hazards should show up. Nguyen understands only half of the TBM, which may matter more than reporting.</li>
+<li><strong>The contract is the real gate.</strong> Bob: 'that's the real gate: the contract.' Marcus: owner contract requirements are how most tools get adopted, and a week versus five months of budget conversation. Mid-job adoption is a favor.</li>
+<li><strong>Stoppage hours aren't measured anywhere.</strong> No PMIS or cost code for safety-caused delay (Bob, Marcus, Dale: 'Nobody writes safety next to it'). In Korea the cost 'is forgotten when the next year's budget is made' (Park). And for Nguyen, 'the stop didn't change the deadline, it only changed our sleep': the delay was absorbed as overtime and fatigue.</li>
+<li><strong>The existing card or near-miss quota won't go away.</strong> It's an owner-report or HQ KPI (Carlos, Park, Dale). Unless reports count toward it, the tool stacks, and stacking was named as fatal.</li>
+<li><strong>'SIMOPS' is buyer vocabulary.</strong> Only Priya used the word. Crews describe the same thing as trades 'stacked', a load 'swinging over my guys', or 'the grinding team was already inside'.</li>
+</ul>
+<h3 id="b5-segment-differences">B5. Segment Differences</h3>
+<h4 id="frontline-vs-site-management-vs-buyers">Frontline vs site management vs buyers</h4>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Frontline (Elena, Tommy, Jamal, Nguyen)</th>
+<th>Site management (Carlos, Dale, Priya)</th>
+<th>Buyers (Marcus, Park, Bob)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First question about the concept</td>
+<td>Who sees my name?</td>
+<td>Is it another inbox, and who reviews?</td>
+<td>What's the week-12 number, and what does it replace?</td>
+</tr>
+<tr>
+<td>What would keep them using it</td>
+<td>It gets fixed; nobody gets burned; as fast as a text</td>
+<td>Cuts triage and reconciliation time; pushes to the system of record</td>
+<td>Verified cross-employer time to close; integration live; legal and security signed off</td>
+</tr>
+<tr>
+<td>KA1 blame fear</td>
+<td>4/4 V</td>
+<td>1 V (Carlos), 2 P</td>
+<td>1 V (Park), 2 P</td>
+</tr>
+<tr>
+<td>KA7 trust in AI routing</td>
+<td>3 P, 1 I (Tommy)</td>
+<td>2 P, 1 I (Dale)</td>
+<td>3 P</td>
+</tr>
+<tr>
+<td>Where money should go</td>
+<td>People and physical fixes (4/4)</td>
+<td>Carlos weighs it against a 7th coordinator</td>
+<td>Weighed against a coordinator or field rep (Marcus, Bob)</td>
+</tr>
+<tr>
+<td>Evidence quality</td>
+<td>Firsthand</td>
+<td>Mixed; Carlos and Priya admit crew answers are secondhand</td>
+<td>Mostly secondhand for crew behavior; firsthand for budget and legal</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="north-america-vs-korea">North America vs Korea</h4>
+<ul>
+<li><strong>Barrier to reporting:</strong> NA = consequence plus friction (logins, gloves, noise). KR = language first, then fear of the 반장 and the subcontractor president, then the physical impossibility of reporting from inside a block.</li>
+<li><strong>Retaliation mechanism:</strong> NA = reassignment, 'lack of work', 'end of assignment'. KR = contract or E-9 non-renewal, penalty points to the subcontractor, 'Next time, just put a rope yourself and don't make noise'.</li>
+<li><strong>Legal frame:</strong> NA = OSHA citation or deposition, controlling employer. KR = SAPA criminal liability for executives, MoEL work-stop orders, KakaoTalk forensics, PIPA, illegal dispatch.</li>
+<li><strong>Buying:</strong> NA authority ranges $15k/quarter to $500k; GMP-reimbursable. KR team lead is capped at about $36k (KRW 50M); vendor registration takes about 2 months; ISMS-P and in-country data are non-negotiable; the unit is division-year, not project; the budget plan closes around November.</li>
+<li><strong>Incumbent channel:</strong> NA = radio, crew group text, WhatsApp, Procore. KR = KakaoTalk (managers), Zalo (Vietnamese workers), the HQ smart-safety portal.</li>
+</ul>
+<h4 id="union-vs-non-union">Union vs non-union</h4>
+<ul>
+<li><strong>Union (Elena IBEW, Tommy Iron Workers, Jamal UA):</strong> there is an institutional veto (steward, business agent, labor-management committee) and a known route to acceptance: bargain it in writing, no discipline, a real anonymity option, union access to aggregate data, no personal-phone installs. Tommy: 'The paper decides it.' Being in a union doesn't remove fear. Jamal (a traveler) still won't go over his foreman, and Elena still weighs being 'the one who complains'.</li>
+<li><strong>Non-union / at-will / visa (Carlos's open-shop subs, Bob's Texas site, Nguyen's E-9 status):</strong> retaliation is silent and unprovable ('this is Texas, non-union and at-will... nobody writes down why it was those forty', Bob). There is no veto holder to negotiate with, so protection has to be built into the product itself.</li>
+</ul>
+<hr /><h2 id="implications"><span class="kicker">What to do next</span>Implications</h2>
+<h3 id="interview-guide-changes-for-real-human-validation">Interview guide changes for real-human validation</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Q</th>
+<th>Synthetic signal</th>
+<th>Still needs real-world validation</th>
+<th>Suggested rewrite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1</td>
+<td>All 10 gave a concrete unreported hazard. Main drivers: 'not our hazard', 'told somebody so I'm done', and social or commercial cost between companies. Fear is only part of it.</td>
+<td>Frequency and base rate of unreported hazards; site managers and buyers answered secondhand (Carlos, Marcus, Bob said so).</td>
+<td>Tell me about the last time you saw something unsafe that another company created. What did you do, and why that instead of writing it up?</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>Every retaliation example was quiet and unprovable: reassignment, 'lack of work', non-renewal. Travelers and E-9 workers are most exposed.</td>
+<td>Real prevalence by segment; whether reporters would believe a technical anonymity guarantee.</td>
+<td>Add a probe: 'What did the rest of the crew conclude afterward? What did you do differently after that?'</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>Reporters almost never hear back and learn about fixes by walking past. Nguyen doesn't want to be told, only for it to be fixed.</td>
+<td>Whether feedback actually raises repeat reporting. Carlos and Marcus called it an untested belief.</td>
+<td>Ask about the report after that one too: 'Did the way the first one went change whether you reported the next thing?'</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>Every card, raffle and app program decayed within 1-3 months; quotas persist only as KPIs. Nicknames ('snitch cam') predicted death.</td>
+<td>Real decay curves (Marcus cited 15% of launch week by week 10); which program elements, if any, held.</td>
+<td>Ask for numbers: 'Roughly how many reports in week 1, week 4, week 12? Who stopped first?'</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>NA crews: 10-30 s. Phones banned at many work faces (process areas, blocks, IS zones, white space). Tommy and the Korea respondents: consequence or language, not seconds.</td>
+<td>Observed time-and-motion at the work face; whether reports get made at break with accurate location recall.</td>
+<td>Add: 'If you reported from exactly where you stood, what would stop you first: phone rules, gloves, noise, language, or who might find out?'</td>
+</tr>
+<tr>
+<td>C6</td>
+<td>Location vagueness, ownership guessing (about 1 in 5 wrong, per Carlos), duplicates and night handover are consistent break points.</td>
+<td>A quantified mis-route and duplicate rate from real Procore or portal exports.</td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>C7</td>
+<td>Triage load is real: Carlos 5-6 person-hours/day plus 3-4 h Monday; Park 4-5 person-hours/day; Marcus 1-2 h/day per site. Only 4 respondents actually triage.</td>
+<td>Timed baseline logs; the edit rate reviewers would apply to AI suggestions; night coverage.</td>
+<td>Ask them to log triage time for one week before the interview, then walk through the log.</td>
+</tr>
+<tr>
+<td>C8</td>
+<td>Trust is lost after 1-3 errors; a named human and a visible reason matter; volume kills trust faster than errors.</td>
+<td>Reaction to an actual AI-labeled item. Stated tolerance ('19 of 20') is not observed behavior.</td>
+<td>Show a mock routed item (category, owner, severity, 'confirmed by: J. Smith') and ask 'What do you do with this?'</td>
+</tr>
+<tr>
+<td>C9</td>
+<td>SIMOPS conflicts are frequent (daily to several a week) and cost hours to a day, but respondents rarely said they hit the critical path. The word 'SIMOPS' is Priya's alone.</td>
+<td>Frequency and cost from permit and lift logs; share that reaches critical path.</td>
+<td>Drop the implied jargon; ask 'How many times last week did another crew's work stop yours?'</td>
+</tr>
+<tr>
+<td>C10</td>
+<td>Every stoppage cited had prior verbal knowledge. Costs are big but untracked: no stoppage-hour line, and LDs never attributed.</td>
+<td>Whether any organization can produce a stoppage-hour baseline; whether buyers would fund measuring it.</td>
+<td>Add: 'Who could put a dollar figure on that, and where would they look it up?'</td>
+</tr>
+<tr>
+<td>C11</td>
+<td>'Closed' does not mean fixed: recycled photos, status clicks, block moved. Lawyers ask the same four questions everywhere.</td>
+<td>A records audit: sample 20 closed cross-employer items and verify in the field.</td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>C12</td>
+<td>Authority limits range from $15k/quarter to $500k. IT and security review takes 7 weeks to 5 months. Per-seat is rejected everywhere. Budget cycles close in November.</td>
+<td>Actual procurement documents, security questionnaires and contract language (owner-specified tools).</td>
+<td>Add: 'Is any safety tool written into your subcontract or GC contract requirements? Who writes those?'</td>
+</tr>
+<tr>
+<td>K1</td>
+<td>Chain: worker, bilingual coworker, 반장, subcontractor safety manager, KakaoTalk, officer, Excel, portal. Lug-crack case arrived 2 days late with no location.</td>
+<td>Migrant workers across nationalities, recruited independently of the prime and subcontractor (Park asked for this explicitly).</td>
+<td>Also ask Nguyen-type workers: 'Who do you tell when Tuan is not there?'</td>
+</tr>
+<tr>
+<td>K2</td>
+<td>SAPA increases documentation and urgency, but a timestamped open item without an interim measure is 'exhibit A'.</td>
+<td>Korean legal counsel view; whether other yards share Park's stance; the illegal-dispatch constraint.</td>
+<td>Add: 'What would a record need to show so it protects rather than exposes the CEO?'</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>Most valued: one queue (site management), reporter notified on verified close (Carlos, Tommy, Jamal, Elena), native-language voice (Park, Nguyen). Frontline won't replace walk-overs.</td>
+<td>Reactions to a working prototype on a real phone, with gloves on, at the work face.</td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Top fears: identity exposure, reviewer capacity, AI and translation errors, discoverability, device access. They are consistent across roles.</td>
+<td>Rank-ordering with real users; which fears are deal-breakers versus noise.</td>
+<td>Ask 'Which one of those, on its own, would make you stop?' of every respondent (only some were probed).</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Likely resisters: area supers, sub owners and presidents, stewards (until bargained), corporate IT, large GCs with enterprise platforms.</td>
+<td>Talk to the resisters directly (Dale, Tommy, Bob and Priya each named them).</td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>P4</td>
+<td>Month-3 use depends on: it gets fixed, nobody gets burned, and it stays as fast as a text. The 'nobody burned' condition dominates.</td>
+<td>Only a longitudinal pilot can test this.</td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>P5</td>
+<td>Per-seat rejected 6/6. The '$24k ~200 residents, all employers included' wording confused every buyer: who are the 200?</td>
+<td>Pricing reaction with an unambiguous scope definition.</td>
+<td>Define scope: 'Unlimited reporting by every worker on site; licensed users are the ~200 reviewers and owners.' Test that separately from full-site pricing.</td>
+</tr>
+<tr>
+<td>P6</td>
+<td>WTP points range $25k-$200k (median $95k); ceilings are anchored to headcount cost; answers hinge on whether integration is included.</td>
+<td>Van Westendorp with n&gt;=30 real buyers per segment, plus Gabor-Granger on a defined package.</td>
+<td>State the package (full site, integration included or not, reviewer staffing) before asking the ladder.</td>
+</tr>
+<tr>
+<td>P7</td>
+<td>Evidence lists converge: week 9-12 retention, time to verified close, reviewer edit rate, live integration, security passed, one real 'would-have-been' catch.</td>
+<td>Whether real buyers sign on those metrics; who writes the contract clause.</td>
+<td><span class="chip NA">–</span></td>
+</tr>
+<tr>
+<td>P8</td>
+<td>Frontline would rather have people or physical fixes. Value is conditional on safety and closure. Dollar figures confuse frontline (Nguyen: '$24k is my yearly pay').</td>
+<td>Frontline trade-off preferences in real interviews.</td>
+<td>Drop the dollar figures for frontline: 'If the company could buy this or hire one more safety person for your area, which would help you more, and why?'</td>
+</tr>
+<tr>
+<td>P9</td>
+<td>Unprompted gaps: data at demob or end of pilot, night shift, construction-to-operations turnover, 'who reviews the reviewer', contract as the real gate.</td>
+<td>Promote these to core questions in the real-human guide.</td>
+<td>Add core Qs on night shift, turnover to commissioning or operations, and data retention at demob.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="recommended-business-plan-revisions-disciplined-entrepreneurship">Recommended business-plan revisions (Disciplined Entrepreneurship)</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>DE step</th>
+<th>Area</th>
+<th>Recommendation</th>
+<th>Evidence</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step 2 — Beachhead</td>
+<td>Beachhead TAM</td>
+<td>Narrow the NA beachhead to owner-led hyperscale and fab programs where the owner can write the tool into GC and subcontract requirements at bid. Treat mid-job sales as pilots.</td>
+<td>Bob, Marcus and Carlos each said contract or owner mandates are how tools get adopted (3/6 buyers). Dale complies only with owner mandates.</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Step 2 — Beachhead (Korea pilot)</td>
+<td>Beachhead TAM</td>
+<td>Keep the Korea pilot but plan on a division-year unit, $22k-$58k first-year pricing (under the team lead's ~KRW 50M authority), in-country data and ISMS-P readiness, and a joint OSH committee briefing before launch.</td>
+<td>Park only (n=1 buyer). Nguyen confirms native-language voice is necessary.</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Step 3 — End User Profile</td>
+<td>End User Profile</td>
+<td>Redefine the end user around the most vulnerable reporter (apprentice, traveler, subcontracted migrant worker) and the foreperson or 반장 as a gatekeeper. Elena is representative of the dynamics but is not the silent reporter.</td>
+<td>Identity fear 8/10; chain-of-command objection 5/10; Tommy, Jamal, Nguyen and Park all named apprentices, travelers or migrants as the silent group.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Step 4 — TAM</td>
+<td>Beachhead TAM</td>
+<td>Recompute TAM at a realistic $60k-$100k per project-year (median WTP point $95k), not $150k, and confirm the '300-800 serviceable orgs' count against owner-led programs.</td>
+<td>6 buyer WTP points: $25k, $58k, $90k, $100k, $120k, $200k.</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Step 5 — Persona</td>
+<td>End User Profile</td>
+<td>Add a second operational persona: the GC or HSE safety coordinator who reviews. The product's labor lands on them, and their adoption decides week 12.</td>
+<td>KA6 0/4 Validated; reviewer-bottleneck objection 9/10; Carlos: 'If after three or four weeks my coordinators are working around it, I kill it.'</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Step 6 — Full Life Cycle Use Case</td>
+<td>Value Proposition</td>
+<td>Design for reporting at break with accurate location recall (phones banned at many work faces), a morning pre-task or TBM open-items feed, and night-shift and turnover handoff.</td>
+<td>Phone or photo restrictions raised by 9/10; Elena and Nguyen asked for pre-task/TBM integration; night or handover gaps raised by Elena, Carlos, Marcus, Priya, Park.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Step 7 — High-Level Product Spec</td>
+<td>Value Proposition</td>
+<td>Make four things spec-level: (1) independently verified closure with time- and location-bound evidence plus interim-measure status; (2) a reporter-identity model hidden from employers by default, visible only to the reviewer, with a follow-up channel; (3) no install and no login (QR, SMS or kiosk); (4) push to Procore, enterprise EHS, e-permit or HQ portal. Ship 'what's the rule here' disabled or restricted to controlled documents, and have it refuse permit questions.</td>
+<td>Unmet need 10/10; identity 8/10; device access 9/10; another-inbox 7/10; rule-citation risk 6/10.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Step 8 — Quantified Value Proposition</td>
+<td>Value Proposition</td>
+<td>Lead with measurable hours and days: triage and reconciliation hours saved, and cross-employer time to verified close (e.g., Marcus: 11 days to under 3). Treat stoppage and LD avoidance as a year-long, jointly built baseline, not a 12-week claim.</td>
+<td>Triage figures from Carlos, Park, Marcus, Bob (4/6); KA9 50% V; Marcus and Bob said 12 weeks can't show stoppage reduction.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Step 9 — Next 10 Customers</td>
+<td>Other</td>
+<td>Target champions who can sign a pilot at or under their own limit (Carlos-type with a quick PD signature, Marcus-type ≤$100k, Park-type ≤KRW 50M) and owner PDs for the next campus contract. Don't forecast any $150k signatures from the current pipeline.</td>
+<td>0/6 accept $150k as-is; 2/6 accept $24k; authority limits range $15k/qtr to $500k.</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Step 12 — Decision-Making Unit</td>
+<td>Other</td>
+<td>Expand the DMU map: labor (steward, business agent, joint OSH committee), legal (discoverability, controlling employer, illegal dispatch), IT/OT security, procurement (구매팀), GC safety directors ('your hardest no'), and owner contracts. Sequence union and legal first.</td>
+<td>10/10 named at least one non-buyer veto; Tommy: 'come to the union first, not the GC'.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Step 13 — Customer Acquisition Process</td>
+<td>Business Model</td>
+<td>Plan for a 3-6 month security and procurement cycle and November budget deadlines. Put SOC 2/ISMS-P, SSO, data residency and demob-retention answers in the sales kit.</td>
+<td>Approval timelines: Carlos 3 mo, Marcus 7 wk-5 mo, Priya 4.5 mo, Park 5 mo, Bob 3-6 mo, Dale 4 mo (6/6).</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Step 15 — Business Model</td>
+<td>Business Model</td>
+<td>Keep a flat, all-employer fee with unlimited reporters. If there's a 'resident' tier, license reviewers and owners only, and say so explicitly.</td>
+<td>Per-seat rejected 6/6; '200 residents' scope confusion 8/10; Carlos and Park proposed exactly this.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Step 16 — Pricing Framework</td>
+<td>Business Model</td>
+<td>Drop the $150k base. Test a ~$35k-$60k single-project or division pilot, expanding to ~$90k-$120k full site with integration included, and a portfolio rate. Retire the $24k price: it's below Bob's too-cheap line and just above Priya's. Reconcile the deck ($24k) with the brief ($150k).</td>
+<td>WTP points median $95k; bargain median $37.5k; 3/6 buyers doubted vendor viability at $24k.</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Step 17 — Lifetime Value</td>
+<td>Business Model</td>
+<td>Model LTV on project duration (about 20 months to 4 years), renewal risk (Bob won't renew his cameras) and portfolio discounts. Price in data export and retention at demob as a paid obligation.</td>
+<td>Carlos, Marcus, Park and Tommy raised data at demob; Marcus expects a portfolio rate; Bob's camera renewal is at risk.</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Step 19/20 — Key Assumptions (identify)</td>
+<td>Other</td>
+<td>Add new KAs: technical anonymity is achievable in small crews (voice, photo and location identify people); reviewers have night and weekend capacity; an owner-held queue is legally acceptable; 'project' is the purchasing unit (fails in Korea). Restate KA4 as consequence first, seconds second.</td>
+<td>Nguyen, Jamal and Elena on identifiability; reviewer 9/10; Bob and Park on legal; Park on the unit; Tommy and KA4 at 44% V.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Step 21 — Test Key Assumptions</td>
+<td>Other</td>
+<td>Run real-human interviews with forepersons, GC safety coordinators (reviewers), stewards and BAs, night-shift foremen, travelers, and migrant workers recruited independently. Collect a 2-week baseline of triage time and cross-employer time to close before any pilot.</td>
+<td>Every site-management and buyer respondent flagged their crew-level answers as secondhand; the P9 referrals converge on these roles.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Step 22 — MVBP</td>
+<td>Value Proposition</td>
+<td>Define the MVBP as the cross-employer closure loop for one bounded area: no-login reporting, reviewer queue, verified close, reporter receipt, plus one live integration. Leave out rule Q&amp;A and gamification.</td>
+<td>Unmet need 10/10; recognition and leaderboards were ridiculed (Jamal, Tommy); rule Q&amp;A is the top fear for Priya.</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table></div>
+<p>Confidence reflects synthetic evidence only. 'High' means consistent across roles and markets in this simulation. It does not mean validated. Every row needs real-human confirmation (Step 21).</p>
+<div class="foot">SAiFETY Talk · A BuiltNOVA platform · Synthetic PMR study, 27 Sept 2026 · N = 10 synthetic respondents. Synthetic primary market research is a rapid simulation tool for stress-testing business assumptions and refining interview instruments. Because synthetic agents cannot reliably predict real-world human behavior or purchasing decisions, all findings must be validated through direct interviews with real human stakeholders.</div>
+</div></main>
+
+<div id="tip" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  var tip=document.getElementById('tip');
+  function show(el,x,y){
+    var t=el.getAttribute('data-tip'); if(!t) return;
+    var parts=t.split('|'); tip.textContent='';
+    var b=document.createElement('b'); b.textContent=parts[0]; tip.appendChild(b);
+    if(parts[1]){ tip.appendChild(document.createTextNode(parts.slice(1).join(' · '))); }
+    tip.style.opacity='1';
+    var w=tip.offsetWidth,h=tip.offsetHeight;
+    var left=Math.min(window.innerWidth-w-8,Math.max(8,x+12)), top=y-h-12; if(top<8) top=y+16;
+    tip.style.left=left+'px'; tip.style.top=top+'px';
+  }
+  function hide(){tip.style.opacity='0'}
+  document.addEventListener('pointermove',function(e){
+    var el=e.target.closest&&e.target.closest('[data-tip]'); if(el) show(el,e.clientX,e.clientY); else hide();
+  });
+  document.addEventListener('focusin',function(e){
+    var el=e.target.closest&&e.target.closest('[data-tip]'); if(!el) return;
+    var r=el.getBoundingClientRect(); show(el,r.left+r.width/2,r.top);
+  });
+  document.addEventListener('focusout',hide);
+  document.addEventListener('scroll',hide,{passive:true});
+})();
+</script>
+
+</body>
+</html>
