@@ -1,0 +1,546 @@
+
+===== PAGE 1 =====
+ENTERPRISE SAFETY COMMAND CENTER
+Crew speaks up. The right owner 
+acts. 
+ The loop closes.
+이 구역 위험 신고
+ · SCAN TO REPORT
+A BUILTNOVA PLATFORM September 2026
+
+===== PAGE 2 =====
+PROBLEM
+On a mega
+ -
+project, a lost safety report is 
+ a lost day.
+Observation
+A worker sees the hazard first.
+???
+LOST IN TRANSIT
+Radio · 무전
+ Paper · 서류
+Chat · 메신저
+ Email · 메일
+Arrives late
+Hours after the crew moved on.
+Arrives incomplete
+No location, no photo, no owner.
+Arrives duplicated
+Five reports, one hazard.
+Routed to the wrong 
+team
+Nobody owns the fix.
+Workers stop reporting when nothing visibly happens 
+ —
+ or blame follows.
+A BUILTNOVA PLATFORM 02 / 15
+
+===== PAGE 3 =====
+WHO FEELS IT
+It must be effortless and trusted for workers 
+ —
+ and 
+measurable for buyers.
+END USER
+Frontline foreperson
+Persona: Elena, electrical foreperson
+TOP FEARS Persona research ·  est.
+25%
+ A crew member gets hurt
+18%
+Slow response to hazards and SIMOPS 
+conflicts
+12%
+ Blame for reporting
+MUST BE EFFORTLESS · TRUSTED
+CHAMPION
+Site safety / EHS manager
+Owns the closure record.
+NEEDS
+Defensible
+Every decision on record.
+Auditable
+Who knew, and when.
+Fast closure
+Named owner, verified.
+MUST BE DEFENSIBLE
+ECONOMIC BUYER
+Project director
+VP Construction · EHS director
+NEEDS
+Fewer stoppages
+Hazards closed before work stops.
+Schedule certainty
+Float protected, not consumed.
+MUST BE MEASURABLE
+A BUILTNOVA PLATFORM 03 / 15
+
+===== PAGE 4 =====
+SOLUTION · THE LOOP
+Crew speaks up. The right owner acts. 
+ The loop closes.
+S
+ Ai
+ FETY Talk follow
+ -
+up
+Every report, to close
+ -
+out
+Production Crew
+Answer with cited source
+ Action & close
+ -
+out
+Ask
+ Recognize
+ Report
+S
+ Ai
+ FETY Talk
+ S
+ Ai
+ FETY Talk
+ Unsafe Behavior
+ Unsafe Condition
+ SIMOPS
+Database
+01
+ IOGP
+02
+ Client site rules
+03 세부 규정
+ · Detailed rules
+04
+ KOSHA
+05 산업안전보건법
+ · OSH Act
+Recognition
+List up for 
+recognition
+Points exchange
+Limit misuse 
+cases
+Site HSE Foreman
+cc: HSE Manager
+ Production Support
+ CM SIMOPS KP
+cc: Construction Mgmt.
+ACTION
+Crew #1
+Crew #2
+…
+Lighting Foreman
+Scaffolding Foreman
+Manlift Foreman
+Crane Foreman
+…
+KP #1
+KP #2
+KP #3
+…
+Data flow
+ Feedback to crew
+ S
+ Ai
+FETY Talk AI
+A BUILTNOVA PLATFORM 04 / 15
+===== PAGE 5 =====
+PRODUCT
+Workers report, ask and recognize. Owners get 
+ one 
+accountable queue.
+Report
+Raise a hazard by voice, photo or text 
+ —
+ in your own 
+language.
+Ask
+Get the site rule that applies, with its source cited.
+Recognize
+Acknowledge a peer for safe work, with misuse 
+limits.
+AI is labeled. A person always reviews.
+COMMAND
+Overview
+Reports 12
+Analytics
+Listening · 3 sites
+218 workers online
+A BUILTNOVA PLATFORM
+Reports · Zone B
+RPT
+ -
+0147
+3
+JP
+HIGH
+ OPEN
+ AI SUGGESTED
+Unsecured scaffold plank
+Unsafe Condition · Zone B · Level 14
+VOICE REPORT
+Original · Vietnamese
+0:07 / 0:19
+“Tầng 14 khu B, tấm ván giàn giáo bị lỏng, không có dây buộc.”
+AI TRANSLATION · ENGLISH
+Level 14, Zone B 
+ —
+ a scaffold plank is loose with no tie
+ -
+down.
+AI TRIAGE
+Suggested routing
+Category
+ Unsafe Condition
+Owner
+ Production Support → Scaffolding Foreman
+Severity
+ High (suggested)
+Suggestion confidence 88 %
+%
+Awaiting human review
+Confirm & route
+ Edit
+LOOP 
+STATUS
+Reported by crew 14:32
+AI suggestion ready 14:32
+Human review —
+Owner acknowledged —
+Verified closed · crew notified —
+Escalate to accountable owner
+ILLUSTRATIVE UI
+Composed from the SAiFETY Talk design system ·  not live data
+A BUILTNOVA PLATFORM 05 / 15
+
+===== PAGE 6 =====
+MARKET CONTEXT
+Delay is 
+ the baseline 
+ on megaprojects, not the exception.
+8.5%
+of 16,000 industrial EPC projects met 
+both cost and schedule.
+~50%
+average schedule delay on 
+megaprojects.
+PLANNED
+ACTUAL
+$484M
+delay liquidated damages at stake in one 
+$4.2B 
+EPC contract dispute.
+The contractor's defense rested on a fatal 
+refinery explosion. Safety and schedule were 
+the same dispute.
+Safety is not the only cause of delay. 
+ It is the only layer a project can move without renegotiating 
+the contract.
+Sources: IPA (16,000 industrial projects) ·  McKinsey Global Institute (300+ megaprojects) ·  public contract dispute filing
+A BUILTNOVA PLATFORM 06 / 15
+
+===== PAGE 7 =====
+MECHANISM
+Safety delays are 
+ schedule delays.
+01
+Hazard stays verbal
+Discussed in the crew. 
+Escalated to no one.
+02
+Hazard stays in 
+place
+The next crew walks into 
+it.
+03
+Interruption fires
+Stop
+ -
+work, permit 
+revoked, near
+ -
+miss, 
+rework.
+04
+Float is consumed
+The critical path absorbs it 
+silently.
+05
+Delay → LD 
+exposure
+Now a contract problem, 
+not an HSE one.
+Schedule delay
+ Production pressure
+ Shortcuts, rework, 
+incidents
+Safety is the shortest lever 
+on the schedule.
+We don't claim safety fixes schedule. The pilot 
+measures whether it moves.
+Han, S. et al. (2014). Accident Analysis and Prevention 68, 106–116.
+A BUILTNOVA PLATFORM 07 / 15
+
+===== PAGE 8 =====
+LANDSCAPE
+Each category owns one link. 
+ Nobody owns the chain.
+T1 
+Detect without 
+human input
+T2 
+ Capture what the 
+person knows
+T3 
+Sustain participation T4 
+ Ownership across 
+the contract line
+Camera
+ -
+based computer vision
+INTENSEYE · PROTEX AI · VOXEL · VIACT
+OWNS
+ —
+ —
+ —
+Frontline ops platforms
+SAFETYCULTURE · INTELEX
+—
+ OWNS
+ —
+ —
+Worker
+ -
+facing conversational capture
+NAI HUB (NAVATECH)
+—
+ OWNS
+ —
+ —
+Contractor compliance
+AVETTA · ISN
+—
+ —
+ —
+ Partial · 
+records
+S
+ Ai
+ FETY Talk
+AI TRIAGE, NOT AI DETECTION
+—
+ Target · pilot
+ Target · pilot
+ Target · pilot
+A BUILTNOVA PLATFORM 08 / 15
+
+===== PAGE 9 =====
+BUSINESS MODEL
+Priced per project against 
+ avoided disruption
+ , not per seat.
+PER PROJECT
+ -
+ YEAR
+$24,000
+est.
+200 residents ×
+ $10 / user / mo =
+ $24,000 / yr
+The same architecture extends to quality and productivity.
+32% est.
+of a $150,000 
+two
+-
+year discretionary HSE budget on a 
+standard $500M 
+EPC project.
+$200,000+ est.
+per year · Enterprise multi
+ -
+project agreements.
+Per seat fails on multi
+ -
+employer sites 
+ —
+ crews change 
+weekly.
+A BUILTNOVA PLATFORM 09 / 15
+
+===== PAGE 10 =====
+PILOT TARGETS
+The pilot commits to 
+ three numbers 
+ before it starts.
+TARGET
+≥ 40%
+W12 retention
+Share of the week
+ -
+0 cohort still submitting an 
+accepted signal in week 12.
+TARGET
+≥ 95%
+Signal acceptance
+Share of submissions accepted by the client’s 
+own HSE reviewer.
+TARGET
+≥ 60%
+Closure rate
+Accepted signals verified closed within 14 days 
+—
+ named owner, evidence, second
+ -
+person 
+check.
+Also published, no thresholds: retention curve · median time
+ -
+to
+-
+close · reopen rate · 
+cross
+ -
+company closures. 
+ If we miss a floor, we publish the miss.
+Planned paid pilot · Korean shipbuilding
+Target start Nov 2026
+A BUILTNOVA PLATFORM 10 / 15
+
+===== PAGE 11 =====
+HYPOTHESES
+We test 
+ the weakest link 
+ first: will crews keep reporting?
+PILOT TESTS LINKS 1
+ –
+4 · DEC 2026
+01 ·  H1 ·  H2
+Friction down
+02 ·  H3
+Participation
+03 ·  H4
+Signal quality
+04
+Ownership & 
+action
+FOLLOWS ONLY IF 1
+ –
+ 4 HOLD
+WHY H1 IS TESTED HARDEST
+The weakest link is the first.
+The founder’s own gamification experiment collapsed 
+within three weeks.
+WEEK 
+1
+−95%
+WEEK 
+3
+PILOT DATA COMMITMENTS
+In
+-
+region storage
+Faces auto
+ -
+blurred
+Client owns all data
+No training on client images
+A BUILTNOVA PLATFORM 11 / 15
+
+===== PAGE 12 =====
+GO
+ -
+ TO
+ -
+ MARKET
+Prove the loop in Korea. Win the beachhead in 
+ North 
+America.
+PILOT MARKET · 한국
+Korea
+Shipbuilding & offshore fabrication
+Serious Accidents Punishment Act ( 중대재해처벌법
+) puts liability on 
+leaders
+Multilingual subcontracted crews
+Founder’s EPC network
+BEACHHEAD
+North America
+Mega industrial construction
+Semiconductor fabs
+ Data centers
+ Battery & advanced mfg.
+Energy
+300–800 est.
+serviceable project organizations · base 520
+Follow
+ -
+on markets $5.3B–$15B / yr est.
+ construction safety · project execution · asset operations
+A BUILTNOVA PLATFORM 12 / 15
+
+===== PAGE 13 =====
+TEAM
+Nine years telling these companies what to fix. 
+ Now 
+building it.
+FOUNDER PHOTO
+Jey Lee, Founder & CEO
+TEAM & ADVISORS
+T o be updated
+15+
+YEARS
+EPC and safety 
+leadership
+6 + 9
+YEARS
+SK Ecoplant, then JMJ
+$4.8B
+PROJECTS UP TO
+Korea · Kuwait · Indonesia
+“I could change what a leadership team believed. I couldn’t 
+change what happened at 7am 
+on a scaffold.”
+That limit is the product.
+A BUILTNOVA PLATFORM 13 / 15
+
+===== PAGE 14 =====
+THE ASK
+This round takes the loop from prototype to 
+ paying projects.
+RAISE
+[FOUNDER TO FILL]
+USE OF FUNDS
+Product & AI triage [FOUNDER TO FILL]
+Pilot delivery [FOUNDER TO FILL]
+Security readiness [FOUNDER TO FILL]
+Go
+ -
+to
+-
+market [FOUNDER TO FILL]
+Today
+ Prototype built
+Oct 2026
+ Paid pilot · target start
+Dec 2026
+ Three floors measured
+Jan 2027
+ Commercial discussion
+2027
+ Security readiness program
+2027
+ North America beachhead pilots
+A BUILTNOVA PLATFORM 14 / 15
+
+===== PAGE 15 =====
+Connecting the agentic web to physical reality 
+ —
+starting with safety on mega industrial projects, 
+where 
+ preventing safety issues prevents schedule 
+delays.
+Crew speaks up. The right owner acts. The loop closes.
+saifetytalk.com jeylee@mit.edu
+A BUILTNOVA PLATFORM September 2026
