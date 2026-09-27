@@ -71,7 +71,7 @@ The deck has no explicit Step 20 slide. These 12 assumptions come from the deck'
 - **P2.** What worries you about it? What would make you, or your crew, refuse to use it?
 - **P3.** Who on your site would use it most, and who would ignore or resist it?
 - **P4.** [F] If this showed up on your site next month, what would decide whether you still used it in month three?
-- **P5.** [B/M] *(Split-anchor design, approved at the Step 2 gate. See table below.)* Imagine two ways to pay: **(a)** a project-level subscription at **[FIRST ANCHOR] per project-year** covering everyone on site, all employers included, or **(b)** traditional per-seat licensing at about **$10 per user per month**. How would each land with you, and why?
+- **P5.** [B/M] *(Split-anchor design, approved at the Step 2 gate. See table below.)* Imagine two ways to pay: **(a)** a project-level subscription at **[FIRST ANCHOR] per project-year** ($150k: "covering everyone on site, all employers and crews"; $24k: "sized for a ~200-person resident core team, all employers included"), or **(b)** traditional per-seat licensing at about **$10 per user per month**. How would each land with you, and why?
   - **P5b.** *(Reveal second anchor.)* "Another version being considered is **[SECOND ANCHOR] per project-year**. [For $24k: sized for a ~200-person resident core team.] [For $150k: full site, all employers, all crews.] How does that compare?"
 
 | Anchor group | First anchor | Second anchor | Respondents |

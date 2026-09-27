@@ -300,11 +300,13 @@ Ignore: project directors, mostly indifferent unless the owner asks about it. Ar
 
 **Marcus:** Because a timestamped open item in their area that the owner can see is a conversation they have to have. Today, a lot of that is handled on the radio and never shows up. Their incentive is schedule and margin, TRIR is secondary. You'd be changing what's visible about their area. Some of them will welcome that because it covers them. Most won't at first.
 
-**Interviewer (P5):** Imagine two ways to pay: (a) a project-level subscription at $24,000 per project-year covering everyone on site, all employers included, or (b) traditional per-seat licensing at about $10 per user per month. How would each land with you, and why?
+**Interviewer (P5):** Imagine two ways to pay: (a) a project-level subscription at $24,000 per project-year, sized for a ~200-person resident core team, all employers included, or (b) traditional per-seat licensing at about $10 per user per month. How would each land with you, and why?
 
 **Marcus:** Per seat, easy one first. At $10 a user a month, on a site with 2,800 craft, that's around $336,000 a year, and that's before turnover. With 200 to 300 people a week coming and going, nobody can manage it, and the procurement people will want a true-up clause I'll spend my life auditing. I wouldn't buy per-seat for craft. I'd buy it for staff at most, and then you'd lose the whole point, because the value is in the craft reporting.
 
-Project-level at $24,000. From a signature standpoint, that's inside my authority. I could sign that for one project without asking my VP. It's also in the range where I start to get suspicious, not excited. For a tool that's supposed to cover a 2,800-person multi-employer site, do the translation, route to 40 subs and integrate with my enterprise system, $24,000 a year sounds like either a pilot price or a company that won't be around in two years. And I've had vendors disappear on me mid-project. Then I'm left with data in someone else's cloud.
+Project-level at $24,000. From a signature standpoint, that's inside my authority. I could sign that for one project without asking my VP. But my first question is who the 200 are. A ~200-person resident core team on my sites is roughly GC staff, sub supervision and maybe the foremen. That's not where the hazards get seen. The electrician who saw the missing toe board in Ohio wouldn't be in that 200. So as a supervisors' tool, $24,000 is a price I could say yes to for a pilot, but I'd value it a lot less than something that covers the craft.
+
+And honestly, the number itself makes me a little suspicious, not excited. If it's doing translation, routing to 40 subs and integrating with my enterprise system, $24,000 a year sounds like either a pilot price or a company that won't be around in two years. I've had vendors disappear on me mid-project. Then I'm left with data in someone else's cloud.
 
 **Interviewer (P5 probe):** What would you want to know about the $24,000 option?
 
@@ -312,7 +314,7 @@ Project-level at $24,000. From a signature standpoint, that's inside my authorit
 
 **Interviewer (P5b):** Another version being considered is $150,000 per project-year, for the full site, all employers, all crews. How does that compare?
 
-**Marcus:** Okay. So now $24,000 was the ~200-person core team version, and this is the whole site. That changes how I read the first one. A 200-person resident core team, on my sites, is roughly GC staff, sub supervision and maybe the foremen. That's not where the hazards get seen. So the $24,000 version is basically a supervisors' tool, and I'd value it much less than I did a minute ago. I'd still consider it as a cheap pilot, but not as the product.
+**Marcus:** Okay. So this is the version that actually reaches the craft. That's the product I'd care about. The $24,000 one I'd still consider as a cheap way to learn, but not as the thing I'd scale.
 
 $150,000 for the full site. First thing: it's over my $100,000 line, so it's not my decision alone. My VP signs, and if it's portfolio-wide, IT and procurement join. On four campuses that's $600,000 a year, which is a corporate conversation, not a regional one.
 
